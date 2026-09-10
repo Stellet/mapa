@@ -1,0 +1,69 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exposição — mapa de obras</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/config.js"></script>
+    <script defer src="js/data.js"></script>
+    <script defer src="js/sheet.js"></script>
+    <script defer src="js/app.js"></script>
+  </head>
+  <body>
+    <header class="site-header"><h1>EXPOSIÇÃO</h1></header>
+    <main>
+      <section aria-labelledby="floor-heading">
+        <h2 id="floor-heading">Andares</h2>
+        <div id="floor-selector" class="floor-selector" role="group" aria-label="Selecionar andar"></div>
+        <div class="map-heading">
+          <h2 id="map-heading">Andar 1</h2>
+          <span>Planta provisória</span>
+        </div>
+        <p id="map-instructions">Toque em um número para selecionar uma obra.</p>
+        <div class="map" aria-labelledby="map-heading" aria-describedby="map-instructions">
+          <img id="floor-map" src="maps/andar-1.svg" alt="Planta esquemática provisória do andar 1">
+          <div id="slots" role="group" aria-label="Slots de obras"></div>
+        </div>
+        <p id="floor-status" role="status"></p>
+      </section>
+      <noscript><p>Ative o JavaScript para selecionar andares e obras.</p></noscript>
+    </main>
+    <section id="work-sheet" class="work-sheet" role="dialog" aria-modal="false" aria-labelledby="work-heading" hidden>
+      <header class="sheet-header" id="sheet-header">
+        <button id="sheet-handle" class="sheet-handle" type="button" aria-label="Expandir painel" aria-expanded="false" aria-controls="sheet-content"><span aria-hidden="true"></span></button>
+        <div class="sheet-preview">
+          <img id="work-thumbnail" class="work-thumbnail" alt="" width="72" height="80" draggable="false">
+          <div class="sheet-preview-info">
+            <div class="sheet-heading-row">
+              <p id="work-number" class="work-number" aria-live="polite" aria-atomic="true"></p>
+              <button id="close-sheet" type="button">FECHAR</button>
+            </div>
+            <h2 id="work-heading"></h2>
+            <p id="work-artist"></p>
+          </div>
+        </div>
+        <p class="sheet-expand-hint">↑ ARRASTE PARA VER MAIS</p>
+      </header>
+      <div id="sheet-content" class="sheet-content" tabindex="0" role="region" aria-label="Informações da obra">
+        <img id="work-image" class="work-image" alt="" width="480" height="240">
+        <p id="work-description"></p>
+        <section class="sheet-section" aria-labelledby="audio-heading">
+          <h3 id="audio-heading">AUDIODESCRIÇÃO</h3>
+          <audio id="work-audio" controls preload="none" aria-labelledby="audio-heading" aria-describedby="audio-note"></audio>
+          <p id="audio-note" class="note">Áudio mock: sinal sonoro de teste, sem audiodescrição gravada.</p>
+        </section>
+        <section class="sheet-section" aria-labelledby="reading-heading">
+          <h3 id="reading-heading">LEITURA</h3>
+          <p id="work-reading"></p>
+        </section>
+        <button class="interest-button" type="button" disabled aria-describedby="interest-note">TENHO INTERESSE NA OBRA</button>
+        <p id="interest-note" class="note">Botão demonstrativo. Contato ainda não disponível.</p>
+      </div>
+    </section>
+  </body>
+</html>
+
+
+
+

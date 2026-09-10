@@ -1,0 +1,48 @@
+# Histórico de desenvolvimento
+
+## 2026-09-09 — ajuste do wireframe
+
+- Removida a seleção automática, inclusive ao trocar de andar. Clique/toque seleciona um único slot; repetir o clique mantém a seleção.
+- Andar 1 agora possui 100 slots (01 a 100), em grade provisória de 5 colunas por 20 linhas, com coordenadas percentuais substituíveis por posições reais.
+- Mapa vertical com proporção 9:16 e altura mínima de 1040px para preservar alvos de toque de 44px em telas de 320px. Seleção destacada em preto e branco com contorno.
+- Ficha continua fora do escopo, sem novas dependências.
+
+## 2026-09-09
+
+- Criada estrutura estática em HTML, CSS e JavaScript puro, sem dependências.
+- Registradas as regras de arquitetura, colaboração e apresentação em PROJECT_RULES.md.
+- Implementados cabeçalho, seletor de três andares, plantas SVG placeholder e quatro slots fixos fictícios no andar 1, ativo inicialmente.
+- Seleção por toque, clique e teclado atualiza o resumo com número, título e artista. O slot 1 inicia selecionado.
+- Layout mobile-first a partir de 320px, controles com pelo menos 44px e indicação de foco.
+- VER OBRA permanece desabilitado, pois a ficha completa está fora desta etapa.
+- Pendências: plantas definitivas, dados gerados da planilha, mídias locais e implementação futura da ficha.
+- Verificação: sintaxe dos três scripts, presença dos arquivos/pastas e XML dos SVGs conferidos. Validação visual em navegador ainda não realizada.
+
+- Verificação do ajuste: seleção inicial vazia, troca/repetição e retorno de andar conferidos com DOM simulado; sintaxe e ausência de sobreposição dos alvos de 44px verificadas em larguras de 320, 375, 600 e 720px. Validação visual no navegador pendente.
+
+## 2026-09-09 — bottom sheet de obra
+
+- Substituído o resumo pelo painel fixo inferior de 40vh (40dvh quando disponível), inicialmente fechado, com rolagem interna e FECHAR sempre visível.
+- Seleção abre o painel; trocar de slot atualiza os dados sem fechar. FECHAR/Escape removem a seleção e interrompem o áudio; trocar de andar fecha o painel. Mapa permanece acessível atrás, com espaço inferior para alcançar os últimos slots.
+- Adicionados três conjuntos de conteúdo fictício, três imagens SVG locais e um WAV curto de teste identificado como sinal sonoro, sem narração. Player HTML nativo e botão de interesse demonstrativo, sem WhatsApp ou dependências.
+- Verificação: sintaxe JS e SVGs válidos; testes no Edge headless passaram em 320x720 e 375x812 para estado inicial, abertura, troca de conteúdo, clique repetido, rolagem interna, altura do painel, ausência de overflow horizontal, FECHAR/Escape, foco e troca de andar.
+
+## 2026-09-09 — conferência do bottom sheet
+
+- Relidos PROJECT_RULES.md e DEVLOG.md e conferidos HTML, CSS e JavaScript: a implementação existente já atende à solicitação repetida, incluindo estado inicial fechado, troca de obra, FECHAR com remoção da seleção, painel de 40vh com rolagem e conteúdo mock completo.
+- Preservada a implementação já testada em 320px e 375px. Sem mudanças de código, novas dependências ou integração com WhatsApp.
+
+## 2026-09-09 — painel parcial e expandido
+
+- Painel abre e troca de obra no estado parcial (~26vh, mínimo de 148px), com número, título, artista, FECHAR e indicador de arraste. Detalhes ficam fora da área visível e inacessíveis ao foco até expandir.
+- Estado expandido mantém margem superior de 16px e rolagem interna. Gestos verticais, roda/trackpad e botão indicador controlam os estados; transição apenas de transform, com respeito a movimento reduzido.
+- Cada gesto pertence ao painel ou à rolagem nativa até terminar. Puxar para baixo a partir do topo recolhe; atingir o topo durante uma rolagem exige novo gesto. Mouse permite arrastar o cabeçalho.
+- Rolagem da página bloqueada com preservação/restauração da posição ao fechar. FECHAR/Escape continuam removendo seleção e interrompendo áudio. Novo js/sheet.js concentra somente estados e gestos; sem dependências.
+- Verificação: sintaxe JS válida e testes no Edge headless em 320x568 e 375x812 aprovados para geometria, visibilidade, estados, gestos simulados, separação da rolagem, troca de obra, fechamento e restauração da posição da página. Sensação do gesto em dispositivo físico ainda não validada.
+
+## 2026-09-10 — miniatura no painel parcial
+
+- Estado parcial ajustado para ~28vh (mínimo de 168px), com miniatura à esquerda, número/título/artista à direita e “↑ ARRASTE PARA VER MAIS” abaixo; indicador superior centralizado preservado.
+- Miniatura local com object-fit: cover, atualizada junto à obra. No estado expandido, miniatura e indicativo ficam ocultos e a imagem principal permanece na ficha.
+- Alterados somente HTML, CSS e vínculo da miniatura em app.js. Lógica de estados, snap e rolagem em sheet.js preservada; sem dependências.
+- Verificação: sintaxe JS válida; Edge headless em 320x568 e 375x812 aprovou posicionamento, conteúdo visível sem cortes, proporção compacta, troca de três obras e ocultação da miniatura/indicativo ao expandir.
