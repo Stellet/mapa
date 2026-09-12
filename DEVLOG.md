@@ -46,3 +46,25 @@
 - Miniatura local com object-fit: cover, atualizada junto à obra. No estado expandido, miniatura e indicativo ficam ocultos e a imagem principal permanece na ficha.
 - Alterados somente HTML, CSS e vínculo da miniatura em app.js. Lógica de estados, snap e rolagem em sheet.js preservada; sem dependências.
 - Verificação: sintaxe JS válida; Edge headless em 320x568 e 375x812 aprovou posicionamento, conteúdo visível sem cortes, proporção compacta, troca de três obras e ocultação da miniatura/indicativo ao expandir.
+
+## 2026-09-11 — orientação oficial das plantas
+
+- Registrada a decisão de representar as plantas horizontais em orientação vertical mobile, giradas 90° no sentido horário. SVGs finais com viewBox vertical e coordenadas x/y diretamente na orientação exibida, sem depender de rotação CSS.
+- No 1º andar, acesso na parte inferior do mapa; preservada a possibilidade futura de ENTRADA / VOCÊ ESTÁ AQUI.
+- Alterados apenas PROJECT_RULES.md e DEVLOG.md. Interface, SVGs e posições atuais permanecem inalterados.
+
+## 2026-09-11 — referências somente locais
+
+- Criada a pasta references/ e adicionada a regra /references/ ao .gitignore, ignorando todo o conteúdo e subpastas nas adições normais do Git.
+- Verificado diretamente o índice Git (formato v2): nenhum arquivo de references/ está rastreado. Executável Git indisponível neste ambiente; não foi possível executar git check-ignore.
+- Limite do .gitignore: uma inclusão forçada com git add -f pode contornar a regra. Não constitui proibição absoluta de commit.
+- Interface preservada e nenhuma dependência adicionada.
+
+## 2026-09-11 — primeira planta simplificada do 1º andar
+
+- Usado somente o PDF local references/CC LadoB - Planta 1o Andar.pdf (nome disponível; planta-andar-1.pdf não existe). Referência original e prévia de leitura permanecem na pasta ignorada.
+- Substituído maps/andar-1.svg por desenho simplificado com viewBox vertical 360 x 1780, correspondente à rotação horária de 90°, sem rotação CSS. Preservados contorno, divisões principais, acesso inferior, salão lateral, escada, elevadores, rampa e obstáculos de circulação. Excluídos prédio vizinho, cotas, códigos, projeções e equipamentos técnicos.
+- Reposicionados os 100 slots em percurso provisório desde a entrada, acompanhando paredes e contornando núcleos. Coordenadas continuam em config.js, separadas das obras em data.js; números permanecem retos.
+- Planta sem distorção, com largura mínima de 480px e deslocamento horizontal local em telas estreitas, para manter os 100 alvos de 44px sem sobreposição. A página não ganha rolagem horizontal; o deslocamento do mapa é bloqueado enquanto o painel está aberto.
+- Bottom sheet e identidade visual preservados. Atualizados somente SVG, configuração, integração/apresentação do mapa e este registro.
+- Verificação: SVG válido, sintaxe JS, inspeção visual e testes no Edge em 320px e 375px para proporções, 100 números, áreas de toque, ausência de sobreposição, deslocamento, seleção e troca de andar. Posições são provisórias e dependem de validação curatorial; planta é esquemática, não levantamento técnico.

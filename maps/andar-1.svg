@@ -1,3 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320">
-  <path d="M20 20H380V300H20Z M200 20V125 M200 195V300 M20 160H155 M245 160H380" fill="none" stroke="#999" stroke-width="1"/>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1780" role="img" aria-labelledby="title desc">
+  <title id="title">Planta simplificada do primeiro andar</title>
+  <desc id="desc">Planta vertical, orientada noventa graus no sentido horário em relação ao original. Acesso inferior, escada e salão lateral próximos à entrada; dois ambientes principais alongados e elevador junto à divisão central.</desc>
+  <g fill="none" stroke="#111" stroke-width="2" stroke-linejoin="miter">
+    <!-- Contorno: abertura inferior corresponde ao acesso pela extremidade direita do original. -->
+    <path d="M220 1715V1500H40V40H280V1715"/>
+    <!-- Divisão entre os dois ambientes principais; passagem junto à parede esquerda. -->
+    <path d="M280 620H115V660H85 M40 660H50"/>
+    <!-- Elevador e pequeno recinto adjacente, sem equipamentos técnicos. -->
+    <path d="M40 775H90V680H40 M48 696H80V760H48Z M48 696L80 760 M80 696L48 760"/>
+    <!-- Depósito e núcleo de apoio junto ao acesso. -->
+    <path d="M280 1135H225V1170 M225 1185V1195H280 M220 1220H280 M220 1220V1250 M220 1272V1310H280 M250 1220V1310"/>
+    <!-- Divisão do salão e obstáculos de alvenaria na circulação. -->
+    <path d="M40 1220H58 M106 1220H175V1195H205 M106 1220V1240H160V1500"/>
+    <!-- Escada longitudinal, com patamar livre acima e abaixo. -->
+    <path d="M175 1350H215V1485H175Z M175 1370H215 M175 1380H215 M175 1390H215 M175 1400H215 M175 1410H215 M175 1420H215 M175 1430H215 M175 1440H215 M175 1450H215 M175 1460H215 M175 1470H215" stroke-width="1.5"/>
+    <!-- Pilares/reentrâncias que afetam a passagem. -->
+    <path d="M90 40V52H110V40 M155 40V52H170V40 M210 40V52H225V40"/>
+    <path d="M48 95H88V135H48Z M48 95L88 135 M88 95L48 135"/>
+    <path d="M230 240H260V290H230Z M235 280L255 250 M249 253L255 250L256 256" stroke-width="1.5"/>
+    <!-- Direção de chegada. -->
+    <path d="M250 1750V1725 M244 1733L250 1725L256 1733" stroke-width="1.5"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#111" text-anchor="middle">
+    <text x="170" y="160" font-size="8">ELEVADOR</text>
+    <text x="245" y="234" font-size="8">RAMPA</text>
+    <text x="166" y="360">AMBIENTE PRINCIPAL</text>
+    <text x="160" y="930">AMBIENTE PRINCIPAL</text>
+    <text x="156" y="735" font-size="8">ELEVADOR</text>
+    <text x="100" y="1292" font-size="9">SALÃO</text>
+    <text x="195" y="1496" font-size="8">ESCADA</text>
+    <text x="250" y="1770">ACESSO</text>
+  </g>
 </svg>
+
+

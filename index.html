@@ -18,12 +18,14 @@
         <div id="floor-selector" class="floor-selector" role="group" aria-label="Selecionar andar"></div>
         <div class="map-heading">
           <h2 id="map-heading">Andar 1</h2>
-          <span>Planta provisória</span>
+          <span id="map-caption">Planta simplificada</span>
         </div>
         <p id="map-instructions">Toque em um número para selecionar uma obra.</p>
+        <div id="map-viewport" class="map-viewport" tabindex="0" role="region" aria-label="Mapa do andar; use as setas para deslocar lateralmente">
         <div class="map" aria-labelledby="map-heading" aria-describedby="map-instructions">
           <img id="floor-map" src="maps/andar-1.svg" alt="Planta esquemática provisória do andar 1">
           <div id="slots" role="group" aria-label="Slots de obras"></div>
+        </div>
         </div>
         <p id="floor-status" role="status"></p>
       </section>
@@ -63,6 +65,7 @@
     </section>
   </body>
 </html>
+
 
 
 

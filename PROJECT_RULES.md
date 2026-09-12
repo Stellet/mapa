@@ -32,3 +32,15 @@
 
 Somente wireframe inicial. Andar 1 contém 100 slots fictícios, sem seleção inicial. Andares 2 e 3 têm plantas placeholder e nenhum slot cadastrado. Selecionar um slot abre um bottom sheet não modal com conteúdo mock e mídias locais. Fechar remove a seleção. O botão de interesse permanece demonstrativo, sem integração com WhatsApp.
 
+
+## Orientação das plantas e coordenadas dos slots
+
+- As plantas arquitetônicas originais são horizontais.
+- No site, serão representadas em orientação vertical para mobile, com rotação de 90° no sentido horário em relação à planta original.
+- A versão vertical exibida no site é o sistema de coordenadas oficial dos slots.
+- Não depender de rotação CSS para posicionar os slots.
+- Os SVGs finais devem ter viewBox vertical.
+- As posições x/y dos slots devem corresponder diretamente à orientação exibida.
+- No 1º andar, a região de acesso fica na parte inferior do mapa.
+- Manter a possibilidade futura de indicar ENTRADA / VOCÊ ESTÁ AQUI.
+- Esta decisão orienta a preparação futura das plantas e posições; não altera a interface nesta etapa.

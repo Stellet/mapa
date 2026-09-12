@@ -65,7 +65,12 @@
     document.getElementById("map-heading").textContent = `Andar ${id}`;
     const map = document.getElementById("floor-map");
     map.src = floor.map;
-    map.alt = `Planta esquemática provisória do andar ${id}`;
+    map.parentElement.dataset.real = String(Boolean(floor.realMap));
+    document.getElementById("map-caption").textContent = floor.realMap ? "Planta simplificada" : "Planta provisória";
+    document.getElementById("map-instructions").textContent = floor.realMap
+      ? "Toque em um número para selecionar uma obra. Em telas estreitas, deslize o mapa para os lados."
+      : "Toque em um número para selecionar uma obra.";
+    map.alt = floor.realMap ? "Planta simplificada do primeiro andar, com acesso inferior, escada, elevador e salão lateral" : `Planta esquemática provisória do andar ${id}`;
     slots.replaceChildren();
     for (const slot of floor.slots) {
       const button = document.createElement("button");
@@ -80,7 +85,7 @@
       slots.append(button);
     }
     document.getElementById("floor-status").textContent = floor.slots.length
-      ? `${floor.slots.length} slots fictícios neste andar.` : "Este andar ainda não possui slots cadastrados.";
+      ? `${floor.slots.length} slots com posições provisórias neste andar.` : "Este andar ainda não possui slots cadastrados.";
     closeSheet();
   }
 
@@ -96,5 +101,6 @@
   }
   selectFloor(currentFloor);
 })();
+
 
 
