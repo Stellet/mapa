@@ -3,15 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Exposição — mapa de obras</title>
+    <title>2ª RIOS—REAIS — CC-LADO B</title>
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/config.js"></script>
     <script defer src="js/data.js"></script>
     <script defer src="js/sheet.js"></script>
+    <script defer src="js/map.js"></script>
     <script defer src="js/app.js"></script>
   </head>
   <body>
-    <header class="site-header"><h1>EXPOSIÇÃO</h1></header>
+    <header class="site-header">
+      <h1>2ª RIOS—REAIS</h1>
+      <p class="exhibition-subtitle">“Ideias para adiar o fim dos Rios”</p>
+      <div class="venue-row"><span>CC-LADO B</span><a id="venue-instagram" href="https://www.instagram.com/___ladob/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a></div>
+    </header>
     <main>
       <section aria-labelledby="floor-heading">
         <h2 id="floor-heading">Andares</h2>
@@ -21,7 +26,13 @@
           <span id="map-caption">Planta simplificada</span>
         </div>
         <p id="map-instructions">Toque em um número para selecionar uma obra.</p>
-        <div id="map-viewport" class="map-viewport" tabindex="0" role="region" aria-label="Mapa do andar; use as setas para deslocar lateralmente">
+        <div id="map-controls" class="map-controls" role="group" aria-label="Zoom do mapa">
+          <button id="zoom-out" type="button" aria-label="Diminuir zoom">−</button>
+          <button id="zoom-reset" type="button" aria-label="Restaurar enquadramento geral">100%</button>
+          <button id="zoom-in" type="button" aria-label="Aumentar zoom">+</button>
+          <span id="zoom-status" class="sr-only" role="status"></span>
+        </div>
+        <div id="map-viewport" class="map-viewport" tabindex="0" role="region" aria-label="Mapa do andar; use as setas para deslocar o mapa">
         <div class="map" aria-labelledby="map-heading" aria-describedby="map-instructions">
           <img id="floor-map" src="maps/andar-1.svg" alt="Planta esquemática provisória do andar 1">
           <div id="slots" role="group" aria-label="Slots de obras"></div>
@@ -65,6 +76,8 @@
     </section>
   </body>
 </html>
+
+
 
 
 

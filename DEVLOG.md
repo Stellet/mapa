@@ -68,3 +68,27 @@
 - Planta sem distorção, com largura mínima de 480px e deslocamento horizontal local em telas estreitas, para manter os 100 alvos de 44px sem sobreposição. A página não ganha rolagem horizontal; o deslocamento do mapa é bloqueado enquanto o painel está aberto.
 - Bottom sheet e identidade visual preservados. Atualizados somente SVG, configuração, integração/apresentação do mapa e este registro.
 - Verificação: SVG válido, sintaxe JS, inspeção visual e testes no Edge em 320px e 375px para proporções, 100 números, áreas de toque, ausência de sobreposição, deslocamento, seleção e troca de andar. Posições são provisórias e dependem de validação curatorial; planta é esquemática, não levantamento técnico.
+
+## 2026-09-11 — correção espacial dos slots
+
+- Conferida a prévia local do PDF do 1º andar. Definidas internamente area-loja-14 e area-escritorios em config.js, com limites, zonas excluídas e vínculo de cada slot à área/parede; nomes não exibidos na interface.
+- Redistribuídos exatamente 100 slots, 50 por área principal, em duas faixas próximas às paredes para preservar alvos de 44px. Numeração 01–100 parte da primeira parede válida após as portas da entrada principal e segue os circuitos das áreas.
+- Liberada a faixa das antigas posições 45–50 nas portas. Novas posições desses números ficam na parede lateral válida. Removidos todos os slots do acesso inferior, salão lateral, circulação, escada, elevadores e núcleos técnicos; rampa e passagens excluídas.
+- No SVG, apenas corrigidos os vãos das portas antes representados como parede contínua e quebrados os rótulos genéricos em duas linhas para evitar sobreposição. Demais geometria, bottom sheet, escala, identidade visual e dados das obras preservados; sem zoom ou dependências.
+- Validação: 100 números únicos e sequenciais, 50 por área, alvos inteiros fora das zonas excluídas e sem colisões na largura mínima de 480px do mapa. Edge em 320px e 375px confirmou 44px, ausência de sobreposição/overflow da página e nomes internos ocultos; realizada inspeção visual.
+
+## 2026-09-12 — rótulos públicos do 1º andar
+
+- Substituídos os dois rótulos genéricos por SALA 1 (area-loja-14) e SALA 2 (area-escritorios), preservando os identificadores internos.
+- Removidos os rótulos ELEVADOR e sua menção nas descrições acessíveis. Contornos arquitetônicos mantidos, conforme a restrição de não alterar a geometria.
+- Adicionado apenas BANHEIROS junto ao núcleo sanitário do acesso, antes da escada, conforme a referência local. Sem PNE, metragens ou códigos.
+- Atualizados SVG e texto alternativo em app.js; slots, bottom sheet, estilos e comportamento preservados. Conferidos XML e igualdade de todos os paths antes/depois.
+
+## 2026-09-12 — identidade visual e zoom do mapa
+
+- Aplicada a segunda versão do pedido ao cabeçalho: 2ª RIOS—REAIS, “Ideias para adiar o fim dos Rios”, CC-LADO B e INSTAGRAM ↗ para https://www.instagram.com/___ladob/, informado pelo usuário.
+- Paleta invertida: fundo preto, linhas/textos/mapas brancos, tipografia seca e sem sombras, gradientes ou arredondamentos. Conferida a referência local RR26_Identidade.pdf. Mídias e cadastro das obras preservados; painel alterado apenas pelas cores.
+- Adicionado js/map.js com controles −, percentual/reset e +, zoom de 100% a 600%, arraste por mouse ou um dedo e limites do container. 100% ajusta à largura e restaura o início da planta; conteúdo comprido continua com rolagem vertical. Sem pinch-to-zoom ou bibliotecas.
+- Mantidos 100 slots e os metadados existentes, em uma única fileira por parede nas duas áreas principais. Números menores no enquadramento inicial e ampliados proporcionalmente com o mapa, conforme orientação posterior do usuário. Alvos com mínimo de 44px; na visão geral, quando próximos, o toque é resolvido pelo centro mais próximo antes de acionar a seleção existente.
+- Arraste não seleciona obra. Zoom/arraste bloqueados enquanto o painel está aberto; troca de andar restaura o enquadramento. Acrescentadas alternativas de teclado e estado acessível do percentual.
+- Verificação: sintaxe JS, 100 números sequenciais e fileira única por parede. Edge em 320x568, 375x812 e 960x900 aprovou paleta/cabeçalho/link, zoom proporcional, arraste real via eventos de mouse e toque, ausência de seleção durante arraste, reset, seleção e troca de andar. Realizada inspeção das capturas de tela.

@@ -68,16 +68,18 @@
     map.parentElement.dataset.real = String(Boolean(floor.realMap));
     document.getElementById("map-caption").textContent = floor.realMap ? "Planta simplificada" : "Planta provisória";
     document.getElementById("map-instructions").textContent = floor.realMap
-      ? "Toque em um número para selecionar uma obra. Em telas estreitas, deslize o mapa para os lados."
+      ? "Use + para ampliar e arraste o mapa. Toque em um número para ver a obra; o percentual restaura o enquadramento."
       : "Toque em um número para selecionar uma obra.";
-    map.alt = floor.realMap ? "Planta simplificada do primeiro andar, com acesso inferior, escada, elevador e salão lateral" : `Planta esquemática provisória do andar ${id}`;
+    map.alt = floor.realMap ? "Planta simplificada do primeiro andar, com Sala 1, Sala 2, banheiros, acesso inferior, escada e salão lateral" : `Planta esquemática provisória do andar ${id}`;
     slots.replaceChildren();
     for (const slot of floor.slots) {
       const button = document.createElement("button");
       button.type = "button";
       button.className = "slot";
       button.dataset.slot = slot.number;
-      button.textContent = String(slot.number).padStart(2, "0");
+      const number = document.createElement("span");
+      number.textContent = String(slot.number).padStart(2, "0");
+      button.append(number);
       button.setAttribute("aria-label", `Selecionar obra ${slot.number}, andar ${id}`);
       button.style.setProperty("--x", `${slot.x}%`);
       button.style.setProperty("--y", `${slot.y}%`);
@@ -87,6 +89,7 @@
     document.getElementById("floor-status").textContent = floor.slots.length
       ? `${floor.slots.length} slots com posições provisórias neste andar.` : "Este andar ainda não possui slots cadastrados.";
     closeSheet();
+    window.EXHIBITION_MAP.setFloor(floor);
   }
 
   for (const floor of config.floors) {
@@ -101,6 +104,8 @@
   }
   selectFloor(currentFloor);
 })();
+
+
 
 
 
