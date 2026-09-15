@@ -107,3 +107,9 @@
 - Substituído o zoom por um único estado de escala/posição com Pointer Events: pinch ancorado no ponto médio, pan limitado, botões/teclado e reset para a planta inteira. Em fit, gesto vertical permite compactar a navegação; scroll fora do mapa permanece nativo.
 - Removidos somente os textos visíveis do SVG. Clusters por proximidade separam progressivamente os slots; miniaturas locais surgem a partir de 400% apenas nas obras individuais visíveis. Mantidos os 100 slots, coordenadas, cadastro e gestos do bottom sheet.
 - Validação no Edge headless em 320×568, 375×812 e 812×375: área útil/overflow, filtros preservados ao ampliar, pinch e pan com eventos nativos de toque, estabilidade matemática do ponto sob os dedos, clusters, miniaturas sob demanda (6 na região testada, nenhuma em fit), ficha compartilhada e compactação/reabertura de filtros. Sintaxe JS e hashes de config.js/sheet.js conferidos. Teste em aparelho físico/iOS ainda não realizado.
+
+## 2026-09-15 — correção específica do pan touch
+
+- Pan passou a acumular diferenças reais entre clientX/clientY consecutivos, em pixels CSS, sem normalização, divisão por zoom ou sensibilidade artificial. Limites incidem somente na posição final; render continua em requestAnimationFrame, sem transição CSS no mapa.
+- Captura no pointerdown e liberação no pointerup/pointercancel; estados de pan/pinch separados, com referência reinicializada no dedo restante. Preservado o toque em slots/clusters após captura. Escala, clustering, coordenadas, layout e bottom sheet não alterados.
+- Edge com eventos nativos de toque emulados, larguras 320/375px: pan lento de 20/30px e rápido de 60/80px acompanharam os deltas 1:1; pinch terminou sem salto e dedo restante moveu 12/16px; arraste não selecionou obra e toque continuou ampliando cluster. Teste em celular físico ainda pendente.

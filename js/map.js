@@ -85,52 +85,70 @@
   minus.addEventListener("click", () => { if (!blocked()) zoomAt(state.zoom / 1.5, viewport.clientWidth / 2, viewport.clientHeight / 2); });
   plus.addEventListener("click", () => { if (!blocked()) zoomAt(state.zoom * 1.5, viewport.clientWidth / 2, viewport.clientHeight / 2); });
   reset.addEventListener("click", () => { if (!blocked()) fit(); });
-  function local(event) { const r = viewport.getBoundingClientRect(); return { x: event.clientX - r.left, y: event.clientY - r.top }; }
+  function local(point) { const r = viewport.getBoundingClientRect(); return { x: point.clientX - r.left, y: point.clientY - r.top }; }
+  let tapTarget = null;
   function begin() {
     const points = [...pointers.values()];
     if (points.length >= 2) {
-      const [a, b] = points, x = (a.x + b.x) / 2, y = (a.y + b.y) / 2;
+      const [a, b] = points.map(local), x = (a.x + b.x) / 2, y = (a.y + b.y) / 2;
       gesture = { kind: "pinch", distance: Math.max(1, Math.hypot(a.x - b.x, a.y - b.y)), zoom: state.zoom, wx: (x - state.x) / scale(), wy: (y - state.y) / scale() }; moved = true;
-    } else if (points.length) gesture = { kind: state.zoom > 1.001 ? "pan" : "scroll", start: points[0], last: points[0], x: state.x, y: state.y };
-    else gesture = null;
+    } else if (points.length) {
+      // A referência é sempre a última posição real, inclusive ao sair do pinch.
+      gesture = { kind: state.zoom > 1.001 ? "pan" : "scroll", start: { ...points[0] } };
+    } else gesture = null;
   }
   viewport.addEventListener("pointerdown", event => {
     if (!floor?.realMap || blocked() || (event.pointerType === "mouse" && event.button !== 0)) return;
-    if (!pointers.size) moved = false;
-    pointers.set(event.pointerId, local(event)); begin();
-    if (pointers.size > 1) for (const id of pointers.keys()) viewport.setPointerCapture(id);
+    if (!pointers.size) {
+      moved = false;
+      tapTarget = event.target.closest(".slot, .map-cluster");
+    }
+    pointers.set(event.pointerId, { clientX: event.clientX, clientY: event.clientY });
+    viewport.setPointerCapture(event.pointerId);
+    begin();
   });
   viewport.addEventListener("pointermove", event => {
     if (!pointers.has(event.pointerId) || blocked()) return;
-    const p = local(event); pointers.set(event.pointerId, p);
+    const previous = pointers.get(event.pointerId);
+    const dx = event.clientX - previous.clientX, dy = event.clientY - previous.clientY;
+    pointers.set(event.pointerId, { clientX: event.clientX, clientY: event.clientY });
     if (!gesture) return;
     if (gesture.kind === "pinch") {
-      const [a, b] = [...pointers.values()];
+      const [a, b] = [...pointers.values()].map(local);
       state.zoom = clamp(gesture.zoom * Math.hypot(a.x - b.x, a.y - b.y) / gesture.distance, 1, 32);
       state.x = (a.x + b.x) / 2 - gesture.wx * scale(); state.y = (a.y + b.y) / 2 - gesture.wy * scale();
     } else {
-      const dx = p.x - gesture.start.x, dy = p.y - gesture.start.y;
-      if (!moved && Math.hypot(dx, dy) < 6) return;
-      moved = true;
-      if (gesture.kind === "pan") { state.x = gesture.x + dx; state.y = gesture.y + dy; }
-      else if (event.pointerType !== "mouse") { const delta = gesture.last.y - p.y; window.scrollBy(0, delta); viewport.dispatchEvent(new CustomEvent("mapscrollintent", { detail: delta })); }
-      gesture.last = p;
+      // O limiar distingue toque de arraste, sem reduzir ou descartar deltas do pan.
+      if (Math.hypot(event.clientX - gesture.start.clientX, event.clientY - gesture.start.clientY) >= 6) moved = true;
+      if (gesture.kind === "pan") { state.x += dx; state.y += dy; }
+      else if (moved && event.pointerType !== "mouse") {
+        window.scrollBy(0, -dy);
+        viewport.dispatchEvent(new CustomEvent("mapscrollintent", { detail: -dy }));
+      }
     }
-    if (!viewport.hasPointerCapture(event.pointerId)) viewport.setPointerCapture(event.pointerId);
-    event.preventDefault(); viewport.dataset.dragging = "true"; schedule();
+    // Limitar a posição final permite inverter a direção imediatamente na borda.
+    constrain();
+    event.preventDefault(); viewport.dataset.dragging = String(moved); schedule();
   });
   function end(event) {
     if (!pointers.has(event.pointerId)) return;
-    if (moved || event.type === "pointercancel") ignoreClickUntil = performance.now() + 350;
-    pointers.delete(event.pointerId); begin();
+    if (moved || event.type !== "pointerup") ignoreClickUntil = performance.now() + 350;
+    pointers.delete(event.pointerId);
+    if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+    begin();
     if (!pointers.size) viewport.dataset.dragging = "false";
   }
   viewport.addEventListener("pointerup", end);
   viewport.addEventListener("pointercancel", end);
   viewport.addEventListener("lostpointercapture", end);
-  viewport.addEventListener("pointerleave", event => { if (event.pointerType === "mouse" && !viewport.hasPointerCapture(event.pointerId)) end(event); });
   viewport.addEventListener("click", event => {
-    if (event.detail && performance.now() < ignoreClickUntil) { event.preventDefault(); event.stopImmediatePropagation(); }
+    if (!event.detail) return;
+    if (performance.now() < ignoreClickUntil) { event.preventDefault(); event.stopImmediatePropagation(); return; }
+    // A captura no viewport redireciona o click; preservar o toque no alvo original.
+    if (event.target === viewport && tapTarget) {
+      const target = tapTarget; tapTarget = null;
+      event.preventDefault(); event.stopImmediatePropagation(); target.click();
+    }
   }, true);
   viewport.addEventListener("dragstart", event => event.preventDefault());
   viewport.addEventListener("keydown", event => {
@@ -151,6 +169,8 @@
     }
   };
 })();
+
+
 
 
 
