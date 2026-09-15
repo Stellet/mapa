@@ -24,7 +24,11 @@
   ];
   window.EXHIBITION_DATA = Array.from({ length: 100 }, (_, index) => ({
     floor: 1, slot: index + 1,
+    area: window.EXHIBITION_CONFIG.floors[0].slots[index].areaId,
+    type: ["pintura", "fotografia", "colagem", "escultura"][index % 4],
+    tags: index % 2 ? ["memória", "cidade"] : ["rios", "natureza"],
     ...samples[index % samples.length],
     audio: "obras/audio/mock-sinal.wav"
   }));
 })();
+

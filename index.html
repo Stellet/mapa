@@ -10,17 +10,45 @@
     <script defer src="js/sheet.js"></script>
     <script defer src="js/map.js"></script>
     <script defer src="js/app.js"></script>
+    <script defer src="js/explore.js"></script>
   </head>
   <body>
+    <a class="skip-link" href="#exploration">PULAR PARA AS OBRAS</a>
+    <div id="navigation-shell" class="navigation-shell">
     <header class="site-header">
       <h1>2ª RIOS—REAIS</h1>
       <p class="exhibition-subtitle">“Ideias para adiar o fim dos Rios”</p>
       <div class="venue-row"><span>CC-LADO B</span><a id="venue-instagram" href="https://www.instagram.com/___ladob/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a></div>
     </header>
-    <main>
-      <section aria-labelledby="floor-heading">
-        <h2 id="floor-heading">Andares</h2>
+    <nav id="sub-nav" class="sub-nav" aria-label="Explorar exposição">
+      <p class="nav-caption">EXPLORAR A EXPOSIÇÃO</p>
+      <div class="nav-row">
+        <div class="mode-selector" role="group" aria-label="Modo de exploração">
+          <button type="button" data-mode="map" aria-pressed="true" aria-controls="map-view">MAPA</button>
+          <button type="button" data-mode="list" aria-pressed="false" aria-controls="list-view">LISTA</button>
+        </div>
+        <button id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">FILTROS</button>
+      </div>
+      <div class="nav-row">
         <div id="floor-selector" class="floor-selector" role="group" aria-label="Selecionar andar"></div>
+        <button id="speak-screen" type="button" aria-pressed="false" aria-describedby="speech-status">OUVIR ESTA TELA</button>
+      </div>
+    </nav>
+      <section id="filter-panel" aria-labelledby="filter-heading" hidden>
+        <h2 id="filter-heading">Filtros</h2>
+        <div class="filter-fields">
+          <label>Área<select id="filter-area"><option value="">Todas as áreas</option></select></label>
+          <label>Tipo<select id="filter-type"><option value="">Todos os tipos</option></select></label>
+          <label>Tag<select id="filter-tag"><option value="">Todas as tags</option></select></label>
+        </div>
+        <button id="clear-filters" type="button">LIMPAR FILTROS</button>
+      </section>
+    </div>
+    <main id="exploration" tabindex="-1">
+
+      <p id="speech-status" class="note" role="status"></p>
+      <p id="results-status" role="status" aria-live="polite"></p>
+      <section id="map-view" aria-labelledby="map-heading">
         <div class="map-heading">
           <h2 id="map-heading">Andar 1</h2>
           <span id="map-caption">Planta simplificada</span>
@@ -39,6 +67,11 @@
         </div>
         </div>
         <p id="floor-status" role="status"></p>
+      </section>
+      <section id="list-view" aria-labelledby="list-heading" hidden>
+        <h2 id="list-heading">Obras — Andar 1</h2>
+        <label class="group-control"><input id="group-by-area" type="checkbox" checked> Agrupar por área</label>
+        <div id="work-list"></div>
       </section>
       <noscript><p>Ative o JavaScript para selecionar andares e obras.</p></noscript>
     </main>
@@ -70,12 +103,15 @@
           <h3 id="reading-heading">LEITURA</h3>
           <p id="work-reading"></p>
         </section>
-        <button class="interest-button" type="button" disabled aria-describedby="interest-note">TENHO INTERESSE NA OBRA</button>
-        <p id="interest-note" class="note">Botão demonstrativo. Contato ainda não disponível.</p>
       </div>
+      <footer class="sheet-footer">
+        <button class="interest-button" type="button" disabled aria-describedby="interest-note">TENHO INTERESSE</button>
+        <p id="interest-note" class="note">Botão demonstrativo. Contato ainda não disponível.</p></footer>
     </section>
   </body>
 </html>
+
+
 
 
 

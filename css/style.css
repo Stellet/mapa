@@ -91,3 +91,86 @@ body.sheet-open .map-viewport { overflow: hidden; }
 .map .slot { touch-action: inherit; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 
+
+/* Navegação reservada no fluxo: compactar não desloca o conteúdo. */
+[hidden] { display: none !important; }
+.navigation-shell { position: sticky; top: 0; z-index: 5; min-height: var(--navigation-reserve, 0px); pointer-events: none; }
+.navigation-shell > header, .navigation-shell > nav { pointer-events: auto; background: #000; }
+.sub-nav { width: 100%; max-width: 720px; margin: 0 auto; padding: 8px 16px; border-bottom: 1px solid #fff; }
+.nav-caption { margin: 0 0 8px; font-size: 11px; letter-spacing: .08em; }
+.nav-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.nav-row + .nav-row { margin-top: 8px; }
+.mode-selector { display: flex; gap: 4px; }
+.sub-nav button, #filter-panel button { min-height: 44px; padding: 8px 10px; border: 1px solid #fff; background: #000; color: #fff; cursor: pointer; font-size: 11px; }
+.sub-nav button[aria-pressed="true"] { color: #000; background: #fff; }
+.sub-nav button:disabled { color: #aaa; cursor: default; }
+.sub-nav .floor-selector { margin: 0; gap: 4px; }
+.sub-nav .floor-button { min-width: 44px; min-height: 44px; }
+.navigation-shell[data-compact="true"] .site-header { padding: 10px 16px; }
+.navigation-shell[data-compact="true"] h1 { font-size: 24px; }
+.navigation-shell[data-compact="true"] .exhibition-subtitle,
+.navigation-shell[data-compact="true"] .venue-row,
+.navigation-shell[data-compact="true"] .nav-caption { display: none; }
+.navigation-shell[data-compact="true"] .sub-nav { padding-top: 4px; padding-bottom: 4px; }
+#exploration { scroll-margin-top: 160px; }
+.skip-link { position: fixed; top: 0; left: 0; transform: translateY(-120%); z-index: 20; padding: 12px; background: #fff; color: #000; }
+.skip-link:focus { transform: none; }
+a:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+#filter-panel { border-bottom: 1px solid #fff; padding-bottom: 16px; margin-bottom: 16px; scroll-margin-top: 160px; }
+.filter-fields { display: grid; gap: 12px; margin: 16px 0; }
+.filter-fields label { display: grid; gap: 4px; font-size: 14px; }
+.filter-fields select { width: 100%; min-width: 0; min-height: 44px; border: 1px solid #fff; border-radius: 0; background: #000; color: #fff; padding: 8px; font: inherit; }
+#speech-status:empty { display: none; }
+#results-status { font-size: 14px; }
+.group-control { display: flex; align-items: center; gap: 8px; min-height: 44px; margin: 12px 0; font-size: 14px; }
+.group-control input { width: 20px; height: 20px; accent-color: #fff; }
+#work-list h3 { margin: 24px 0 8px; font-size: 14px; }
+#work-list ul { list-style: none; padding: 0; margin: 0; }
+#work-list li { border-top: 1px solid #fff; }
+.list-work { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 4px 12px; width: 100%; min-height: 88px; padding: 16px 0; border: 0; text-align: left; background: #000; color: #fff; cursor: pointer; overflow-wrap: anywhere; }
+.list-number { grid-row: 1 / 4; font-size: 12px; }
+.list-title { font-weight: bold; }
+.list-artist, .list-meta { grid-column: 2; font-size: 13px; }
+.list-work[aria-pressed="true"] { background: #fff; color: #000; }
+.sheet-footer { flex-shrink: 0; padding: 8px 16px calc(8px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid #fff; background: #000; }
+.sheet-footer .interest-button { margin-top: 0; }
+.sheet-footer .note { margin-top: 4px; font-size: 12px; }
+.work-sheet:not([data-state="expanded"]) .sheet-footer { display: none; }
+@media (min-width: 600px) { .sub-nav { padding-left: 32px; padding-right: 32px; } .filter-fields { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Exploração ocupa a área útil; a planta e os alvos usam o mesmo estado espacial. */
+.navigation-shell { min-height: 0; background: #000; }
+.site-header, .sub-nav { max-width: none; }
+#filter-toggle::after { content: " ﹀"; }
+#filter-toggle[aria-expanded="true"]::after { content: " ﹁"; }
+#filter-panel { pointer-events: auto; margin: 0; padding: 8px 16px; max-height: 35dvh; overflow-y: auto; overscroll-behavior: contain; }
+#filter-panel h2 { font-size: 14px; margin: 0 0 4px; }
+.filter-fields { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.filter-fields label { min-width: 0; font-size: 12px; }
+.filter-fields select { width: 100%; min-width: 0; font-size: 12px; padding: 4px; }
+#clear-filters { margin-top: 8px; }
+main#exploration { max-width: none; padding: 0; }
+#results-status, #speech-status:not(:empty) { margin: 0; padding: 4px 12px; font-size: 12px; }
+#map-view { position: relative; }
+#map-view .map-heading, #map-instructions, #floor-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); }
+#map-controls { position: absolute; top: 8px; right: 8px; z-index: 2; margin: 0; background: #000; }
+#map-viewport, #map-viewport[data-interactive="true"] { position: relative; width: 100%; height: var(--map-height, 60dvh); min-height: 120px; max-height: none; border: 0; overflow: hidden; overscroll-behavior: auto; }
+#map-viewport[data-interactive="true"] { touch-action: none; }
+#map-viewport .map { width: 100%; height: 100%; min-height: 0; aspect-ratio: auto; border: 0; }
+#map-viewport[data-interactive="true"] #floor-map { width: 360px; height: 1780px; max-width: none; transform-origin: 0 0; object-fit: fill; }
+#map-viewport .slot { width: 44px; height: 44px; font-size: 12px; z-index: 1; }
+#map-viewport .slot span { min-width: 20px; min-height: 18px; height: auto; }
+#map-viewport .slot.clustered, #map-viewport .slot.outside-map { display: none; }
+.map-cluster { position: absolute; transform: translate(-50%, -50%); min-width: 44px; height: 44px; border: 1px solid #fff; color: #fff; background: #000; font: inherit; font-size: 13px; }
+#map-viewport .slot .map-thumbnail { position: absolute; inset: 0; width: 44px; height: 44px; object-fit: cover; }
+#map-viewport .slot:has(.map-thumbnail) span { position: absolute; bottom: 0; right: 0; font-size: 11px; }
+#list-view { max-width: 720px; margin: auto; padding: 16px; }
+.site-header { padding: 16px; }
+.sub-nav .nav-caption { display: none; }
+#map-viewport, #map-viewport[data-interactive="true"] { min-height: 0; }
+@media (max-height: 500px) {
+  .site-header { padding: 8px 16px; }
+  .site-header h1 { font-size: 24px; }
+  .site-header .exhibition-subtitle, .site-header .venue-row { display: none; }
+  .sub-nav { padding-top: 4px; padding-bottom: 4px; }
+}

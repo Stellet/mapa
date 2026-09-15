@@ -9,7 +9,9 @@
   const audio = document.getElementById("work-audio");
   const closeButton = document.getElementById("close-sheet");
   let selectedButton = null;
-  let currentFloor = config.initialFloor;
+  const state = { floor: config.initialFloor, mode: "map", area: "", type: "", tag: "", selected: null, grouped: true };
+  const areaNames = { "area-loja-14": "SALA 1", "area-escritorios": "SALA 2" };
+  const typeNames = { pintura: "Pintura", fotografia: "Fotografia", colagem: "Colagem", escultura: "Escultura" };
 
   function closeSheet(restoreFocus = false) {
     const previousButton = selectedButton;
@@ -17,9 +19,14 @@
     audio.removeAttribute("src");
     audio.load();
     window.EXHIBITION_SHEET.close();
-    for (const button of slots.children) button.setAttribute("aria-pressed", "false");
+    state.selected = null;
+    syncSelection();
+    announceChange();
     selectedButton = null;
-    if (restoreFocus && previousButton) previousButton.focus({ preventScroll: true });
+    if (restoreFocus) {
+      const equivalent = document.querySelector((state.mode === "list" ? "#work-list" : "#slots") + ' [data-work-slot="' + previousButton?.dataset.workSlot + '"]');
+      (equivalent && !equivalent.hidden ? equivalent : document.querySelector('[data-mode="' + state.mode + '"]')).focus({ preventScroll: true });
+    }
   }
 
   closeButton.addEventListener("click", () => closeSheet(true));
@@ -27,16 +34,15 @@
     if (event.key === "Escape" && !sheet.hidden) closeSheet(true);
   });
 
-  function selectSlot(number) {
-    const work = works.find(item => item.floor === currentFloor && item.slot === number);
+  function selectSlot(number, trigger) {
+    const work = works.find(item => item.floor === state.floor && item.slot === number);
     if (!work) { closeSheet(); return; }
-    if (selectedButton && Number(selectedButton.dataset.slot) === number) return;
+    if (state.selected === number) { selectedButton = trigger || selectedButton; return; }
     const wasHidden = sheet.hidden;
-    for (const button of slots.children) {
-      const selected = Number(button.dataset.slot) === number;
-      button.setAttribute("aria-pressed", String(selected));
-      if (selected) selectedButton = button;
-    }
+    state.selected = number;
+    selectedButton = trigger;
+    syncSelection();
+    announceChange();
     document.getElementById("work-number").textContent = "Obra " + String(number).padStart(2, "0");
     document.getElementById("work-heading").textContent = work.title;
     document.getElementById("work-artist").textContent = work.artist;
@@ -57,7 +63,7 @@
   }
 
   function selectFloor(id) {
-    currentFloor = id;
+    state.floor = id;
     const floor = config.floors.find(item => item.id === id);
     for (const button of selector.children) {
       button.setAttribute("aria-pressed", String(Number(button.dataset.floor) === id));
@@ -68,7 +74,7 @@
     map.parentElement.dataset.real = String(Boolean(floor.realMap));
     document.getElementById("map-caption").textContent = floor.realMap ? "Planta simplificada" : "Planta provisória";
     document.getElementById("map-instructions").textContent = floor.realMap
-      ? "Use + para ampliar e arraste o mapa. Toque em um número para ver a obra; o percentual restaura o enquadramento."
+      ? "Amplie com dois dedos ou +. Arraste quando ampliado. Grupos indicam a quantidade de obras; toque para ampliar. Selecione um número para abrir a ficha. O percentual restaura a planta inteira."
       : "Toque em um número para selecionar uma obra.";
     map.alt = floor.realMap ? "Planta simplificada do primeiro andar, com Sala 1, Sala 2, banheiros, acesso inferior, escada e salão lateral" : `Planta esquemática provisória do andar ${id}`;
     slots.replaceChildren();
@@ -77,21 +83,81 @@
       button.type = "button";
       button.className = "slot";
       button.dataset.slot = slot.number;
+      button.dataset.workSlot = slot.number;
       const number = document.createElement("span");
       number.textContent = String(slot.number).padStart(2, "0");
       button.append(number);
       button.setAttribute("aria-label", `Selecionar obra ${slot.number}, andar ${id}`);
       button.style.setProperty("--x", `${slot.x}%`);
       button.style.setProperty("--y", `${slot.y}%`);
-      button.addEventListener("click", () => selectSlot(slot.number));
+      const work = works.find(item => item.floor === id && item.slot === slot.number);
+      if (work) button.setAttribute("aria-label", workLabel(work));
+      button.addEventListener("click", () => selectSlot(slot.number, button));
       slots.append(button);
     }
     document.getElementById("floor-status").textContent = floor.slots.length
       ? `${floor.slots.length} slots com posições provisórias neste andar.` : "Este andar ainda não possui slots cadastrados.";
     closeSheet();
     window.EXHIBITION_MAP.setFloor(floor);
+    renderResults();
   }
 
+  function announceChange() { document.dispatchEvent(new Event("explorationchange")); }
+  function syncSelection() {
+    for (const button of document.querySelectorAll("[data-work-slot]")) {
+      button.setAttribute("aria-pressed", String(Number(button.dataset.workSlot) === state.selected));
+    }
+  }
+  function workLabel(work) {
+    return "Obra " + String(work.slot).padStart(2, "0") + ". " + work.title + ". " + work.artist + ". " + (areaNames[work.area] || work.area) + ". " + (typeNames[work.type] || work.type) + ". Tags: " + work.tags.join(", ");
+  }
+  function visibleWorks() {
+    return works.filter(work => work.floor === state.floor && (!state.area || work.area === state.area) && (!state.type || work.type === state.type) && (!state.tag || work.tags.includes(state.tag)));
+  }
+  function renderResults() {
+    const visible = visibleWorks();
+    const numbers = new Set(visible.map(work => work.slot));
+    for (const button of slots.children) button.hidden = !numbers.has(Number(button.dataset.slot));
+    if (state.selected !== null && !numbers.has(state.selected)) closeSheet();
+    const list = document.getElementById("work-list");
+    list.replaceChildren();
+    const groups = new Map();
+    for (const work of visible) {
+      const key = state.grouped ? work.area : "all";
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(work);
+    }
+    for (const [area, group] of groups) {
+      const section = document.createElement("section");
+      if (state.grouped) {
+        const heading = document.createElement("h3");
+        heading.textContent = areaNames[area] || area;
+        section.append(heading);
+      }
+      const ul = document.createElement("ul");
+      for (const work of group) {
+        const li = document.createElement("li");
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "list-work";
+        button.dataset.workSlot = work.slot;
+        button.setAttribute("aria-label", workLabel(work));
+        for (const [className, text] of [["list-number", String(work.slot).padStart(2, "0")], ["list-title", work.title], ["list-artist", work.artist], ["list-meta", (areaNames[work.area] || work.area) + " · " + typeNames[work.type] + " · " + work.tags.join(", ")]]) {
+          const span = document.createElement("span"); span.className = className; span.textContent = text; button.append(span);
+        }
+        button.addEventListener("click", () => selectSlot(work.slot, button));
+        li.append(button); ul.append(li);
+      }
+      section.append(ul); list.append(section);
+    }
+    const filters = [areaNames[state.area], typeNames[state.type], state.tag].filter(Boolean);
+    document.getElementById("results-status").textContent = "Andar " + state.floor + ": " + visible.length + " obras" + (filters.length ? " · " + filters.join(" · ") : "") + (visible.length ? "." : ". Nenhuma obra encontrada com esta seleção.");
+    document.getElementById("list-heading").textContent = "Obras — Andar " + state.floor;
+    document.getElementById("floor-status").textContent = visible.length ? visible.length + " obras visíveis no mapa. Posições provisórias." : "Nenhuma obra para exibir neste andar com os filtros atuais.";
+    document.getElementById("filter-toggle").textContent = "FILTROS" + (filters.length ? " (" + filters.length + ")" : "");
+    syncSelection();
+    announceChange();
+  }
   for (const floor of config.floors) {
     const button = document.createElement("button");
     button.type = "button";
@@ -102,8 +168,43 @@
     button.addEventListener("click", () => selectFloor(floor.id));
     selector.append(button);
   }
-  selectFloor(currentFloor);
+  for (const button of document.querySelectorAll("[data-mode]")) {
+    button.addEventListener("click", () => {
+      state.mode = button.dataset.mode;
+      document.getElementById("map-view").hidden = state.mode !== "map";
+      document.getElementById("list-view").hidden = state.mode !== "list";
+      for (const mode of document.querySelectorAll("[data-mode]")) mode.setAttribute("aria-pressed", String(mode.dataset.mode === state.mode));
+      if (state.mode === "map") window.EXHIBITION_MAP.refresh();
+      syncSelection();
+      announceChange();
+    });
+  }
+  for (const [field, labels] of [["area", areaNames], ["type", typeNames], ["tag", {}]]) {
+    const select = document.getElementById("filter-" + field);
+    const values = [...new Set(works.flatMap(work => field === "tag" ? work.tags : [work[field]]))];
+    for (const value of values) {
+      const option = document.createElement("option"); option.value = value; option.textContent = labels[value] || value; select.append(option);
+    }
+    select.addEventListener("change", () => { state[field] = select.value; renderResults(); });
+  }
+  document.getElementById("filter-toggle").addEventListener("click", event => {
+    const panel = document.getElementById("filter-panel");
+    panel.hidden = !panel.hidden;
+    event.currentTarget.setAttribute("aria-expanded", String(!panel.hidden));
+    if (!panel.hidden) document.getElementById("filter-area").focus({ preventScroll: true });
+    announceChange();
+  });
+  document.getElementById("clear-filters").addEventListener("click", () => {
+    for (const field of ["area", "type", "tag"]) { state[field] = ""; document.getElementById("filter-" + field).value = ""; }
+    renderResults();
+  });
+  document.getElementById("group-by-area").addEventListener("change", event => { state.grouped = event.target.checked; renderResults(); });
+  selectFloor(state.floor);
 })();
+
+
+
+
 
 
 

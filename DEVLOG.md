@@ -92,3 +92,18 @@
 - Mantidos 100 slots e os metadados existentes, em uma única fileira por parede nas duas áreas principais. Números menores no enquadramento inicial e ampliados proporcionalmente com o mapa, conforme orientação posterior do usuário. Alvos com mínimo de 44px; na visão geral, quando próximos, o toque é resolvido pelo centro mais próximo antes de acionar a seleção existente.
 - Arraste não seleciona obra. Zoom/arraste bloqueados enquanto o painel está aberto; troca de andar restaura o enquadramento. Acrescentadas alternativas de teclado e estado acessível do percentual.
 - Verificação: sintaxe JS, 100 números sequenciais e fileira única por parede. Edge em 320x568, 375x812 e 960x900 aprovou paleta/cabeçalho/link, zoom proporcional, arraste real via eventos de mouse e toque, ausência de seleção durante arraste, reset, seleção e troca de andar. Realizada inspeção das capturas de tela.
+
+## 2026-09-15 — navegação e exploração compartilhadas
+
+- Criados header/sub-nav sticky com compactação sem deslocamento do conteúdo, modos MAPA/LISTA, seleção de andar e filtros combinados por área, tipo e tag. Lista agrupável por área abre a mesma ficha e compartilha filtros/seleção com o mapa.
+- Acrescentados area, type e tags[] às obras mock, incluindo pintura, fotografia, colagem e escultura. Configuração dos slots e geometria do mapa preservadas.
+- TENHO INTERESSE movido para rodapé fixo do painel expandido, sem fluxo de proposta. Gestos do bottom sheet preservados.
+- Adicionado OUVIR ESTA TELA com início/parada, texto semântico do contexto atual e somente vozes locais via speechSynthesis; mensagem de indisponibilidade quando necessário. Sem serviços externos ou dependências.
+- Edge em 320x568, 375x812 e 960x900: aprovados filtros/estados vazios, agrupamento, seleção entre modos, restauração de foco, zoom preservado, rodapé fixo e compactação sem salto. Integração de fala testada com síntese simulada para texto/voz local/cancelamento; API nativa confirmou voz local disponível. Reprodução audível em dispositivo físico não validada.
+
+## 2026-09-15 — área útil, pinch e exploração por clusters
+
+- Navegação e filtros reunidos na pilha sticky; mapa sem margens/painéis laterais ocupa a largura e altura restantes. ResizeObserver e visualViewport recalculam fit; telas baixas usam header compacto. Chevron recolhe/reabre opções sem perder filtros; zoom não as fecha.
+- Substituído o zoom por um único estado de escala/posição com Pointer Events: pinch ancorado no ponto médio, pan limitado, botões/teclado e reset para a planta inteira. Em fit, gesto vertical permite compactar a navegação; scroll fora do mapa permanece nativo.
+- Removidos somente os textos visíveis do SVG. Clusters por proximidade separam progressivamente os slots; miniaturas locais surgem a partir de 400% apenas nas obras individuais visíveis. Mantidos os 100 slots, coordenadas, cadastro e gestos do bottom sheet.
+- Validação no Edge headless em 320×568, 375×812 e 812×375: área útil/overflow, filtros preservados ao ampliar, pinch e pan com eventos nativos de toque, estabilidade matemática do ponto sob os dedos, clusters, miniaturas sob demanda (6 na região testada, nenhuma em fit), ficha compartilhada e compactação/reabertura de filtros. Sintaxe JS e hashes de config.js/sheet.js conferidos. Teste em aparelho físico/iOS ainda não realizado.
