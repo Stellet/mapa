@@ -175,6 +175,32 @@ main#exploration { max-width: none; padding: 0; }
 #map-svg .map-cluster { display: flex; flex-direction: column; align-items: center; justify-content: center; border-width: var(--marker-unit); line-height: 1.1; }
 #map-svg .cluster-count { font-size: calc(18 * var(--marker-unit)); }
 #map-svg .cluster-range { font-size: calc(9 * var(--marker-unit)); margin-top: calc(2 * var(--marker-unit)); white-space: nowrap; }
+.cluster-fan {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: max-content;
+  max-width: calc(100% - 16px);
+  max-height: calc(100% - 16px);
+  padding: 4px;
+  overflow: auto;
+  border: 1px solid #fff;
+  background: #000;
+}
+.cluster-fan-item {
+  flex: 0 0 44px;
+  width: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 1px solid #fff;
+  background: #000;
+  color: #fff;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+}
 
 
 #map-top-sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }

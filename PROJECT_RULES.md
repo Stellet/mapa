@@ -1,4 +1,4 @@
-﻿# Regras do projeto
+# Regras do projeto
 
 - O usuário atua como designer/UX; implementação e arquitetura ficam com Codex/ChatGPT.
 - Priorizar simplicidade, baixo peso e zero dependências quando possível.
@@ -43,7 +43,7 @@ Wireframe estático com exploração por mapa e lista. Andar 1 contém 100 slots
 - Não depender de rotação CSS para posicionar os slots.
 - Os SVGs finais devem ter viewBox vertical.
 - As posições x/y dos slots devem corresponder diretamente à orientação exibida.
-- No 1º andar, a região de acesso fica na parte inferior do mapa.
+- No 1º andar, a entrada fica no topo do mapa, conforme a organização espacial atual confirmada pelo usuário.
 - Manter a possibilidade futura de indicar ENTRADA / VOCÊ ESTÁ AQUI.
 - Esta decisão orienta a preparação futura das plantas e posições; não altera a interface nesta etapa.
 
@@ -52,11 +52,11 @@ Wireframe estático com exploração por mapa e lista. Andar 1 contém 100 slots
 - MAPA e LISTA compartilham andar e seleção; ambos abrem o mesmo bottom sheet.
 - Cada obra possui area (identificador interno), type e tags[]. O vínculo andar + slot e as coordenadas permanecem separados.
 - A interface não possui filtros. Área, tipo e tags permanecem nos dados; mudar de modo mantém a seleção e trocar de andar fecha o painel.
-- A lista permite agrupamento por área. Nomes públicos continuam SALA 1 e SALA 2.
+- A lista permite agrupamento por área. No 1º andar, os metadados internos distinguem Áreas 1 a 5.
 - Header e sub-nav formam uma pilha sticky. O mapa usa toda a largura e a altura disponível abaixo dessa pilha; mudanças de viewport e orientação recalculam o enquadramento. Em telas baixas o header inicia compacto.
 - O botão TENHO INTERESSE permanece no rodapé do painel expandido, ainda demonstrativo, sem formulário, backend ou proposta.
 - OUVIR TELA usa somente speechSynthesis e vozes locais do dispositivo. A fala deriva do conteúdo textual/semântico do modo atual ou da ficha aberta; não interpreta o desenho do mapa. Preservar os controles semânticos para leitores de tela.
-- As coordenadas, cadastro e geometria permanecem separados da exploração. Não incluir mezanino ou backend/propostas nesta etapa.
+- As coordenadas, cadastro e geometria permanecem separados da exploração. O mezanino é um nível distinto nos dados, acima das Áreas 1, 2 e 3; suas posições definitivas ainda dependem de validação. Backend/propostas continuam fora do escopo.
 
 ## Motor de mapa e navegação
 
@@ -71,3 +71,10 @@ Wireframe estático com exploração por mapa e lista. Andar 1 contém 100 slots
 
 
 
+
+## Organização espacial atual do 1º andar
+
+- Entrada no topo. Na parte superior: Área 3 à esquerda, Área 1 à direita e Área 2 na parede transversal inferior; rampa de skate central e Som/DJ junto à Área 2.
+- Mezanino acima das Áreas 1, 2 e 3, com nível `mezzanine` e faixas paralelas próprias, separadas do nível `main`.
+- Na parte inferior: Área 5 à esquerda, Área 4 à direita, bar abaixo da Área 5, escada do 2º andar no extremo inferior esquerdo e banheiros no bloco inferior direito.
+- Áreas não são rotuladas dentro do SVG. Preservar geometria existente onde a função não estiver confirmada; posições finais dos slots ainda não definidas.

@@ -1,7 +1,8 @@
-﻿"use strict";
+"use strict";
 (() => {
   const viewport = document.getElementById("map-viewport"), svg = document.getElementById("map-svg");
   const content = document.getElementById("map-content"), slots = document.getElementById("slots"), clusters = document.getElementById("map-clusters");
+  const fan = document.getElementById("cluster-fan");
   const minus = document.getElementById("zoom-out"), plus = document.getElementById("zoom-in"), reset = document.getElementById("zoom-reset");
   // O viewBox faz fit-width; toda navegação ocorre nas unidades do SVG raiz.
   const state = { x: 0, y: 0, scale: 1 };
@@ -9,6 +10,37 @@
   let floor, frame = 0, gesture = null, moved = false, tapTarget = null, ignoreClickUntil = 0;
   const blocked = () => document.body.classList.contains("sheet-open");
   const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+  let fanTrigger = null;
+  function closeFan() {
+    if (fan.hidden) return;
+    fan.hidden = true; fan.replaceChildren();
+    fanTrigger?.setAttribute("aria-expanded", "false"); fanTrigger = null;
+  }
+  function positionFan(trigger) {
+    const viewportRect = viewport.getBoundingClientRect(), triggerRect = trigger.getBoundingClientRect();
+    const gap = 8, centerX = triggerRect.left + triggerRect.width / 2 - viewportRect.left;
+    const centerY = triggerRect.top + triggerRect.height / 2 - viewportRect.top;
+    const width = fan.offsetWidth, height = fan.offsetHeight;
+    let left = centerX - width / 2;
+    let top = centerY + triggerRect.height / 2 + gap;
+    if (top + height > viewport.clientHeight - gap) top = centerY - triggerRect.height / 2 - height - gap;
+    fan.style.left = clamp(left, gap, Math.max(gap, viewport.clientWidth - width - gap)) + "px";
+    fan.style.top = clamp(top, gap, Math.max(gap, viewport.clientHeight - height - gap)) + "px";
+  }
+  function openFan(items, trigger) {
+    closeFan();
+    const fragment = document.createDocumentFragment();
+    [...items].sort((a, b) => Number(a.button.dataset.slot) - Number(b.button.dataset.slot)).forEach(item => {
+      const number = item.button.dataset.slot.padStart(2, "0");
+      const button = document.createElement("button");
+      button.type = "button"; button.className = "cluster-fan-item"; button.textContent = number;
+      button.setAttribute("aria-label", item.button.getAttribute("aria-label") || "Abrir obra " + number);
+      button.addEventListener("click", () => { closeFan(); item.button.click(); });
+      fragment.append(button);
+    });
+    fan.append(fragment); fan.hidden = false; fanTrigger = trigger;
+    trigger.setAttribute("aria-expanded", "true"); positionFan(trigger);
+  }
   function svgPoint(event) {
     const point = svg.createSVGPoint(); point.x = event.clientX; point.y = event.clientY;
     return point.matrixTransform(svg.getScreenCTM().inverse());
@@ -63,6 +95,7 @@
       group.items.push({ button, x, y });
     }
     const focusedKey = document.activeElement?.dataset.cluster;
+    const openKey = fanTrigger?.dataset.cluster;
     clusters.replaceChildren();
     for (const group of groups) {
       const x = group.items.reduce((sum, p) => sum + p.x, 0) / group.items.length;
@@ -92,14 +125,19 @@
       const count = document.createElement("span"), range = document.createElement("span");
       count.className = "cluster-count"; count.textContent = numbers.length;
       range.className = "cluster-range"; range.textContent = clusterLabel(numbers); button.append(count, range);
-      button.setAttribute("aria-label", "Ampliar grupo de " + numbers.length + " obras: " + numbers.join(", "));
+      button.setAttribute("aria-label", "Abrir grupo de " + numbers.length + " obras: " + numbers.join(", "));
+      button.setAttribute("aria-haspopup", "true"); button.setAttribute("aria-expanded", "false");
       button.addEventListener("click", () => {
         if (blocked()) return;
-        zoomAt(state.scale * 2, { x: state.x + x * state.scale, y: state.y + y * state.scale });
-        viewport.focus({ preventScroll: true });
+        openFan(group.items, button);
       });
       clusters.append(button);
       if (button.dataset.cluster === focusedKey) button.focus({ preventScroll: true });
+    }
+    if (openKey) {
+      const current = [...clusters.children].find(button => button.dataset.cluster === openKey);
+      if (current) { fanTrigger = current; current.setAttribute("aria-expanded", "true"); positionFan(current); }
+      else closeFan();
     }
   }
   function begin() {
@@ -115,6 +153,10 @@
     if (!pointers.size) { moved = false; tapTarget = event.target.closest(".slot, .map-cluster"); }
     pointers.set(event.pointerId, svgPoint(event)); svg.setPointerCapture(event.pointerId); begin();
   });
+  document.addEventListener("pointerdown", event => {
+    if (!fan.hidden && !fan.contains(event.target) && !event.target.closest(".map-cluster")) closeFan();
+  }, true);
+  document.addEventListener("keydown", event => { if (event.key === "Escape") closeFan(); });
   svg.addEventListener("pointermove", event => {
     if (!pointers.has(event.pointerId) || blocked()) return;
     const previous = pointers.get(event.pointerId), point = svgPoint(event);
@@ -171,7 +213,7 @@
   window.EXHIBITION_MAP = {
     refresh: schedule,
     setFloor(next) {
-      floor = next; clusters.replaceChildren();
+      floor = next; closeFan(); clusters.replaceChildren();
       document.getElementById("map-controls").hidden = !floor.realMap;
       viewport.dataset.interactive = String(Boolean(floor.realMap)); fit();
     }

@@ -1,4 +1,4 @@
-﻿"use strict";
+"use strict";
 
 (() => {
   const config = window.EXHIBITION_CONFIG;
@@ -10,7 +10,7 @@
   const closeButton = document.getElementById("close-sheet");
   let selectedButton = null;
   const state = { floor: config.initialFloor, mode: "map", selected: null, grouped: true };
-  const areaNames = { "area-loja-14": "SALA 1", "area-escritorios": "SALA 2" };
+  const areaNames = { "area-1": "ÁREA 1", "area-2": "ÁREA 2", "area-3": "ÁREA 3", "area-4": "ÁREA 4", "area-5": "ÁREA 5" };
   const typeNames = { pintura: "Pintura", fotografia: "Fotografia", colagem: "Colagem", escultura: "Escultura" };
 
   function closeSheet(restoreFocus = false) {
@@ -74,9 +74,9 @@
     map.parentElement.dataset.real = String(Boolean(floor.realMap));
     document.getElementById("map-caption").textContent = floor.realMap ? "Planta simplificada" : "Planta provisória";
     document.getElementById("map-instructions").textContent = floor.realMap
-      ? "Arraste para explorar. Amplie com dois dedos, com a roda do mouse ou +. Grupos indicam quantidade e numeração das obras; toque para ampliar. Selecione um número para abrir a ficha. O percentual restaura 100%, ajustando a planta à largura."
+      ? "Arraste para explorar. Amplie com dois dedos, com a roda do mouse ou +. Grupos indicam quantidade e numeração das obras; toque para escolher uma obra do grupo. Selecione um número para abrir a ficha. O percentual restaura 100%, ajustando a planta à largura."
       : "Toque em um número para selecionar uma obra.";
-    map.setAttribute("aria-label", floor.realMap ? "Planta simplificada do primeiro andar, com Sala 1, Sala 2, banheiros, acesso inferior, escada e salão lateral" : `Planta esquemática provisória do andar ${id}`);
+    map.setAttribute("aria-label", floor.realMap ? "Planta simplificada do primeiro andar, com entrada superior, rampa central, mezanino, bar, escada e banheiros" : `Planta esquemática provisória do andar ${id}`);
     slots.replaceChildren();
     for (const slot of floor.slots) {
       const button = document.createElement("button");

@@ -1,4 +1,4 @@
-﻿"use strict";
+"use strict";
 
 // Conteúdo fictício local; a futura exportação manterá o vínculo andar + slot.
 (() => {
@@ -25,6 +25,7 @@
   window.EXHIBITION_DATA = Array.from({ length: 100 }, (_, index) => ({
     floor: 1, slot: index + 1,
     area: window.EXHIBITION_CONFIG.floors[0].slots[index].areaId,
+    level: window.EXHIBITION_CONFIG.floors[0].slots[index].level,
     type: ["pintura", "fotografia", "colagem", "escultura"][index % 4],
     tags: index % 2 ? ["memória", "cidade"] : ["rios", "natureza"],
     ...samples[index % samples.length],

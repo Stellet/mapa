@@ -143,3 +143,17 @@
 - 2026-09-16: régua de patrocinadores adicionada no fluxo normal logo após o container do mapa, com largura integral, proporção preservada e espaço inferior para o footer fixo; permanece fora do SVG e do zoom/pan.
 - 2026-09-16: régua movida para faixa fixa acima do footer de versão/local/Instagram; alturas medidas das duas faixas reservadas no mapa e bottom sheet. APP_VERSION atualizado para 2026.09.16-1514 (padrão YYYY.MM.DD-HHMM).
 - 2026-09-16: controles de zoom centralizados no topo do mapa com largura limitada ao container; altura visual reduzida e alvos de toque de 40×36px, eliminando o min-width herdado que causava overflow.
+
+
+## 2026-09-16 — interação dos clusters
+
+- O toque em um cluster abre diretamente um leque reposicionado dentro do mapa; cada número seleciona a obra no bottom sheet existente. Toque externo, Escape, troca de cluster ou andar fecham o leque, sem alterar agrupamento ou zoom/pan. Sintaxe JS validada; teste visual/touch no navegador permanece pendente.
+
+## 2026-09-16 — estrutura espacial do 1º andar
+
+- Estrutura interna atualizada para Áreas 1–5 e níveis main/mezzanine, com faixas paralelas reservadas nas Áreas 1–3. As 100 coordenadas de slots foram preservadas sem alteração.
+- SVG mantém a geometria estrutural confirmada pela planta local e corrige a entrada para o topo; elementos funcionais ficam em metadados internos, sem rótulos no mapa. Sintaxe JS, XML e vínculos area/level validados.
+
+## 2026-09-16 — mapa atual do 1º andar
+
+- SVG corrigido conforme o rascunho local: entrada superior, circulação pelo lado direito, ambientes inferiores sem espelhamento e mezanino visível como três faixas hachuradas com paredes paralelas. Proporções apoiadas na planta arquitetônica disponível; slots e interações preservados.

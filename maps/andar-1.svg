@@ -1,33 +1,57 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1780" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1780" role="img" aria-labelledby="title desc">
   <title id="title">Planta simplificada do primeiro andar</title>
-  <desc id="desc">Planta vertical, orientada noventa graus no sentido horário em relação ao original. Acesso inferior, escada e salão lateral próximos à entrada; SALA 1 e SALA 2 nos dois espaços alongados; BANHEIROS junto ao acesso, antes da escada.</desc>
+  <desc id="desc">Planta vertical baseada na referência arquitetônica e na organização espacial atual. A entrada fica no topo. A área superior tem rampa central, som e DJ junto à parede transversal, e mezanino nas paredes esquerda, direita e transversal. A circulação segue pelo lado direito até a parte inferior, com bar e escada à esquerda e banheiros à direita.</desc>
+  <defs>
+    <pattern id="mezzanine-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <path d="M0 0V10" fill="none" stroke="#fff" stroke-width="1"/>
+    </pattern>
+  </defs>
   <g fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="miter">
-    <!-- Contorno: abertura inferior corresponde ao acesso pela extremidade direita do original. -->
-    <!-- Portas da entrada principal no topo: manter vãos livres, sem slots. -->
-    <path d="M220 1715V1500H40V40H110 M155 40H170 M210 40H280V1715"/>
-    <!-- Divisão entre os dois ambientes principais; passagem junto à parede esquerda. -->
-    <path d="M280 620H115V660H85 M40 660H50"/>
-    <!-- Elevador e pequeno recinto adjacente, sem equipamentos técnicos. -->
-    <path d="M40 775H90V680H40 M48 696H80V760H48Z M48 696L80 760 M80 696L48 760"/>
-    <!-- Depósito e núcleo de apoio junto ao acesso. -->
-    <path d="M280 1135H225V1170 M225 1185V1195H280 M220 1220H280 M220 1220V1250 M220 1272V1310H280 M250 1220V1310"/>
-    <!-- Divisão do salão e obstáculos de alvenaria na circulação. -->
-    <path d="M40 1220H58 M106 1220H175V1195H205 M106 1220V1240H160V1500"/>
-    <!-- Escada longitudinal, com patamar livre acima e abaixo. -->
-    <path d="M175 1350H215V1485H175Z M175 1370H215 M175 1380H215 M175 1390H215 M175 1400H215 M175 1410H215 M175 1420H215 M175 1430H215 M175 1440H215 M175 1450H215 M175 1460H215 M175 1470H215" stroke-width="1.5"/>
-    <!-- Pilares/reentrâncias que afetam a passagem. -->
-    <path d="M90 40V52H110V40 M155 40V52H170V40 M210 40V52H225V40"/>
-    <path d="M48 95H88V135H48Z M48 95L88 135 M88 95L48 135"/>
-    <path d="M230 240H260V290H230Z M235 280L255 250 M249 253L255 250L256 256" stroke-width="1.5"/>
-    <!-- Direção de chegada. -->
-    <path d="M250 1750V1725 M244 1733L250 1725L256 1733" stroke-width="1.5"/>
+    <!-- Contorno e entrada superior, proporcionados a partir da planta arquitetônica. -->
+    <path id="outline" d="M40 50H142 M218 50H280V605H310V1375H280V1715H165 M115 1715H40V50"/>
+    <!-- Área superior: Área 3 à esquerda, Área 1 à direita e Área 2 transversal. -->
+    <g id="upper-main-walls" data-level="main">
+      <path id="area-3-main" data-area="area-3" d="M40 115V605"/>
+      <path id="area-1-main" data-area="area-1" d="M280 115V605"/>
+      <path id="area-2-main" data-area="area-2" d="M40 605H238"/>
+    </g>
+    <!-- Mezanino: segunda parede paralela e faixa hachurada nas Áreas 1, 2 e 3. -->
+    <g id="mezzanine" data-level="mezzanine">
+      <path id="area-3-mezzanine" data-area="area-3" d="M72 115V573"/>
+      <path id="area-1-mezzanine" data-area="area-1" d="M248 115V573"/>
+      <path id="area-2-mezzanine" data-area="area-2" d="M72 573H238"/>
+      <path d="M40 115H72V573H40Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
+      <path d="M248 115H280V573H248Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
+      <path d="M72 573H238V605H72Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
+    </g>    <!-- Rampa central da área superior. -->
+    <g id="skate-ramp">
+      <path d="M103 205H221V425H103Z"/>
+      <path d="M116 397L208 233 M188 233H208V253" stroke-width="1.5"/>
+    </g>
+    <!-- Som/DJ junto à Área 2, preservando a circulação lateral direita. -->
+    <path id="sound-dj" d="M100 486H218V552H100Z"/>
+    <!-- Circulação: sai pela abertura direita da Área 2 sem espelhar o percurso. -->
+    <path id="circulation" d="M238 605H280 M238 605V688H115"/>
+    <path d="M280 605H310V745H270" stroke-width="1.5"/>
+    <!-- Obstáculo estrutural entre a área superior e a inferior. -->
+    <path id="upper-lower-obstacle" d="M40 688H115V790H40 M48 704H107V774H48Z M48 704L107 774 M107 704L48 774"/>
+    <!-- Parte inferior: Área 5 à esquerda e Área 4 à direita. -->
+    <path id="area-5-main" data-area="area-5" data-level="main" d="M40 790V1215"/>
+    <path id="area-4-main" data-area="area-4" data-level="main" d="M280 745V1375"/>
+    <!-- Bar abaixo da Área 5. -->
+    <path id="bar" d="M40 1215H126V1510H40 M68 1248H110V1478H68Z"/>
+    <!-- Escada para o segundo andar no extremo inferior esquerdo. -->
+    <g id="stairs-floor-2" stroke-width="1.5">
+      <path d="M40 1510H126V1715H40Z"/>
+      <path d="M40 1528H126 M40 1546H126 M40 1564H126 M40 1582H126 M40 1600H126 M40 1618H126 M40 1636H126 M40 1654H126 M40 1672H126 M40 1690H126"/>
+    </g>
+    <!-- Banheiros no bloco inferior direito. -->
+    <g id="bathrooms">
+      <path d="M165 1375H280V1715H165Z"/>
+      <path d="M165 1518H280 M223 1375V1715"/>
+      <path d="M165 1440H187 M165 1590H187"/>
+    </g>
+    <!-- Direção de entrada pelo topo. -->
+    <path id="entrance-direction" d="M180 10V42 M172 33L180 42L188 33" stroke-width="1.5"/>
   </g>
-
 </svg>
-
-
-
-
-
-
-
