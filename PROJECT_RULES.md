@@ -62,7 +62,7 @@ Wireframe estático com exploração por mapa e lista. Andar 1 contém 100 slots
 
 - O SVG exibe apenas geometria, sem rótulos visuais internos. Áreas permanecem nos dados e na lista.
 - Pointer Events ficam no SVG raiz; clientX/clientY são convertidos por createSVGPoint e getScreenCTM().inverse(). Pan, pinch pelo ponto médio, wheel ancorado no cursor e botões compartilham { x, y, scale }, aplicado somente ao grupo interno map-content, sem transform CSS concorrente.
-- 100% ajusta a planta à largura disponível (fit-width), sem expor a escala antiga. Reset e redimensionamento recalculam esse enquadramento. Pan funciona desde 100%; os limites se aplicam à posição final, não aos deltas.
+- 100% ajusta a planta à largura disponível (fit-width), sem expor a escala antiga. O zoom pode descer até 20% para visão geral; reset e redimensionamento voltam a 100%. Os limites se aplicam à posição final, não aos deltas.
 - Clusters por proximidade na tela separam progressivamente os slots conforme o zoom. Exibir quantidade maior e intervalo abaixo somente para slots contíguos; grupos não contíguos usam lista compacta com reticências quando necessário. Todos os números permanecem no nome acessível. Agrupar não altera coordenadas nem cadastro.
 - Miniaturas locais aparecem a partir de 400%, somente para slots individuais visíveis; não pré-carregar as 100 imagens. Número e seleção continuam acessíveis.
 - Sub-nav em uma linha desde 320px: MAPA / LISTA | ANDAR 1 / 2 | OUVIR TELA, com separadores verticais e estados ativos. A compactação sticky continua controlada pela sentinela. O andar 3 permanece apenas na configuração, sem controle visível.
@@ -85,4 +85,9 @@ Wireframe estático com exploração por mapa e lista. Andar 1 contém 100 slots
 
 ## Editor local de posições
 
-- O parâmetro ?edit=1 ativa somente no navegador local os modos NAVEGAR e POSICIONAR do 1º andar. Posições usam coordenadas internas do SVG, persistem temporariamente em localStorage e podem ser exportadas como JSON com id, x, y e level. A URL pública não exibe nem ativa o editor.
+- O parâmetro ?edit=1 ativa somente no navegador local os modos NAVEGAR e POSICIONAR do 1º andar. Seu menu fica na pilha sticky, acima do header e fora do mapa. Posições usam coordenadas internas do SVG, persistem temporariamente em localStorage e podem ser exportadas como JSON com id, x, y e level. A URL pública não exibe nem ativa o editor.
+
+## Arquivos de posições
+
+- O 1º e o 2º andar carregam posições de data/positions-floor-1.json e data/positions-floor-2.json. Cada arquivo usa chaves numéricas com objetos x, y e level; arquivo ausente ou inválido preserva a configuração de fallback em js/config.js.
+- EXPORTAR POSIÇÕES no modo ?edit=1 gera o mesmo formato de positions-floor-1.json.

@@ -179,6 +179,9 @@
   }
   document.getElementById("group-by-area").addEventListener("change", event => { state.grouped = event.target.checked; renderResults(); });
   selectFloor(state.floor);
+  if (!window.POSITIONS_LOADED) {
+    document.addEventListener("positionsready", () => selectFloor(state.floor), { once: true });
+  }
 })();
 
 

@@ -1,7 +1,10 @@
 "use strict";
 
-(() => {
-  if (new URLSearchParams(window.location.search).get("edit") !== "1") return;
+(async () => {
+  const url = new URL(window.location.href);
+  if (url.searchParams.get("edit") !== "1") return;
+  document.body.classList.add("edit-mode");
+  await window.POSITIONS_READY;
 
   const floor = window.EXHIBITION_CONFIG.floors.find(item => item.id === 1);
   const viewport = document.getElementById("map-viewport");
@@ -25,12 +28,14 @@
   }
 
   function exportPositions() {
-    return floor.slots.map(slot => ({
-      id: slot.number,
-      x: Number((slot.x / 100 * 360).toFixed(2)),
-      y: Number((slot.y / 100 * 1780).toFixed(2)),
-      level: slot.level || "main"
-    }));
+    return Object.fromEntries(floor.slots.map(slot => [
+      String(slot.number),
+      {
+        x: Number((slot.x / 100 * 360).toFixed(2)),
+        y: Number((slot.y / 100 * 1780).toFixed(2)),
+        level: slot.level || "main"
+      }
+    ]));
   }
 
   function save() {
@@ -39,8 +44,9 @@
 
   function restore() {
     try {
-      const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
-      const byId = new Map(saved.map(item => [Number(item.id), item]));
+      const saved = JSON.parse(localStorage.getItem(storageKey) || "{}");
+      const entries = Array.isArray(saved) ? saved.map(item => [item.id, item]) : Object.entries(saved);
+      const byId = new Map(entries.map(([id, item]) => [Number(id), item]));
       for (const slot of floor.slots) {
         const item = byId.get(slot.number);
         if (!item || !Number.isFinite(item.x) || !Number.isFinite(item.y)) continue;
@@ -62,8 +68,9 @@
     </div>
     <p class="map-editor-selection" aria-live="polite">OBRA SELECIONADA: —</p>
     <button type="button" class="map-editor-export">EXPORTAR POSIÇÕES</button>
+    <button type="button" class="map-editor-exit">SAIR DO EDITOR</button>
   `;
-  document.getElementById("map-view").append(panel);
+  document.getElementById("navigation-shell").prepend(panel);
 
   const selectionLabel = panel.querySelector(".map-editor-selection");
   function select(number) {
@@ -106,9 +113,13 @@
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = "andar-1-posicoes.json";
+    link.download = "positions-floor-1.json";
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 0);
+  });
+  panel.querySelector(".map-editor-exit").addEventListener("click", () => {
+    url.searchParams.delete("edit");
+    window.location.assign(url.pathname + url.search + url.hash);
   });
   svg.addEventListener("pointerdown", event => {
     if (mode !== "position" || !floorOneActive() || (event.pointerType === "mouse" && event.button !== 0)) return;
@@ -169,7 +180,6 @@ function floorOneActive() {
   }
 
   restore();
-  document.body.classList.add("edit-mode");
   select(null);
   setMode("navigate");
   syncFloor();

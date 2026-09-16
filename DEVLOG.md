@@ -171,3 +171,19 @@
 
 - Reorganizados somente os 100 slots em config.js: Sala 1 ocupa 01–53, iniciando no canto superior direito, passando pela parede atrás do DJ e continuando no mezanino separado; Sala 2 ocupa 54–100 pelas paredes inferiores.
 - Numeração sequencial, contagens, ausência de coordenadas duplicadas e vínculos main/mezzanine validados. SVG, zoom, UI e js/data.js permaneceram inalterados.
+
+## 2026-09-16 — posições externas por andar
+
+- Posições dos andares 1 e 2 passam a ser lidas de data/positions-floor-1.json e data/positions-floor-2.json, com fallback integral para config.js em ausência ou conteúdo inválido. O arquivo do 1º andar contém os 100 pontos atuais; o 2º permanece vazio.
+- O editor local agora persiste e exporta positions-floor-1.json como objeto indexado por id, contendo somente x, y e level. Sintaxe, carregamento válido e fallback inválido foram verificados.
+
+## 2026-09-16 — menu do editor e zoom reduzido
+
+- Menu de ?edit=1 movido para a pilha sticky acima do header, fora do mapa. Zoom mínimo reduzido a 20% para botões, wheel e pinch; limites centralizam o mapa quando ele cabe na viewport e reset continua em 100%.
+- Edge headless em 320×720 confirmou menu acima do logo sem cobrir o mapa, mínimo de 20% e reset para 100%.
+
+
+## 2026-09-16 — acesso temporário ao editor e créditos
+
+- Adicionado EDITAR MAPA no footer; em ?edit=1, o painel completo substitui header/sub-nav e oferece SAIR DO EDITOR. Footer mantém build e régua, com créditos e links externos de Lado B e NebulaDevs.
+- REMOVER botão/modo de acesso ao editor antes da versão final pública.

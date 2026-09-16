@@ -6,6 +6,7 @@
   const minus = document.getElementById("zoom-out"), plus = document.getElementById("zoom-in"), reset = document.getElementById("zoom-reset");
   // O viewBox faz fit-width; toda navegação ocorre nas unidades do SVG raiz.
   const state = { x: 0, y: 0, scale: 1 };
+  const minScale = 0.2;
   const pointers = new Map();
   let floor, frame = 0, gesture = null, moved = false, tapTarget = null, ignoreClickUntil = 0;
   const blocked = () => document.body.classList.contains("sheet-open");
@@ -47,8 +48,9 @@
   }
   function constrain() {
     const height = svg.viewBox.baseVal.height;
-    state.x = clamp(state.x, 360 - 360 * state.scale, 0);
-    state.y = clamp(state.y, Math.min(0, height - 1780 * state.scale), Math.max(0, height - 1780 * state.scale));
+    const mapWidth = 360 * state.scale, mapHeight = 1780 * state.scale;
+    state.x = mapWidth <= 360 ? (360 - mapWidth) / 2 : clamp(state.x, 360 - mapWidth, 0);
+    state.y = mapHeight <= height ? (height - mapHeight) / 2 : clamp(state.y, height - mapHeight, 0);
   }
   function schedule() { if (!frame) frame = requestAnimationFrame(() => { frame = 0; render(); }); }
   function clearPointers() {
@@ -63,7 +65,7 @@
   }
   function zoomAt(scale, point) {
     const world = { x: (point.x - state.x) / state.scale, y: (point.y - state.y) / state.scale };
-    state.scale = clamp(scale, 1, 32);
+    state.scale = clamp(scale, minScale, 32);
     state.x = point.x - world.x * state.scale; state.y = point.y - world.y * state.scale;
     constrain(); schedule();
   }
@@ -79,7 +81,7 @@
     viewport.dataset.zoomed = String(state.scale > 1.001);
     reset.textContent = Math.round(state.scale * 100) + "%";
     document.getElementById("zoom-status").textContent = "Zoom " + reset.textContent;
-    minus.disabled = blocked() || state.scale <= 1; plus.disabled = blocked() || state.scale >= 32; reset.disabled = blocked();
+    minus.disabled = blocked() || state.scale <= minScale; plus.disabled = blocked() || state.scale >= 32; reset.disabled = blocked();
     const pixels = svg.getScreenCTM().a * state.scale;
     content.style.setProperty("--marker-unit", 1 / pixels + "px");
     const size = 44 / pixels, groups = [];
@@ -164,7 +166,7 @@
     if (!gesture) return;
     if (gesture.kind === "pinch") {
       const [a, b] = [...pointers.values()];
-      state.scale = clamp(gesture.scale * Math.hypot(a.x - b.x, a.y - b.y) / gesture.distance, 1, 32);
+      state.scale = clamp(gesture.scale * Math.hypot(a.x - b.x, a.y - b.y) / gesture.distance, minScale, 32);
       state.x = (a.x + b.x) / 2 - gesture.wx * state.scale;
       state.y = (a.y + b.y) / 2 - gesture.wy * state.scale;
     } else {

@@ -1,4 +1,4 @@
-﻿* { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
 :root {
   font-family: Courier, serif;
@@ -217,8 +217,9 @@ body:has(#map-view:not([hidden])) { overflow-anchor: none; }
 :root { --footer-height: 33px; }
 body { padding-bottom: var(--footer-height); }
 .site-footer { position: fixed; inset: auto 0 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 8px; padding: 2px 8px calc(2px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid #fff; background: #000; color: #fff; font-size: 10px; line-height: 1.2; }
-.footer-venue { display: flex; align-items: center; gap: 8px; }
+.footer-credits { margin: 0; }
 .site-footer a { display: inline-flex; align-items: center; min-height: 24px; color: inherit; text-underline-offset: 3px; }
+.footer-edit { font-size: 9px; letter-spacing: .04em; }
 #app-version { font-size: 10px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .work-sheet { bottom: var(--footer-height); height: calc(100vh - var(--footer-height) - 16px); height: calc(100dvh - var(--footer-height) - 16px); }
 .sheet-footer { padding-bottom: 8px; }
@@ -353,14 +354,13 @@ body { padding-bottom: var(--footer-height); }
 
 /* Editor local: só existe quando editor.js valida ?edit=1. */
 .map-editor {
-  position: absolute;
-  top: 48px;
-  left: 8px;
+  position: relative;
   z-index: 6;
-  width: min(248px, calc(100% - 16px));
-  padding: 6px;
-  border: 1px solid #fff;
+  width: 100%;
+  padding: 4px 8px;
+  border-bottom: 1px solid #fff;
   background: #000;
+  pointer-events: auto;
 }
 .map-editor-modes {
   display: grid;
@@ -384,6 +384,10 @@ body { padding-bottom: var(--footer-height); }
   font-variant-numeric: tabular-nums;
 }
 .map-editor-export { width: 100%; }
+.map-editor-exit { width: 100%; margin-top: 4px; }
+body.edit-mode .site-header,
+body.edit-mode .sub-nav { display: none; }
+body.edit-mode .footer-edit { display: none; }
 body.edit-positioning #map-svg .map-cluster { display: none; }
 body.edit-positioning #map-viewport .slot.clustered { display: grid; }
 body.edit-positioning #map-viewport { cursor: crosshair; }
