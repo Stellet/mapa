@@ -63,10 +63,15 @@
     setState(sheet.dataset.state === "expanded" ? "partial" : "expanded");
   });
 
+  document.getElementById("sheet-more").addEventListener("click", () => {
+    setState("expanded");
+    content.focus({ preventScroll: true });
+  });
+
   // Um gesto pertence ao painel OU ao scroll nativo até terminar.
   // Chegar ao topo durante a rolagem exige um novo puxão para recolher.
   sheet.addEventListener("touchstart", event => {
-    if (event.touches.length !== 1 || event.target.closest("audio, #close-sheet")) {
+    if (event.touches.length !== 1 || event.target.closest("audio, #close-sheet, .sheet-partial-actions")) {
       touch = null;
       return;
     }
@@ -101,7 +106,7 @@
 
   // Mouse: arraste pelo cabeçalho. Touch utiliza os eventos acima.
   header.addEventListener("pointerdown", event => {
-    if (event.pointerType !== "mouse" || event.button !== 0 || event.target.closest("#close-sheet")) return;
+    if (event.pointerType !== "mouse" || event.button !== 0 || event.target.closest("#close-sheet, .sheet-partial-actions")) return;
     suppressClick = false;
     mouse = { y: event.clientY, partial: sheet.dataset.state === "partial", changed: false };
 
@@ -135,4 +140,5 @@
     }
   }, { passive: false });
 })();
+
 

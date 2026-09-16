@@ -16,33 +16,23 @@
     <a class="skip-link" href="#exploration">PULAR PARA AS OBRAS</a>
     <div id="navigation-shell" class="navigation-shell">
     <header class="site-header">
-      <h1>2ª RIOS—REAIS</h1>
-      <p class="exhibition-subtitle">“Ideias para adiar o fim dos Rios”</p>
-      <div class="venue-row"><span>CC-LADO B</span><a id="venue-instagram" href="https://www.instagram.com/___ladob/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a></div>
+      <h1 class="site-brand"><img src="assets/logo-riosreais.svg" width="4603" height="1801" alt="Rios Reais 2026"></h1>
     </header>
     <nav id="sub-nav" class="sub-nav" aria-label="Explorar exposição">
-      <p class="nav-caption">EXPLORAR A EXPOSIÇÃO</p>
-      <div class="nav-row">
-        <div class="mode-selector" role="group" aria-label="Modo de exploração">
-          <button type="button" data-mode="map" aria-pressed="true" aria-controls="map-view">MAPA</button>
-          <button type="button" data-mode="list" aria-pressed="false" aria-controls="list-view">LISTA</button>
-        </div>
-        <button id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">FILTROS</button>
+      <div class="mode-selector" role="group" aria-label="Modo de exploração">
+        <button type="button" data-mode="map" aria-pressed="true" aria-controls="map-view">MAPA</button>
+        <button type="button" data-mode="list" aria-pressed="false" aria-controls="list-view">LISTA</button>
       </div>
-      <div class="nav-row">
-        <div id="floor-selector" class="floor-selector" role="group" aria-label="Selecionar andar"></div>
-        <button id="speak-screen" type="button" aria-pressed="false" aria-describedby="speech-status">OUVIR ESTA TELA</button>
+      <span class="nav-separator" aria-hidden="true">|</span>
+      <div class="floor-control">
+        <span id="floor-label">ANDAR</span>
+        <div id="floor-selector" class="floor-selector" role="group" aria-labelledby="floor-label"></div>
+      </div>
+      <span class="nav-separator" aria-hidden="true">|</span>
+      <div class="speech-control">
+        <button id="speak-screen" type="button" aria-pressed="false" aria-describedby="speech-status">OUVIR TELA</button>
       </div>
     </nav>
-      <section id="filter-panel" aria-labelledby="filter-heading" hidden>
-        <h2 id="filter-heading">Filtros</h2>
-        <div class="filter-fields">
-          <label>Área<select id="filter-area"><option value="">Todas as áreas</option></select></label>
-          <label>Tipo<select id="filter-type"><option value="">Todos os tipos</option></select></label>
-          <label>Tag<select id="filter-tag"><option value="">Todas as tags</option></select></label>
-        </div>
-        <button id="clear-filters" type="button">LIMPAR FILTROS</button>
-      </section>
     </div>
     <main id="exploration" tabindex="-1">
 
@@ -63,7 +53,17 @@
         </div>
         <div id="map-viewport" class="map-viewport" tabindex="0" role="region" aria-label="Mapa do andar; use as setas para deslocar o mapa">
         <svg id="map-svg" class="map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 600" preserveAspectRatio="xMinYMin meet" role="group" aria-labelledby="map-heading" aria-describedby="map-instructions">
+          <defs>
+            <pattern id="map-grid-fine" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M20 0H0V20" fill="none" stroke="#fff" stroke-width="0.35" stroke-opacity="0.16" vector-effect="non-scaling-stroke" />
+            </pattern>
+            <pattern id="map-grid-major" width="100" height="100" patternUnits="userSpaceOnUse">
+              <rect width="100" height="100" fill="url(#map-grid-fine)" />
+              <path d="M100 0H0V100" fill="none" stroke="#fff" stroke-width="0.5" stroke-opacity="0.24" vector-effect="non-scaling-stroke" />
+            </pattern>
+          </defs>
           <g id="map-content">
+            <rect id="map-grid" x="0" y="0" width="360" height="1780" fill="url(#map-grid-major)" pointer-events="none" aria-hidden="true" />
             <image id="floor-map" href="maps/andar-1.svg" width="360" height="1780" aria-label="Planta do andar" />
             <foreignObject x="0" y="0" width="360" height="1780" class="map-overlay">
               <div xmlns="http://www.w3.org/1999/xhtml" class="map-markers">
@@ -74,6 +74,7 @@
           </g>
         </svg>
         </div>
+
         <p id="floor-status" role="status"></p>
       </section>
       <section id="list-view" aria-labelledby="list-heading" hidden>
@@ -91,13 +92,16 @@
           <div class="sheet-preview-info">
             <div class="sheet-heading-row">
               <p id="work-number" class="work-number" aria-live="polite" aria-atomic="true"></p>
-              <button id="close-sheet" type="button">FECHAR</button>
+              <button id="close-sheet" type="button" aria-label="Fechar painel"><span class="close-icon" aria-hidden="true">×</span><span class="close-label" aria-hidden="true">FECHAR</span></button>
             </div>
             <h2 id="work-heading"></h2>
             <p id="work-artist"></p>
           </div>
         </div>
-        <p class="sheet-expand-hint">↑ ARRASTE PARA VER MAIS</p>
+        <div id="sheet-partial-actions" class="sheet-partial-actions">
+          <button id="sheet-more" type="button" aria-controls="sheet-content">VER MAIS</button>
+          <button class="partial-interest" type="button" disabled aria-describedby="interest-note">TENHO INTERESSE</button>
+        </div>
       </header>
       <div id="sheet-content" class="sheet-content" tabindex="0" role="region" aria-label="Informações da obra">
         <img id="work-image" class="work-image" alt="" width="480" height="240">
@@ -116,8 +120,24 @@
         <button class="interest-button" type="button" disabled aria-describedby="interest-note">TENHO INTERESSE</button>
         <p id="interest-note" class="note">Botão demonstrativo. Contato ainda não disponível.</p></footer>
     </section>
+        <section class="sponsors-strip" aria-label="Patrocinadores e apoiadores">
+          <img src="assets/regua-patrocinadores-riosreais.svg" alt="Patrocinadores e apoiadores da exposição" width="4500" height="585" loading="lazy">
+        </section>
+    <footer id="site-footer" class="site-footer" aria-label="Local e versão do site">
+      <div class="footer-venue"><span>CC-LADO B</span><a id="venue-instagram" href="https://www.instagram.com/___ladob/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a></div>
+      <span id="app-version" aria-label="Versão do site"></span>
+    </footer>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 

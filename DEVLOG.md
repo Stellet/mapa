@@ -123,3 +123,23 @@
 
 - 2026-09-16: compactação do mapa controlada por sentinela + IntersectionObserver na zona sticky, com histerese e ancoragem automática desativada no modo mapa para evitar oscilações; retorno ao topo restaura header/sub-nav, sem alterar zoom/pan.
 - Validado no Edge mobile em 320/375px, com ciclos de descida/retorno e toque emulado: estados estáveis e valores dos filtros preservados. Aparelho físico não testado.
+
+- 2026-09-16: grid SVG fino inserido atrás da planta no mesmo grupo de pan/zoom; footer fixo com CC-LADO B, Instagram transferido do header e versão única APP_VERSION em config.js, exibida no rodapé e registrada no console.
+- Altura real do footer reservada no mapa, lista e bottom sheet; Edge em 320/375px e paisagem validou grid acompanhando navegação, versão/log e ausência de sobreposição. Motor de zoom/pan e gestos do painel preservados.
+
+- 2026-09-16: painel parcial recebeu fechamento “×” no canto superior direito (alvo de 44px) e ações VER MAIS / TENHO INTERESSE lado a lado na base; VER MAIS expande, interesse continua demonstrativo/desabilitado. Controles do estado expandido preservados.
+- Edge em 320/375px e paisagem validou espaço das ações, expansão e fechamento removendo a seleção; conteúdo, zoom/pan e filtros não alterados.
+- 2026-09-16: logo fornecida copiada de references/ para assets/ e aplicada como único conteúdo visível do header, com proporção preservada, tamanho compacto e alternativa textual para leitores de tela/OUVIR ESTA TELA; conferida visualmente no navegador.
+- 2026-09-16: logo centralizada horizontalmente no header, nos estados normal e compacto, mantendo tamanho e proporção.
+
+- 2026-09-16: filtros removidos integralmente da interface/estado; sub-nav sticky em linha única MAPA / LISTA | ANDAR 1 / 2 | OUVIR TELA, com separadores e estados ativos. Campos das obras e configuração dos andares preservados; regras atualizadas.
+- Edge em 320/375/812px validou linha única normal/compacta, troca de modo/andar, 100 registros e início/parada de leitura com síntese simulada; mapa, zoom/pan, bottom sheet e footer não alterados.
+- 2026-09-16: sub-nav ajustada ao esquema solicitado, com barras nas duas extremidades e entre grupos, mantendo espaçamento responsivo em uma linha.
+- 2026-09-16: sub-nav distribui os três grupos por toda a largura com flex/space-between, padding lateral pequeno e respiro nos separadores; linha única e tamanhos dos controles preservados, sem mudanças de lógica.
+- 2026-09-16: separadores da sub-nav convertidos em elementos independentes e flexíveis entre os três grupos; distribuição validada em uma linha a 320px.
+- 2026-09-16: restaurado min-width de 90% nos botões de modo e andar; separadores independentes e distribuição horizontal preservados.
+- 2026-09-16: separadores mantidos como itens flex fixos com margem lateral; pares de botões contidos em colunas, preservando min-width de 90% e linha única sem sobreposição em 320px.
+- 2026-09-16: sub-nav passou a usar Grid de cinco colunas (três grupos iguais e dois separadores próprios), com grupos centralizados e largura total; botões e lógica preservados.
+- 2026-09-16: régua de patrocinadores adicionada no fluxo normal logo após o container do mapa, com largura integral, proporção preservada e espaço inferior para o footer fixo; permanece fora do SVG e do zoom/pan.
+- 2026-09-16: régua movida para faixa fixa acima do footer de versão/local/Instagram; alturas medidas das duas faixas reservadas no mapa e bottom sheet. APP_VERSION atualizado para 2026.09.16-1514 (padrão YYYY.MM.DD-HHMM).
+- 2026-09-16: controles de zoom centralizados no topo do mapa com largura limitada ao container; altura visual reduzida e alvos de toque de 40×36px, eliminando o min-width herdado que causava overflow.

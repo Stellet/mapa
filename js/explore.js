@@ -5,12 +5,13 @@
   const header = shell.querySelector("header");
   const nav = document.getElementById("sub-nav");
   const viewport = document.getElementById("map-viewport");
-  const filters = document.getElementById("filter-panel");
-  const toggle = document.getElementById("filter-toggle");
+  const footer = document.getElementById("site-footer");
+  const sponsors = document.querySelector(".sponsors-strip");
+  document.getElementById("app-version").textContent = APP_VERSION;
   const mapView = document.getElementById("map-view");
   const sentinel = document.getElementById("map-top-sentinel");
   let layoutFrame = 0, topObserver = null, observerMargin = "";
-  const stickyBottom = () => (filters.hidden ? nav : filters).getBoundingClientRect().bottom;
+  const stickyBottom = () => nav.getBoundingClientRect().bottom;
   function observeTop() {
     if (mapView.hidden || document.body.classList.contains("sheet-open")) {
       topObserver?.disconnect(); observerMargin = ""; return;
@@ -30,11 +31,15 @@
   }
   function measure() {
     layoutFrame = 0;
+    const metaHeight = footer.getBoundingClientRect().height;
+    document.documentElement.style.setProperty("--meta-footer-height", metaHeight + "px");
+    const footerHeight = metaHeight + sponsors.getBoundingClientRect().height;
+    document.documentElement.style.setProperty("--footer-height", footerHeight + "px");
     if (!mapView.hidden) {
-      const height = window.visualViewport?.height || window.innerHeight;
+      const height = window.innerHeight;
       const top = Math.max(stickyBottom(), 0);
       const summary = document.getElementById("results-status").offsetHeight + document.getElementById("speech-status").offsetHeight;
-      viewport.style.setProperty("--map-height", Math.max(0, height - top - summary) + "px");
+      viewport.style.setProperty("--map-height", Math.max(0, height - top - summary - footerHeight) + "px");
     }
     observeTop();
   }
@@ -45,7 +50,6 @@
     // o header encolhe antes de a área do mapa ganhar a altura correspondente.
     if (!mapView.hidden) shell.style.minHeight = shell.offsetHeight + "px";
     shell.dataset.compact = String(value);
-    if (value) { filters.hidden = true; toggle.setAttribute("aria-expanded", "false"); }
     measure(); shell.style.removeProperty("min-height"); queueMeasure();
   }
   function onScroll() {
@@ -56,6 +60,8 @@
     queueMeasure();
   }
   new ResizeObserver(queueMeasure).observe(shell);
+  new ResizeObserver(queueMeasure).observe(footer);
+  new ResizeObserver(queueMeasure).observe(sponsors);
   new ResizeObserver(queueMeasure).observe(document.getElementById("results-status"));
   new ResizeObserver(queueMeasure).observe(document.getElementById("speech-status"));
   new MutationObserver(queueMeasure).observe(document.body, { attributes: true, attributeFilter: ["class"] });
@@ -73,7 +79,7 @@
     generation++;
     if (synthesis) synthesis.cancel();
     speaking = false;
-    button.textContent = "OUVIR ESTA TELA";
+    button.textContent = "OUVIR TELA";
     button.setAttribute("aria-pressed", "false");
     if (!button.disabled) status.textContent = message;
   }
@@ -90,16 +96,14 @@
   }
   function screenText() {
     const text = id => document.getElementById(id).textContent.trim();
-    const parts = [document.querySelector("h1").textContent];
+    const heading = document.querySelector("h1");
+    const parts = [heading.querySelector("img")?.alt || heading.textContent];
     if (!sheet.hidden) {
       parts.push(text("work-number"), text("work-heading"), text("work-artist"));
       if (sheet.dataset.state === "expanded") parts.push(text("work-description"), text("audio-heading"), text("audio-note"), text("reading-heading"), text("work-reading"), document.querySelector(".interest-button").textContent, text("interest-note"));
     } else {
       const mapMode = !document.getElementById("map-view").hidden;
       parts.push(mapMode ? "Modo mapa" : "Modo lista", text("results-status"));
-      if (!document.getElementById("filter-panel").hidden) {
-        for (const select of document.querySelectorAll("#filter-panel select")) parts.push(select.parentElement.firstChild.textContent, select.selectedOptions[0].textContent);
-      }
       if (mapMode) parts.push(text("map-instructions"));
       const selector = mapMode ? "#slots .slot:not([hidden])" : "#work-list .list-work";
       for (const work of document.querySelectorAll(selector)) parts.push(work.getAttribute("aria-label"));
@@ -140,6 +144,11 @@
   if (synthesis) synthesis.addEventListener("voiceschanged", loadVoices);
   loadVoices();
 })();
+
+
+
+
+
 
 
 

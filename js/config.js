@@ -1,5 +1,8 @@
 ﻿"use strict";
 
+const APP_VERSION = "2026.09.16-1514";
+console.info("APP_VERSION", APP_VERSION);
+
 // Sistema oficial: coordenadas do SVG vertical 360 x 1780.
 // Áreas e faixas são metadados internos; seus nomes não aparecem na interface.
 (() => {
@@ -60,5 +63,7 @@
     ]
   };
 })();
+
+
 
 

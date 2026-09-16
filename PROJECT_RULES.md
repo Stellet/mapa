@@ -23,11 +23,12 @@
 - `css/style.css`: apresentação mobile-first.
 - `js/config.js`: configuração local dos andares.
 - `js/data.js`: dados fictícios, com vínculo por andar + slot.
-- `js/app.js`: estado compartilhado de andar, modo, filtros e obra selecionada; mapa, lista e painel.
+- `js/app.js`: estado compartilhado de andar, modo e obra selecionada; mapa, lista e painel.
 - `js/explore.js`: compactação da navegação e leitura semântica com Web Speech API.
 - `maps/`: plantas SVG locais.
 - `obras/imagens/` e `obras/audio/`: arquivos locais futuros.
 - Scripts clássicos, carregados com `defer`, para permitir abrir `index.html` diretamente, sem servidor.
+- `APP_VERSION` é definido uma única vez em `js/config.js`, no formato `YYYY.MM.DD-HHMM`, exibido no footer e registrado no console.
 
 ## Escopo atual
 
@@ -48,23 +49,25 @@ Wireframe estático com exploração por mapa e lista. Andar 1 contém 100 slots
 
 ## Navegação e exploração
 
-- MAPA e LISTA compartilham andar, filtros e seleção; ambos abrem o mesmo bottom sheet.
+- MAPA e LISTA compartilham andar e seleção; ambos abrem o mesmo bottom sheet.
 - Cada obra possui area (identificador interno), type e tags[]. O vínculo andar + slot e as coordenadas permanecem separados.
-- Filtros de área, tipo e tag são combinados; mudar de modo mantém filtros e seleção. Trocar de andar ou excluir a obra selecionada pelos filtros fecha o painel.
+- A interface não possui filtros. Área, tipo e tags permanecem nos dados; mudar de modo mantém a seleção e trocar de andar fecha o painel.
 - A lista permite agrupamento por área. Nomes públicos continuam SALA 1 e SALA 2.
-- Header, sub-nav e filtros formam uma pilha sticky. O mapa usa toda a largura e a altura disponível abaixo dessa pilha; mudanças de viewport e orientação recalculam o enquadramento. Em telas baixas o header inicia compacto.
+- Header e sub-nav formam uma pilha sticky. O mapa usa toda a largura e a altura disponível abaixo dessa pilha; mudanças de viewport e orientação recalculam o enquadramento. Em telas baixas o header inicia compacto.
 - O botão TENHO INTERESSE permanece no rodapé do painel expandido, ainda demonstrativo, sem formulário, backend ou proposta.
-- OUVIR ESTA TELA usa somente speechSynthesis e vozes locais do dispositivo. A fala deriva do conteúdo textual/semântico do modo atual ou da ficha aberta; não interpreta o desenho do mapa. Preservar os controles semânticos para leitores de tela.
+- OUVIR TELA usa somente speechSynthesis e vozes locais do dispositivo. A fala deriva do conteúdo textual/semântico do modo atual ou da ficha aberta; não interpreta o desenho do mapa. Preservar os controles semânticos para leitores de tela.
 - As coordenadas, cadastro e geometria permanecem separados da exploração. Não incluir mezanino ou backend/propostas nesta etapa.
 
 ## Motor de mapa e navegação
 
-- O SVG exibe apenas geometria, sem rótulos visuais internos. Áreas permanecem nos dados, filtros e lista.
+- O SVG exibe apenas geometria, sem rótulos visuais internos. Áreas permanecem nos dados e na lista.
 - Pointer Events ficam no SVG raiz; clientX/clientY são convertidos por createSVGPoint e getScreenCTM().inverse(). Pan, pinch pelo ponto médio, wheel ancorado no cursor e botões compartilham { x, y, scale }, aplicado somente ao grupo interno map-content, sem transform CSS concorrente.
 - 100% ajusta a planta à largura disponível (fit-width), sem expor a escala antiga. Reset e redimensionamento recalculam esse enquadramento. Pan funciona desde 100%; os limites se aplicam à posição final, não aos deltas.
 - Clusters por proximidade na tela separam progressivamente os slots conforme o zoom. Exibir quantidade maior e intervalo abaixo somente para slots contíguos; grupos não contíguos usam lista compacta com reticências quando necessário. Todos os números permanecem no nome acessível. Agrupar não altera coordenadas nem cadastro.
 - Miniaturas locais aparecem a partir de 400%, somente para slots individuais visíveis; não pré-carregar as 100 imagens. Número e seleção continuam acessíveis.
-- Compactar a navegação recolhe as opções dos filtros, preservando valores. O chevron permite reabrir; zoom/pan não fecham os filtros.
+- Sub-nav em uma linha desde 320px: MAPA / LISTA | ANDAR 1 / 2 | OUVIR TELA, com separadores verticais e estados ativos. A compactação sticky continua controlada pela sentinela. O andar 3 permanece apenas na configuração, sem controle visível.
 - Viewport/SVG usam touch-action:none para pan/pinch. Wheel sobre o mapa controla zoom e impede scroll apenas durante essa interação; fora do mapa, scroll permanece nativo. Bottom sheet mantém seu comportamento próprio.
+
+
 
 

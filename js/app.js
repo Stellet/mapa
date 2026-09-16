@@ -9,7 +9,7 @@
   const audio = document.getElementById("work-audio");
   const closeButton = document.getElementById("close-sheet");
   let selectedButton = null;
-  const state = { floor: config.initialFloor, mode: "map", area: "", type: "", tag: "", selected: null, grouped: true };
+  const state = { floor: config.initialFloor, mode: "map", selected: null, grouped: true };
   const areaNames = { "area-loja-14": "SALA 1", "area-escritorios": "SALA 2" };
   const typeNames = { pintura: "Pintura", fotografia: "Fotografia", colagem: "Colagem", escultura: "Escultura" };
 
@@ -112,7 +112,7 @@
     return "Obra " + String(work.slot).padStart(2, "0") + ". " + work.title + ". " + work.artist + ". " + (areaNames[work.area] || work.area) + ". " + (typeNames[work.type] || work.type) + ". Tags: " + work.tags.join(", ");
   }
   function visibleWorks() {
-    return works.filter(work => work.floor === state.floor && (!state.area || work.area === state.area) && (!state.type || work.type === state.type) && (!state.tag || work.tags.includes(state.tag)));
+    return works.filter(work => work.floor === state.floor);
   }
   function renderResults() {
     const visible = visibleWorks();
@@ -150,15 +150,13 @@
       }
       section.append(ul); list.append(section);
     }
-    const filters = [areaNames[state.area], typeNames[state.type], state.tag].filter(Boolean);
-    document.getElementById("results-status").textContent = "Andar " + state.floor + ": " + visible.length + " obras" + (filters.length ? " · " + filters.join(" · ") : "") + (visible.length ? "." : ". Nenhuma obra encontrada com esta seleção.");
+    document.getElementById("results-status").textContent = "Andar " + state.floor + ": " + visible.length + " obras" + (visible.length ? "." : ". Nenhuma obra cadastrada neste andar.");
     document.getElementById("list-heading").textContent = "Obras — Andar " + state.floor;
-    document.getElementById("floor-status").textContent = visible.length ? visible.length + " obras visíveis no mapa. Posições provisórias." : "Nenhuma obra para exibir neste andar com os filtros atuais.";
-    document.getElementById("filter-toggle").textContent = "FILTROS" + (filters.length ? " (" + filters.length + ")" : "");
+    document.getElementById("floor-status").textContent = visible.length ? visible.length + " obras visíveis no mapa. Posições provisórias." : "Nenhuma obra cadastrada neste andar.";
     syncSelection();
     announceChange();
   }
-  for (const floor of config.floors) {
+  for (const floor of config.floors.filter(item => item.id === 1 || item.id === 2)) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "floor-button";
@@ -179,28 +177,10 @@
       announceChange();
     });
   }
-  for (const [field, labels] of [["area", areaNames], ["type", typeNames], ["tag", {}]]) {
-    const select = document.getElementById("filter-" + field);
-    const values = [...new Set(works.flatMap(work => field === "tag" ? work.tags : [work[field]]))];
-    for (const value of values) {
-      const option = document.createElement("option"); option.value = value; option.textContent = labels[value] || value; select.append(option);
-    }
-    select.addEventListener("change", () => { state[field] = select.value; renderResults(); });
-  }
-  document.getElementById("filter-toggle").addEventListener("click", event => {
-    const panel = document.getElementById("filter-panel");
-    panel.hidden = !panel.hidden;
-    event.currentTarget.setAttribute("aria-expanded", String(!panel.hidden));
-    if (!panel.hidden) document.getElementById("filter-area").focus({ preventScroll: true });
-    announceChange();
-  });
-  document.getElementById("clear-filters").addEventListener("click", () => {
-    for (const field of ["area", "type", "tag"]) { state[field] = ""; document.getElementById("filter-" + field).value = ""; }
-    renderResults();
-  });
   document.getElementById("group-by-area").addEventListener("change", event => { state.grouped = event.target.checked; renderResults(); });
   selectFloor(state.floor);
 })();
+
 
 
 
