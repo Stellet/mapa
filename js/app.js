@@ -70,13 +70,13 @@
     }
     document.getElementById("map-heading").textContent = `Andar ${id}`;
     const map = document.getElementById("floor-map");
-    map.src = floor.map;
+    map.setAttribute("href", floor.map);
     map.parentElement.dataset.real = String(Boolean(floor.realMap));
     document.getElementById("map-caption").textContent = floor.realMap ? "Planta simplificada" : "Planta provisória";
     document.getElementById("map-instructions").textContent = floor.realMap
-      ? "Amplie com dois dedos ou +. Arraste quando ampliado. Grupos indicam a quantidade de obras; toque para ampliar. Selecione um número para abrir a ficha. O percentual restaura a planta inteira."
+      ? "Arraste para explorar. Amplie com dois dedos, com a roda do mouse ou +. Grupos indicam quantidade e numeração das obras; toque para ampliar. Selecione um número para abrir a ficha. O percentual restaura 100%, ajustando a planta à largura."
       : "Toque em um número para selecionar uma obra.";
-    map.alt = floor.realMap ? "Planta simplificada do primeiro andar, com Sala 1, Sala 2, banheiros, acesso inferior, escada e salão lateral" : `Planta esquemática provisória do andar ${id}`;
+    map.setAttribute("aria-label", floor.realMap ? "Planta simplificada do primeiro andar, com Sala 1, Sala 2, banheiros, acesso inferior, escada e salão lateral" : `Planta esquemática provisória do andar ${id}`);
     slots.replaceChildren();
     for (const slot of floor.slots) {
       const button = document.createElement("button");
@@ -201,6 +201,7 @@
   document.getElementById("group-by-area").addEventListener("change", event => { state.grouped = event.target.checked; renderResults(); });
   selectFloor(state.floor);
 })();
+
 
 
 

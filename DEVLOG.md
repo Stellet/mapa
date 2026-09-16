@@ -113,3 +113,10 @@
 - Pan passou a acumular diferenças reais entre clientX/clientY consecutivos, em pixels CSS, sem normalização, divisão por zoom ou sensibilidade artificial. Limites incidem somente na posição final; render continua em requestAnimationFrame, sem transição CSS no mapa.
 - Captura no pointerdown e liberação no pointerup/pointercancel; estados de pan/pinch separados, com referência reinicializada no dedo restante. Preservado o toque em slots/clusters após captura. Escala, clustering, coordenadas, layout e bottom sheet não alterados.
 - Edge com eventos nativos de toque emulados, larguras 320/375px: pan lento de 20/30px e rápido de 60/80px acompanharam os deltas 1:1; pinch terminou sem salto e dedo restante moveu 12/16px; arraste não selecionou obra e toque continuou ampliando cluster. Teste em celular físico ainda pendente.
+
+## 2026-09-16 — navegação em coordenadas SVG e novo 100%
+
+- Motor centralizado no SVG raiz: createSVGPoint/getScreenCTM().inverse() convertem os ponteiros; estado único { x, y, scale } transforma apenas g#map-content, incluindo planta e alvos. Pan sem normalização/divisão do delta, captura/liberação de ponteiros e retorno de pinch para um dedo sem salto.
+- Novo 100% é fit-width, com reset para a largura disponível; a relação com o antigo percentual depende da proporção da tela. Pan funciona desde a escala base. Wheel no mapa aproxima/afasta ancorado no cursor, sem recolher filtros nem capturar scroll fora dele. Atualizadas as regras que descreviam o antigo fit da planta inteira.
+- Clusters exibem quantidade maior e intervalo abaixo somente quando os slots são sequenciais; grupos não contíguos usam lista compacta, mantendo todos os números no nome acessível. Coordenadas, cadastro, geometria e bottom sheet preservados.
+- Edge: larguras 320/375px com eventos nativos de toque emulados validaram fit-width, pan lento/rápido 1:1, âncora do pinch, retomada com um dedo e toque nos clusters. Desktop validou wheel nas duas direções e âncora no cursor; filtros abertos, grupos não contíguos e ficha compartilhada passaram. Sintaxe JS e captura visual conferidas. Mouse/toque físicos, especialmente iOS, ainda não testados.

@@ -35,7 +35,7 @@
   window.addEventListener("resize", queueMeasure);
   window.visualViewport?.addEventListener("resize", queueMeasure);
   document.addEventListener("explorationchange", queueMeasure);
-  viewport.addEventListener("wheel", event => { if (viewport.dataset.zoomed !== "true") setCompact(event.deltaY > 0); }, { passive: true });
+  viewport.addEventListener("wheel", event => { if (!event.defaultPrevented && viewport.dataset.zoomed !== "true") setCompact(event.deltaY > 0); }, { passive: true });
   viewport.addEventListener("mapscrollintent", event => setCompact(event.detail > 0));
   queueMeasure();
   const button = document.getElementById("speak-screen");
@@ -114,5 +114,6 @@
   if (synthesis) synthesis.addEventListener("voiceschanged", loadVoices);
   loadVoices();
 })();
+
 
 

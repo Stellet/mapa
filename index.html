@@ -56,15 +56,22 @@
         <p id="map-instructions">Toque em um número para selecionar uma obra.</p>
         <div id="map-controls" class="map-controls" role="group" aria-label="Zoom do mapa">
           <button id="zoom-out" type="button" aria-label="Diminuir zoom">−</button>
-          <button id="zoom-reset" type="button" aria-label="Restaurar enquadramento geral">100%</button>
+          <button id="zoom-reset" type="button" aria-label="Restaurar 100%: ajustar à largura">100%</button>
           <button id="zoom-in" type="button" aria-label="Aumentar zoom">+</button>
           <span id="zoom-status" class="sr-only" role="status"></span>
         </div>
         <div id="map-viewport" class="map-viewport" tabindex="0" role="region" aria-label="Mapa do andar; use as setas para deslocar o mapa">
-        <div class="map" aria-labelledby="map-heading" aria-describedby="map-instructions">
-          <img id="floor-map" src="maps/andar-1.svg" alt="Planta esquemática provisória do andar 1">
-          <div id="slots" role="group" aria-label="Slots de obras"></div>
-        </div>
+        <svg id="map-svg" class="map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 600" preserveAspectRatio="xMinYMin meet" role="group" aria-labelledby="map-heading" aria-describedby="map-instructions">
+          <g id="map-content">
+            <image id="floor-map" href="maps/andar-1.svg" width="360" height="1780" aria-label="Planta do andar" />
+            <foreignObject x="0" y="0" width="360" height="1780" class="map-overlay">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="map-markers">
+                <div id="slots" role="group" aria-label="Slots de obras"></div>
+                <div id="map-clusters" class="map-clusters"></div>
+              </div>
+            </foreignObject>
+          </g>
+        </svg>
         </div>
         <p id="floor-status" role="status"></p>
       </section>
@@ -110,6 +117,7 @@
     </section>
   </body>
 </html>
+
 
 
 

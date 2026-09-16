@@ -60,10 +60,11 @@ Wireframe estático com exploração por mapa e lista. Andar 1 contém 100 slots
 ## Motor de mapa e navegação
 
 - O SVG exibe apenas geometria, sem rótulos visuais internos. Áreas permanecem nos dados, filtros e lista.
-- Pointer Events controlam pinch pelo ponto médio e pan, com um único estado de escala/posição compartilhado com +, − e reset. Não há rotação CSS.
-- 100% enquadra a planta inteira na área útil; redimensionamento recalcula fit. Limites de pan mantêm o mapa dentro do enquadramento quando menor que a viewport e impedem arrastá-lo para fora quando ampliado.
-- Clusters por proximidade na tela separam progressivamente os slots conforme o zoom. Agrupar não altera coordenadas nem cadastro; grupos são botões acessíveis que ampliam a região.
+- Pointer Events ficam no SVG raiz; clientX/clientY são convertidos por createSVGPoint e getScreenCTM().inverse(). Pan, pinch pelo ponto médio, wheel ancorado no cursor e botões compartilham { x, y, scale }, aplicado somente ao grupo interno map-content, sem transform CSS concorrente.
+- 100% ajusta a planta à largura disponível (fit-width), sem expor a escala antiga. Reset e redimensionamento recalculam esse enquadramento. Pan funciona desde 100%; os limites se aplicam à posição final, não aos deltas.
+- Clusters por proximidade na tela separam progressivamente os slots conforme o zoom. Exibir quantidade maior e intervalo abaixo somente para slots contíguos; grupos não contíguos usam lista compacta com reticências quando necessário. Todos os números permanecem no nome acessível. Agrupar não altera coordenadas nem cadastro.
 - Miniaturas locais aparecem a partir de 400%, somente para slots individuais visíveis; não pré-carregar as 100 imagens. Número e seleção continuam acessíveis.
 - Compactar a navegação recolhe as opções dos filtros, preservando valores. O chevron permite reabrir; zoom/pan não fecham os filtros.
-- Gestos do mapa não concorrem com scroll nativo: área interativa usa Pointer Events; em fit, arraste vertical encaminha rolagem à página e compactação. Fora dela, scroll permanece nativo. Bottom sheet mantém seu comportamento próprio.
+- Viewport/SVG usam touch-action:none para pan/pinch. Wheel sobre o mapa controla zoom e impede scroll apenas durante essa interação; fora do mapa, scroll permanece nativo. Bottom sheet mantém seu comportamento próprio.
+
 
