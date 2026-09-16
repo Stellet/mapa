@@ -157,3 +157,17 @@
 ## 2026-09-16 — mapa atual do 1º andar
 
 - SVG corrigido conforme o rascunho local: entrada superior, circulação pelo lado direito, ambientes inferiores sem espelhamento e mezanino visível como três faixas hachuradas com paredes paralelas. Proporções apoiadas na planta arquitetônica disponível; slots e interações preservados.
+
+## 2026-09-16 — base estrutural do 2º andar
+
+- maps/andar-2.svg substituído por base vertical baseada no PDF v9: entrada/escada no canto inferior direito, primeira sala, segunda sala, sala de vidro, blocos e circulação. Zonas 01–06, 07–14 e 15 preparadas sem criar slots ou interações.
+
+## 2026-09-16 — editor local de posições
+
+- Adicionado modo ?edit=1 para alternar entre navegação e posicionamento no 1º andar, selecionar/mover obras em coordenadas SVG, persistir no localStorage e exportar id/x/y/level. A página pública permanece sem controles de edição.
+- Edge headless em 375×812 validou isolamento público, seleção da obra 01, deslocamento, 100 registros persistidos e igualdade entre coordenadas exportadas e a conversão pelo CTM do SVG.
+
+## 2026-09-16 — percurso provisório das obras do 1º andar
+
+- Reorganizados somente os 100 slots em config.js: Sala 1 ocupa 01–53, iniciando no canto superior direito, passando pela parede atrás do DJ e continuando no mezanino separado; Sala 2 ocupa 54–100 pelas paredes inferiores.
+- Numeração sequencial, contagens, ausência de coordenadas duplicadas e vínculos main/mezzanine validados. SVG, zoom, UI e js/data.js permaneceram inalterados.

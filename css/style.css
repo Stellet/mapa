@@ -350,3 +350,47 @@ body { padding-bottom: var(--footer-height); }
   flex-basis: 68px;
   min-width: 68px;
 }
+
+/* Editor local: só existe quando editor.js valida ?edit=1. */
+.map-editor {
+  position: absolute;
+  top: 48px;
+  left: 8px;
+  z-index: 6;
+  width: min(248px, calc(100% - 16px));
+  padding: 6px;
+  border: 1px solid #fff;
+  background: #000;
+}
+.map-editor-modes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.map-editor button {
+  min-width: 0;
+  min-height: 44px;
+  padding: 6px;
+  border: 1px solid #fff;
+  background: #000;
+  color: #fff;
+  font: inherit;
+  font-size: 11px;
+}
+.map-editor button + button { border-left: 0; }
+.map-editor button[aria-pressed="true"] { background: #fff; color: #000; }
+.map-editor-selection {
+  margin: 6px 0;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.map-editor-export { width: 100%; }
+body.edit-positioning #map-svg .map-cluster { display: none; }
+body.edit-positioning #map-viewport .slot.clustered { display: grid; }
+body.edit-positioning #map-viewport { cursor: crosshair; }
+body.edit-positioning #map-svg .slot { cursor: move; }
+body.edit-positioning #map-svg .slot.edit-selected span {
+  color: #000;
+  background: #fff;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}

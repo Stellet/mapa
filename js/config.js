@@ -31,40 +31,54 @@ console.info("APP_VERSION", APP_VERSION);
   ];
 
   const positions = [];
-  function point(areaId, wallId, x, y) {
-    const number = positions.length + 1;
-    // Classificação provisória; a posição física das obras no mezanino será definida depois.
-    const level = (number >= 13 && number <= 24) ||
-      (number >= 28 && number <= 31) ||
-      (number >= 41 && number <= 45) ||
-      number === 50 ||
-      (number >= 53 && number <= 54) ? "mezzanine" : "main";
-    positions.push({ areaId, level, wallId, x, y });
+  function point(roomId, areaId, level, wallId, x, y) {
+    positions.push({ roomId, areaId, level, wallId, x, y });
   }
-  // Os sete segmentos originais permanecem idênticos para preservar todos os x/y.
-  function wall(areaId, wallId, x1, y1, x2, y2, count) {
+  function wall(roomId, areaId, level, wallId, x1, y1, x2, y2, count) {
     for (let i = 0; i < count; i++) {
       const t = count === 1 ? 0 : i / (count - 1);
-      point(areaId, wallId, x1 + (x2 - x1) * t, y1 + (y2 - y1) * t);
+      point(roomId, areaId, level, wallId, x1 + (x2 - x1) * t, y1 + (y2 - y1) * t);
     }
   }
-  wall("area-3", "parede-esquerda", 64, 160, 64, 584, 24);
-  wall("area-2", "parede-transversal", 136, 604, 256, 604, 7);
-  wall("area-1", "parede-direita", 256, 568, 256, 328, 14);
-  wall("area-1", "parede-direita", 256, 200, 256, 128, 5);
-  wall("area-2", "parede-transversal", 148, 644, 256, 644, 4);
-  wall("area-4", "parede-direita", 256, 680, 256, 1112, 26);
-  wall("area-5", "parede-esquerda", 64, 1136, 64, 812, 20);  window.EXHIBITION_CONFIG = {
+
+  // Sala 1 — 01 começa no canto superior direito e percorre o perímetro principal.
+  wall("sala-1", "area-1", "main", "direita-superior", 268, 130, 268, 550, 14);
+  // 15–26 ficam na parede transversal atrás do DJ.
+  wall("sala-1", "area-2", "main", "transversal-atras-dj", 235, 617, 55, 617, 12);
+  wall("sala-1", "area-3", "main", "esquerda-superior", 52, 550, 52, 130, 14);
+
+  // Continuação do percurso no nível visual separado do mezanino.
+  wall("sala-1", "area-3", "mezzanine", "mezanino-esquerda", 84, 130, 84, 530, 5);
+  wall("sala-1", "area-2", "mezzanine", "mezanino-transversal", 90, 561, 225, 561, 4);
+  wall("sala-1", "area-1", "mezzanine", "mezanino-direita", 236, 530, 236, 130, 4);
+
+  // Sala 2 — 54 inicia no alto à direita e segue as duas paredes disponíveis.
+  wall("sala-2", "area-4", "main", "direita-inferior", 268, 770, 268, 1325, 24);
+  wall("sala-2", "area-5", "main", "esquerda-inferior", 52, 1450, 52, 805, 23);
+  window.EXHIBITION_CONFIG = {
     initialFloor: 1,
     floors: [
       { id: 1, map: "maps/andar-1.svg", realMap: true, levels, areas, mezzanineTracks, features,
-        slots: positions.map(({ areaId, level, wallId, x, y }, index) => ({
-          number: index + 1, areaId, level, wallId,
+        slots: positions.map(({ roomId, areaId, level, wallId, x, y }, index) => ({
+          number: index + 1, roomId, areaId, level, wallId,
           x: x / 360 * 100,
           y: y / 1780 * 100
         }))
       },
-      { id: 2, map: "maps/andar-2.svg", slots: [] },
+      { id: 2, map: "maps/andar-2.svg", viewBox: "0 0 360 992",
+        source: "references/mapa_2o_andar_rios_reais_v9_qr.pdf",
+        areas: [
+          { id: "andar-2-primeira-sala", plannedWorks: [1, 2, 3, 4, 5, 6] },
+          { id: "andar-2-segunda-sala", plannedWorks: [7, 8, 9, 10, 11, 12, 13, 14] },
+          { id: "andar-2-sala-vidro", plannedWorks: [15] }
+        ],
+        features: [
+          { id: "entrada", position: "bottom-right" },
+          { id: "escada", position: "bottom-right" },
+          { id: "circulacao", connects: ["andar-2-primeira-sala", "andar-2-segunda-sala", "andar-2-sala-vidro"] }
+        ],
+        slots: []
+      },
       { id: 3, map: "maps/andar-3.svg", slots: [] }
     ]
   };

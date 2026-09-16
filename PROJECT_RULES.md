@@ -78,3 +78,11 @@ Wireframe estático com exploração por mapa e lista. Andar 1 contém 100 slots
 - Mezanino acima das Áreas 1, 2 e 3, com nível `mezzanine` e faixas paralelas próprias, separadas do nível `main`.
 - Na parte inferior: Área 5 à esquerda, Área 4 à direita, bar abaixo da Área 5, escada do 2º andar no extremo inferior esquerdo e banheiros no bloco inferior direito.
 - Áreas não são rotuladas dentro do SVG. Preservar geometria existente onde a função não estiver confirmada; posições finais dos slots ainda não definidas.
+
+## Referência do 2º andar
+
+- references/mapa_2o_andar_rios_reais_v9_qr.pdf é a fonte principal e mais atual para organização espacial, entrada, escadas, sala de vidro, circulação e relação entre obras e ambientes do 2º andar; prevalece sobre rascunhos e versões anteriores.
+
+## Editor local de posições
+
+- O parâmetro ?edit=1 ativa somente no navegador local os modos NAVEGAR e POSICIONAR do 1º andar. Posições usam coordenadas internas do SVG, persistem temporariamente em localStorage e podem ser exportadas como JSON com id, x, y e level. A URL pública não exibe nem ativa o editor.
