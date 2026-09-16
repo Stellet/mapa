@@ -7,36 +7,62 @@
   const viewport = document.getElementById("map-viewport");
   const filters = document.getElementById("filter-panel");
   const toggle = document.getElementById("filter-toggle");
-  let layoutFrame = 0;
+  const mapView = document.getElementById("map-view");
+  const sentinel = document.getElementById("map-top-sentinel");
+  let layoutFrame = 0, topObserver = null, observerMargin = "";
+  const stickyBottom = () => (filters.hidden ? nav : filters).getBoundingClientRect().bottom;
+  function observeTop() {
+    if (mapView.hidden || document.body.classList.contains("sheet-open")) {
+      topObserver?.disconnect(); observerMargin = ""; return;
+    }
+    // Histerese: só expandir quando o topo voltou alguns pixels à zona visível.
+    const boundary = Math.max(0, stickyBottom() + (shell.dataset.compact === "true" ? 4 : -4));
+    const margin = `-${Math.round(boundary)}px 0px 0px 0px`;
+    if (margin === observerMargin) return;
+    topObserver?.disconnect(); observerMargin = margin;
+    topObserver = new IntersectionObserver(entries => {
+      if (mapView.hidden || document.body.classList.contains("sheet-open")) return;
+      const entry = entries[entries.length - 1];
+      if (entry.isIntersecting) setCompact(false);
+      else if (entry.boundingClientRect.bottom <= entry.rootBounds.top) setCompact(true);
+    }, { rootMargin: margin, threshold: 0 });
+    topObserver.observe(sentinel);
+  }
   function measure() {
     layoutFrame = 0;
-    if (document.getElementById("map-view").hidden) return;
-    const height = window.visualViewport?.height || window.innerHeight;
-    const top = Math.max(shell.getBoundingClientRect().bottom, 0);
-    const summary = document.getElementById("results-status").offsetHeight + document.getElementById("speech-status").offsetHeight;
-    viewport.style.setProperty("--map-height", Math.max(0, height - top - summary) + "px");
+    if (!mapView.hidden) {
+      const height = window.visualViewport?.height || window.innerHeight;
+      const top = Math.max(stickyBottom(), 0);
+      const summary = document.getElementById("results-status").offsetHeight + document.getElementById("speech-status").offsetHeight;
+      viewport.style.setProperty("--map-height", Math.max(0, height - top - summary) + "px");
+    }
+    observeTop();
   }
   function queueMeasure() { if (!layoutFrame) layoutFrame = requestAnimationFrame(measure); }
   function setCompact(value) {
     if (document.body.classList.contains("sheet-open") || shell.dataset.compact === String(value)) return;
+    // Reserva só durante esta atualização síncrona: evita limitar scrollY quando
+    // o header encolhe antes de a área do mapa ganhar a altura correspondente.
+    if (!mapView.hidden) shell.style.minHeight = shell.offsetHeight + "px";
     shell.dataset.compact = String(value);
     if (value) { filters.hidden = true; toggle.setAttribute("aria-expanded", "false"); }
-    queueMeasure();
+    measure(); shell.style.removeProperty("min-height"); queueMeasure();
   }
-  function compact() {
-    if (window.scrollY > 24) setCompact(true);
-    else if (window.scrollY <= 2 && !document.getElementById("list-view").hidden) setCompact(false);
+  function onScroll() {
+    if (mapView.hidden) {
+      if (window.scrollY > 24) setCompact(true);
+      else if (window.scrollY <= 2) setCompact(false);
+    }
     queueMeasure();
   }
   new ResizeObserver(queueMeasure).observe(shell);
   new ResizeObserver(queueMeasure).observe(document.getElementById("results-status"));
   new ResizeObserver(queueMeasure).observe(document.getElementById("speech-status"));
-  window.addEventListener("scroll", compact, { passive: true });
+  new MutationObserver(queueMeasure).observe(document.body, { attributes: true, attributeFilter: ["class"] });
+  window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", queueMeasure);
   window.visualViewport?.addEventListener("resize", queueMeasure);
   document.addEventListener("explorationchange", queueMeasure);
-  viewport.addEventListener("wheel", event => { if (!event.defaultPrevented && viewport.dataset.zoomed !== "true") setCompact(event.deltaY > 0); }, { passive: true });
-  viewport.addEventListener("mapscrollintent", event => setCompact(event.detail > 0));
   queueMeasure();
   const button = document.getElementById("speak-screen");
   const status = document.getElementById("speech-status");
@@ -114,6 +140,7 @@
   if (synthesis) synthesis.addEventListener("voiceschanged", loadVoices);
   loadVoices();
 })();
+
 
 
 
