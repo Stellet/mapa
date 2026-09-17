@@ -8,6 +8,8 @@
 - Cada andar possui planta SVG e slots numerados em posições fixas.
 - Obras são vinculadas por andar + slot.
 - Os dados virão de arquivo local gerado posteriormente a partir de planilha.
+- `data/works-floor-1.json` é a fonte dos dados textuais das obras do 1º andar, vinculados às posições pelo campo `id`; coordenadas permanecem exclusivamente em `data/positions-floor-1.json`.
+- Mapeamento definitivo do 1º andar: a aba "Respostas ao formulário 1" é a fonte principal das informações e sua Column 14 define o "id"/posição da obra. Não usar LOCAL da aba "Localização Mapa" para IDs; essa aba serve apenas como fallback textual quando faltarem dados da obra. IDs 1–53 pertencem à Sala 1 e 54–87 à Sala 2.
 - Imagens e áudios são arquivos locais.
 - A ficha terá: número, imagem, título, artista, descrição, audiodescrição, leitura e interesse via WhatsApp.
 - O visual é wireframe: sem cores decorativas, sombras, gradientes ou border-radius.
@@ -91,3 +93,10 @@ Wireframe estático com exploração por mapa e lista. Andar 1 contém 100 slots
 
 - O 1º e o 2º andar carregam posições de data/positions-floor-1.json e data/positions-floor-2.json. Cada arquivo usa chaves numéricas com objetos x, y e level; arquivo ausente ou inválido preserva a configuração de fallback em js/config.js.
 - EXPORTAR POSIÇÕES no modo ?edit=1 gera o mesmo formato de positions-floor-1.json.
+
+## Sincronização dos dados locais
+
+Sempre que qualquer JSON de runtime em /data for criado, removido ou alterado, executar:
+`powershell -ExecutionPolicy Bypass -File tools/sync-local-data.ps1`
+
+O fallback local gerado deve permanecer sincronizado com os JSONs antes de considerar a tarefa concluída.

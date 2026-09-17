@@ -25,8 +25,7 @@
       <path d="M72 573H238V605H72Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
     </g>    <!-- Rampa central da área superior. -->
     <g id="skate-ramp">
-      <path d="M103 207H221V287H103Z"/>
-      <path d="M116 273L208 221 M188 221H208V241" stroke-width="1.5"/>
+      <path d="M40 207V225C40 263 78 287 120 287H230C272 287 310 263 310 225V207"/>
     </g>
     <!-- Som/DJ junto à Área 2, preservando a circulação lateral direita. -->
     <path id="sound-dj" d="M100 486H218V552H100Z"/>
@@ -35,7 +34,7 @@
     <!-- Obstáculo estrutural entre a área superior e a inferior. -->
     <path id="upper-lower-obstacle" d="M40 688H115V790H40Z"/>
     <!-- Parte inferior: Área 5 à esquerda e Área 4 à direita. -->
-    <path id="area-5-main" data-area="area-5" data-level="main" d="M40 790V1215"/>
+    <path id="area-5-main" data-area="area-5" data-level="main" d="M40 790V1086.87"/>
     <path id="area-4-main" data-area="area-4" data-level="main" d="M310 745V1375"/>
     <!-- Mezanino da Sala 2: laterais e parede inferior, mantendo livre a passagem superior direita. -->
     <g id="mezzanine-sala-2" data-level="mezzanine">
@@ -47,7 +46,7 @@
       <path d="M72 1343H278V1375H72Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
     </g>
     <!-- Bar abaixo da Área 5. -->
-    <path id="bar" d="M40 1215H126V1510H40 M68 1248H110V1478H68Z"/>
+    <path id="bar" d="M40 1086.87H126V1510H40 M68 1119.87H110V1478H68Z"/>
     <!-- Escada para o segundo andar no extremo inferior esquerdo. -->
     <g id="stairs-floor-2" stroke-width="1.5">
       <path d="M40 1510H126V1715H40Z"/>

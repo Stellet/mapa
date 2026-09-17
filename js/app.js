@@ -1,6 +1,7 @@
 "use strict";
 
-(() => {
+(async () => {
+  await Promise.all([window.POSITIONS_READY, window.WORKS_READY]);
   const config = window.EXHIBITION_CONFIG;
   const works = window.EXHIBITION_DATA;
   const selector = document.getElementById("floor-selector");
@@ -12,6 +13,13 @@
   const state = { floor: config.initialFloor, mode: "map", selected: null, grouped: true };
   const areaNames = { "area-1": "ÁREA 1", "area-2": "ÁREA 2", "area-3": "ÁREA 3", "area-4": "ÁREA 4", "area-5": "ÁREA 5" };
   const typeNames = { pintura: "Pintura", fotografia: "Fotografia", colagem: "Colagem", escultura: "Escultura" };
+
+  function hasValue(value) { return value !== null && value !== undefined && String(value).trim() !== ""; }
+  function setOptional(element, value, block = element) {
+    const visible = hasValue(value);
+    element.textContent = visible ? value : "";
+    block.hidden = !visible;
+  }
 
   function closeSheet(restoreFocus = false) {
     const previousButton = selectedButton;
@@ -44,9 +52,11 @@
     syncSelection();
     announceChange();
     document.getElementById("work-number").textContent = "Obra " + String(number).padStart(2, "0");
-    document.getElementById("work-heading").textContent = work.title;
-    document.getElementById("work-artist").textContent = work.artist;
-    document.getElementById("work-description").textContent = work.description;
+    setOptional(document.getElementById("work-heading"), work.title);
+    setOptional(document.getElementById("work-artist"), work.artist);
+    setOptional(document.getElementById("work-description"), work.description);
+    setOptional(document.getElementById("work-sale-status"), work.saleStatus, document.getElementById("work-sale-status-row"));
+    setOptional(document.getElementById("work-price"), work.price, document.getElementById("work-price-row"));
     document.getElementById("work-reading").textContent = work.reading;
     const image = document.getElementById("work-image");
     image.src = work.image;
@@ -109,7 +119,7 @@
     }
   }
   function workLabel(work) {
-    return "Obra " + String(work.slot).padStart(2, "0") + ". " + work.title + ". " + work.artist + ". " + (areaNames[work.area] || work.area) + ". " + (typeNames[work.type] || work.type) + ". Tags: " + work.tags.join(", ");
+    return ["Obra " + String(work.slot).padStart(2, "0"), work.title, work.artist, work.description, work.saleStatus, work.price].filter(hasValue).join(". ");
   }
   function visibleWorks() {
     return works.filter(work => work.floor === state.floor);
@@ -142,7 +152,7 @@
         button.className = "list-work";
         button.dataset.workSlot = work.slot;
         button.setAttribute("aria-label", workLabel(work));
-        for (const [className, text] of [["list-number", String(work.slot).padStart(2, "0")], ["list-title", work.title], ["list-artist", work.artist], ["list-meta", (areaNames[work.area] || work.area) + " · " + typeNames[work.type] + " · " + work.tags.join(", ")]]) {
+        for (const [className, text] of [["list-number", String(work.slot).padStart(2, "0")], ["list-title", work.title], ["list-artist", work.artist], ["list-description", work.description], ["list-sale-status", work.saleStatus], ["list-price", work.price]].filter(([, text]) => hasValue(text))) {
           const span = document.createElement("span"); span.className = className; span.textContent = text; button.append(span);
         }
         button.addEventListener("click", () => selectSlot(work.slot, button));

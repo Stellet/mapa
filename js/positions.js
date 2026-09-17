@@ -11,13 +11,28 @@
     return { width: values[2], height: values[3] };
   }
 
+  function localData(file) {
+    const data = window.LOCAL_DATA?.[file];
+    if (data === undefined) throw new Error("fallback local ausente: " + file);
+    return data;
+  }
+
+  async function read(file) {
+    if (window.location.protocol === "file:") return localData(file);
+    try {
+      const response = await fetch(file, { cache: "no-store" });
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      return await response.json();
+    } catch (error) {
+      console.warn("Fetch de " + file + " falhou; usando fallback local:", error.message);
+      return localData(file);
+    }
+  }
   async function load(floor) {
     const file = files.get(floor.id);
     if (!file) return;
     try {
-      const response = await fetch(file, { cache: "no-store" });
-      if (!response.ok) throw new Error("HTTP " + response.status);
-      const data = await response.json();
+      const data = await read(file);
       if (!data || Array.isArray(data) || typeof data !== "object") throw new Error("formato inválido");
 
       const size = dimensions(floor);
@@ -47,7 +62,7 @@
       }
       floor.slots.sort((a, b) => a.number - b.number);
     } catch (error) {
-      console.warn("Posições mantidas pelo fallback de " + file + ":", error.message);
+      console.warn("Posições mantidas pelo fallback de configuração para " + file + ":", error.message);
     }
   }
 

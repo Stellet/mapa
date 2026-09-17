@@ -22,7 +22,7 @@
       reading: "Um caminho pode mudar de direção sem perder a continuidade. Acompanhe as mudanças do percurso e pense em seus próprios deslocamentos. Texto demonstrativo para o wireframe."
     }
   ];
-  window.EXHIBITION_DATA = Array.from({ length: 100 }, (_, index) => ({
+  window.EXHIBITION_DATA = Array.from({ length: 87 }, (_, index) => ({
     floor: 1, slot: index + 1,
     area: window.EXHIBITION_CONFIG.floors[0].slots[index].areaId,
     level: window.EXHIBITION_CONFIG.floors[0].slots[index].level,

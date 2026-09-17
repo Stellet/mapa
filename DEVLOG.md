@@ -223,3 +223,49 @@
 ## 2026-09-16 — vão aberto entre as salas
 
 - Removidos os traços que fechavam a passagem pela direita entre Sala 1 e Sala 2; o vão permanece abaixo do mezanino, com paredes alinhadas e demais geometrias e posições preservadas.
+
+
+## 2026-09-16 — nova publicação das posições
+
+- Sincronizadas as 100 posições recém-exportadas do 1º andar com o fallback público/local; cache v3 do editor invalidado e nova chave v4 preparada para edições futuras.
+
+
+## 2026-09-16 — 87 obras e alinhamento da Sala 2
+
+- Partindo do JSON mais recente, 54–69 foram alinhadas em x=270 e espaçadas igualmente de y=605,27 a y=1086,87; o topo do bar foi estendido à altura da 69.
+- Posições, slots e dados mock acima de 87 removidos sem renumeração; JSON oficial e fallback local conferidos com 87 entradas idênticas.
+
+
+## 2026-09-16 — correção das posições 54–69
+
+- Desfeita a redistribuição automática de 54–69: as coordenadas exportadas pelo usuário foram restauradas integralmente. As demais posições, o limite de 87 obras e a geometria do bar foram preservados; fallback sincronizado.
+
+
+## 2026-09-16 — atualização das posições exportadas
+
+- As 87 posições mais recentes do JSON oficial foram sincronizadas com o fallback público/local; cache v4 invalidado e chave v5 preparada para novas edições.
+
+
+## 2026-09-16 — representação curva da rampa
+
+- A seta foi removida e a rampa passou a usar um perfil curvo esquemático, encostando nas paredes esquerda e direita dentro da mesma faixa vertical. Obras e demais elementos foram preservados.
+
+
+## 2026-09-16 — dados textuais das obras
+
+- Integrado data/works-floor-1.json por id às 87 posições do 1º andar. Lista e bottom sheet usam artist, title, description, saleStatus e price e omitem campos vazios; placeholders e áudio atuais foram preservados.
+
+
+## 2026-09-16 — dados das obras em execução local
+
+- Adicionado espelho local gerado do JSON para contornar o bloqueio de fetch em file://; as 87 obras agora carregam ao abrir index.html diretamente, mantendo works-floor-1.json como fonte oficial.
+
+
+## 2026-09-16 — fallback local unificado
+
+- Criado tools/sync-local-data.ps1 para gerar data/local-data.generated.js a partir de todos os JSONs de runtime. Posições e obras usam LOCAL_DATA em file:// e como fallback de fetch; fallback específico anterior removido.
+
+
+## 2026-09-16 — mapeamento corrigido das obras
+
+- Validado o JSON corrigido do 1º andar com 87 IDs da Column 14 da aba Respostas ao formulário 1 (1–53 Sala 1; 54–87 Sala 2); fallback local regenerado, sem alterar posições ou geometria.

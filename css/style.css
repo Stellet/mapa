@@ -124,9 +124,14 @@ a:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid 
 #work-list ul { list-style: none; padding: 0; margin: 0; }
 #work-list li { border-top: 1px solid #fff; }
 .list-work { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 4px 12px; width: 100%; min-height: 88px; padding: 16px 0; border: 0; text-align: left; background: #000; color: #fff; cursor: pointer; overflow-wrap: anywhere; }
-.list-number { grid-row: 1 / 4; font-size: 12px; }
+.list-number { grid-row: 1 / -1; font-size: 12px; }
 .list-title { font-weight: bold; }
-.list-artist, .list-meta { grid-column: 2; font-size: 13px; }
+.list-artist, .list-description, .list-sale-status, .list-price { grid-column: 2; font-size: 13px; }
+.list-description { white-space: pre-line; }
+.work-sale { margin: 16px 0 0; }
+.work-sale div { display: grid; grid-template-columns: auto 1fr; gap: 12px; padding-top: 8px; border-top: 1px solid #fff; }
+.work-sale dt, .work-sale dd { margin: 0; }
+.work-sale dt { font-size: 12px; }
 .list-work[aria-pressed="true"] { background: #fff; color: #000; }
 .sheet-footer { flex-shrink: 0; padding: 8px 16px calc(8px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid #fff; background: #000; }
 .sheet-footer .interest-button { margin-top: 0; }

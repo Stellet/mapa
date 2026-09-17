@@ -1,0 +1,877 @@
+{
+  "floor": 1,
+  "count": 87,
+  "mappingSource": "Respostas ao formulário 1 / Column 14",
+  "works": [
+    {
+      "id": 1,
+      "floor": 1,
+      "room": 1,
+      "artist": "Jéssica Oliveira Freitas ",
+      "title": "Exu é mojubá ",
+      "description": "Mosaico em azulejo de cerâmica e búzio natural, 16x16 cm, 2026.",
+      "saleStatus": "Sim",
+      "price": "160 reais"
+    },
+    {
+      "id": 2,
+      "floor": 1,
+      "room": 1,
+      "artist": "Ed Martins",
+      "title": "Paz -Supervisionada",
+      "description": "Título: Pomba da Paz — Corpo-Testemunha\nTécnica: Aquarela e caneta acrílica sobre papel Canson 300g\nDimensões: A4 — 21 × 29,7 cm\n\nDescrição:\n\nA obra apresenta uma pomba em voo, tradicionalmente reconhecida como símbolo da paz, equipada com um dispositivo de câmera corporal. A imagem estabelece uma tensão entre a representação clássica da pomba como signo de paz e a presença de um equipamento associado ao registro, à vigilância e à observação.\n\nA obra integra uma pesquisa artística que investiga a permanência e a transformação do símbolo da pomba da paz no imaginário contemporâneo. Ao inserir um dispositivo tecnológico sobre o corpo do animal, a imagem desloca esse símbolo para um contexto de observação e testemunho, questionando o que significa representar a paz em uma sociedade marcada pela vigilância, pela violência e pela produção constante de imagens.\n\nA obra integra uma pesquisa artística que investiga a permanência e a transformação da pomba da paz no imaginário contemporâneo. Artista cuja trajetória está fortemente ligada às linguagens digitais e às novas tecnologias, venho ampliando minha prática por meio da experimentação com diferentes técnicas e linguagens artísticas. Neste trabalho, a utilização da aquarela e da caneta acrílica sobre papel representa também esse movimento de transição e experimentação, aproximando uma técnica tradicional de uma temática atravessada pela tecnologia, pelo registro e pela vigilância.",
+      "saleStatus": "Sim",
+      "price": "750"
+    },
+    {
+      "id": 3,
+      "floor": 1,
+      "room": 1,
+      "artist": "Leandro ICE",
+      "title": "Viação canela ",
+      "description": "Ano: 2025\nTécnica: Tinta acrílica s/ MDF\nMedidas: 40x40\nConceito: Arte inspirada em imagens antigas de ônibus que eu utilizava em algumas locomoções do dia-a-dia como: ir a escola(Tanque), Mercadão de Madureira, Cascadura e praia da Barra(posto 3). Oriunda da minha pesquisa “Memórias afetivas”.\n",
+      "saleStatus": "Sim",
+      "price": "R$ 2.300,00(dois mil e trezentos reais)"
+    },
+    {
+      "id": 4,
+      "floor": 1,
+      "room": 1,
+      "artist": "Alvaro Mendes ",
+      "title": "Sem título ",
+      "description": "Colagem manual \n52,5cm x 52,5cm \n2026 \n",
+      "saleStatus": "Sim",
+      "price": "1500"
+    },
+    {
+      "id": 5,
+      "floor": 1,
+      "room": 1,
+      "artist": "Filipe Nardi",
+      "title": "Notorious ",
+      "description": "Tamanho: 10x15 \nMateriais: Tinta acrílica e tinta óleo \nAno 2024",
+      "saleStatus": "Sim",
+      "price": "R$6500,00"
+    },
+    {
+      "id": 6,
+      "floor": 1,
+      "room": 1,
+      "artist": "Adelia Santannna",
+      "title": "BANANÁ - Bolo I ",
+      "description": "Parte I de III. Objeto tridimensional a base de madeira, matéria autoral, cerâmica fria e tinta óleo. 2026.",
+      "saleStatus": "Sim",
+      "price": "R$3.000,00"
+    },
+    {
+      "id": 7,
+      "floor": 1,
+      "room": 1,
+      "artist": "Cauane da silva souza",
+      "title": "eu quero me olhar e me ver ",
+      "description": "tinta acrílica ",
+      "saleStatus": "Sim",
+      "price": "13000"
+    },
+    {
+      "id": 8,
+      "floor": 1,
+      "room": 1,
+      "artist": "Pietra Canle",
+      "title": "Eu não ando só",
+      "description": "dimensão: 130cm x 90cm\nmateriais utilizados: FineArt e giz pastel oleoso \nano: 2024",
+      "saleStatus": "Sim",
+      "price": "R$4.000"
+    },
+    {
+      "id": 9,
+      "floor": 1,
+      "room": 1,
+      "artist": "Marcos Formiganti",
+      "title": "Procura-se",
+      "description": "Linhas de poliester e algodão sobre latas de alumínio\n~42x30cm\n2026\n",
+      "saleStatus": "Sim",
+      "price": "5mil (uma ressalva é que este trabalho está de fato em processo, de qualquer modo esse é o valor definitivo caso haja interesse)"
+    },
+    {
+      "id": 10,
+      "floor": 1,
+      "room": 1,
+      "artist": "Puro melt",
+      "title": "\"chat gpt é meu piru\"",
+      "description": "Acrílica sobre papel parana, 40x50cm, 2026.",
+      "saleStatus": "Sim",
+      "price": "R$1.500"
+    },
+    {
+      "id": 11,
+      "floor": 1,
+      "room": 1,
+      "artist": "Brun Brasil",
+      "title": "Pirarucu",
+      "description": "130x25 Impressão em tecido oxford",
+      "saleStatus": "sim",
+      "price": "180"
+    },
+    {
+      "id": 12,
+      "floor": 1,
+      "room": 1,
+      "artist": "Yuri Almeida ",
+      "title": "Sem título ",
+      "description": "Giz de cera sobre papelão. Dimensões: 17 x 64 cm.",
+      "saleStatus": "sim",
+      "price": "R$500,00."
+    },
+    {
+      "id": 13,
+      "floor": 1,
+      "room": 1,
+      "artist": "Izabela gomes Ribeiro Mendonça ",
+      "title": "Aos três provérbios que me guiam",
+      "description": "Acrílica, guache e acrílico metálico sobre tela.\n150x70cm\n2025",
+      "saleStatus": "Sim",
+      "price": "1500"
+    },
+    {
+      "id": 14,
+      "floor": 1,
+      "room": 1,
+      "artist": "Felipe Braga",
+      "title": "Da People’s Republic of Quilla",
+      "description": "Máscara de papel machê, espelhos, tecido, pérolas sintéticas, miçangas, linha, pins e plástico\n45 x 35 x 15 cm\n2024",
+      "saleStatus": "Não",
+      "price": "-"
+    },
+    {
+      "id": 15,
+      "floor": 1,
+      "room": 1,
+      "artist": "Juliana Cazumbá",
+      "title": "De onde eu vim, todos rezavam por mim",
+      "description": "Essa obra é feita com telha colonial como suporte e tinta a óleo, a partir desses materiais trago minha pesquisa acerca da casa, da família, da ancestralidade e do afeto. \nTrago na pintura um conjunto de Adinkras, símbolos de origem africana, do povo Akan de Gana, onde tais símbolos, o Sankofa e o Dwennimmen, que juntos representam a importância de retornar ao passado para buscar sabedoria e construir o futuro e a busca constante por sabedoria e evolução, respectivamente.\nEssa telha era de fato a telha utilizada na minha casa, usada, gasta, com marcas de uso, sol, chuva, a vida aconteceu e ela abrigou uma família.\nDimensão: 50 cm x 20 cm\nAno: 2026",
+      "saleStatus": "Sim",
+      "price": "1000"
+    },
+    {
+      "id": 16,
+      "floor": 1,
+      "room": 1,
+      "artist": "Gabriel Botelho vulgo Gabriel Japa",
+      "title": "Zangbeto entidade protetora da noite - Vodou - Uma Viagem ao Benin ",
+      "description": "Fotografia impressa em a4/ ano de 2026 / moldura A3 ",
+      "saleStatus": "Não",
+      "price": "Não está a venda "
+    },
+    {
+      "id": 17,
+      "floor": 1,
+      "room": 1,
+      "artist": "CostaBXD",
+      "title": "o salto zulu",
+      "description": "Fotografia digital impressa em papel fosco, 24 cm x 33 cm, 2017. Saracuruna, Duque de Caxias. Participação do dançarino Zulu.",
+      "saleStatus": "Sim",
+      "price": "R$2000 "
+    },
+    {
+      "id": 18,
+      "floor": 1,
+      "room": 1,
+      "artist": "Pedro Pessanha",
+      "title": "Pulsos III",
+      "description": "Tinta acrílica e Gravura a laser sobre MDF\n35 x 35 cm\n2026",
+      "saleStatus": "Sim",
+      "price": "4500"
+    },
+    {
+      "id": 19,
+      "floor": 1,
+      "room": 1,
+      "artist": "Mylena Godinho de Freitas",
+      "title": "Artista reflete",
+      "description": "Artista reflete, 2025\nPlástico adesivo sobre espelho\n40 cm de diâmetro\n\nObs: Tiragem de 5 + 1 P.A. (1 disponível para venda)",
+      "saleStatus": "Sim",
+      "price": "R$1150"
+    },
+    {
+      "id": 20,
+      "floor": 1,
+      "room": 1,
+      "artist": "Lucas Gomes Oliveira de Faria",
+      "title": "O Homem, o Sol e o Mar",
+      "description": "Fotografia em papel fotográfico A4, julho de 2026",
+      "saleStatus": "Sim",
+      "price": "R$250,00"
+    },
+    {
+      "id": 21,
+      "floor": 1,
+      "room": 1,
+      "artist": "Leonora Braga cruces ",
+      "title": "O pequeno ser da concha ",
+      "description": "Aquarela sobre papel\n18x24 cm ",
+      "saleStatus": "Sim",
+      "price": "400"
+    },
+    {
+      "id": 22,
+      "floor": 1,
+      "room": 1,
+      "artist": "Daniel Bomfim",
+      "title": "Roupas de Cristo",
+      "description": "Fotografia digital impressa em fine art\n29,7 x 42 cm \n2025",
+      "saleStatus": "Sim",
+      "price": "300 reais"
+    },
+    {
+      "id": 23,
+      "floor": 1,
+      "room": 1,
+      "artist": "Thiago Paixão",
+      "title": "XVIII",
+      "description": "Óleo sobre tela, 70x50, 2026",
+      "saleStatus": "Não",
+      "price": "Não está a venda"
+    },
+    {
+      "id": 24,
+      "floor": 1,
+      "room": 1,
+      "artist": "Pedro Rangel",
+      "title": "Gaiola dourada em chamas.",
+      "description": "Pintura em óleo sobre tela. 60 x 52 cm.",
+      "saleStatus": "Sim",
+      "price": "1200"
+    },
+    {
+      "id": 25,
+      "floor": 1,
+      "room": 1,
+      "artist": "Thuanny Farias ",
+      "title": "\"CRIA\"",
+      "description": "TÉCNICA: Pintura acrílica sobre tela DIMENSÕES: 21x30cm ANO: 2026",
+      "saleStatus": "Sim",
+      "price": "R$200"
+    },
+    {
+      "id": 26,
+      "floor": 1,
+      "room": 1,
+      "artist": "Liege Pereira dos Santos ",
+      "title": "Desvio também é caminho ",
+      "description": "Viu também a caminho é uma bandeira em tecido  75 x 100 em microfibra",
+      "saleStatus": "Sim",
+      "price": "650"
+    },
+    {
+      "id": 27,
+      "floor": 1,
+      "room": 1,
+      "artist": "Eliane Fraulob Mattos",
+      "title": "Vejo sua sombra e escuto o farfalhar",
+      "description": "\n2026, Massa fria, lápis aquarelável, lápis multicolorido, caneta posca e acrílica sobre tela, 20 x 20 cm",
+      "saleStatus": "Sim",
+      "price": "2000"
+    },
+    {
+      "id": 28,
+      "floor": 1,
+      "room": 1,
+      "artist": "Alessandra V. Santhos ",
+      "title": 13,
+      "description": "13 é um sigilo somente aberto para aqueles que com seus próprios caminhos encontra.\n\nA obra é uma colagem digital feita a partir de fotos e desenho com giz pastel.\n\nAno\n2025\n\nMedida \nA4 - 21 x 29,7 cm",
+      "saleStatus": "Sim",
+      "price": "Prints Fineart por R$ 300,00"
+    },
+    {
+      "id": 29,
+      "floor": 1,
+      "room": 1,
+      "artist": "Brisa Rabicha Liberato Segalla",
+      "title": "Sei la",
+      "description": "Cigarro, cartela de remedio, tinta oleosa, incendio do predio que danificou a obra",
+      "saleStatus": "Sim",
+      "price": "200"
+    },
+    {
+      "id": 30,
+      "floor": 1,
+      "room": 1,
+      "artist": "Danilo Nobrega",
+      "title": "\"Engula inteiro\"",
+      "description": "Giz pastel oleoso sobre tecido preto, intervenções em cinzal, guizos e 33 dentes de cavalo.\n1m4cm X 80cm\n2026",
+      "saleStatus": "Sim",
+      "price": "R$2000,00"
+    },
+    {
+      "id": 31,
+      "floor": 1,
+      "room": 1,
+      "artist": "Pedro Machado",
+      "title": "Verão 474",
+      "description": "PRINT A4 - Papel couche 250g",
+      "saleStatus": "sim",
+      "price": "250"
+    },
+    {
+      "id": 32,
+      "floor": 1,
+      "room": 1,
+      "artist": "Mysteryo e Alessandra V. Santhos",
+      "title": "Fragatas e Dragões ",
+      "description": "Impressão em papel fotográfico luminoso, A3.\n2025",
+      "saleStatus": "Sim",
+      "price": "600"
+    },
+    {
+      "id": 33,
+      "floor": 1,
+      "room": 1,
+      "artist": "Arthur Lisboa Callegari",
+      "title": "Lugar marcado",
+      "description": "Fotografia analogica medio formato em papel algodão ",
+      "saleStatus": "Sim",
+      "price": "R$650"
+    },
+    {
+      "id": 34,
+      "floor": 1,
+      "room": 1,
+      "artist": "Thiago Barletta",
+      "title": "A GENTE TÁ INVENTANDO",
+      "description": "ACRÍLICO SOBRE TELA\n\n87x92cm\n\n2026",
+      "saleStatus": "Sim",
+      "price": "R$5000"
+    },
+    {
+      "id": 35,
+      "floor": 1,
+      "room": 1,
+      "artist": "Bic",
+      "title": "raStrus EpytelyKoS y a Kor OracUlar do OvO das estrelaS",
+      "description": "moldura de madeira, lã, sementes, pena, marisco, pedra, búzios, argila e bacia de plástico \n54x47 cm. 2026.",
+      "saleStatus": "Não",
+      "price": "nao há"
+    },
+    {
+      "id": 36,
+      "floor": 1,
+      "room": 1,
+      "artist": "Gabriel Gariba ",
+      "title": "Rua - (Série garotos)",
+      "description": "Nome da obra: Rua. \nSérie intitulada \"Garotos”. \n\nTécnica: Formação da palavra RUA escrita a partir de balas Garoto. Coladas em uma \nsuperfície rígida e protegidas por caixa acrílica. 31x23,5 cm\n\nArtista: Gabriel Gariba.\n\nAno 2023.\n\n\nBreve descrição do artista: \nSegundo a história da fábrica, a Garoto tem esse nome porque inicialmente os primeiros vendedores eram meninos que vendiam balas nos pontos do bonde em Vila Velha - ES.  Na época a empresa tornou-se conhecida popularmente por “bala dos garotos”, batizou-se então a fábrica de “Garoto” em menção aos meninos vendedores dos bondes. O trabalho aqui busca subverter a ideia inicial de “garoto”, mostrando uma realidade que perpetua ao longo de décadas, meninos que seguem sendo trabalhadores informais nas ruas.\n",
+      "saleStatus": "Sim",
+      "price": "1600"
+    },
+    {
+      "id": 37,
+      "floor": 1,
+      "room": 1,
+      "artist": "Pedro Henrique Goulart Machado",
+      "title": "Menino Santo Guerreiro",
+      "description": "Acrílica sobre duratex",
+      "saleStatus": "Sim",
+      "price": "1000.00"
+    },
+    {
+      "id": 38,
+      "floor": 1,
+      "room": 1,
+      "artist": "Carlos Martelote ",
+      "title": 7,
+      "description": "2026\nda série \"fiat lux\"\nacrílica sobre feltro\n80 cm x 110 cm\n",
+      "saleStatus": "Sim",
+      "price": "R$3000"
+    },
+    {
+      "id": 39,
+      "floor": 1,
+      "room": 1,
+      "artist": "Gustavo Lima Dos Santos",
+      "title": "Junho 2013",
+      "description": "acrílica sobre tela; 50cm x 30cm;2024",
+      "saleStatus": "Sim",
+      "price": "150"
+    },
+    {
+      "id": 40,
+      "floor": 1,
+      "room": 1,
+      "artist": "Thaynnara de Farias Pinto (Thata Farias)",
+      "title": "Dar Linha ao Tempo",
+      "description": "Gis pastel oleoso e linha de pipa sobre papelão.\n70x60\n2026\n@thatafarias_",
+      "saleStatus": "Sim",
+      "price": "R$700"
+    },
+    {
+      "id": 41,
+      "floor": 1,
+      "room": 1,
+      "artist": "BEATRICE FERNANDES ",
+      "title": "A verdade vos fará livre",
+      "description": "Colagem de sacos de pipoca sobre madeira, 2024. 114 x 63 x 5 cm. ",
+      "saleStatus": "Sim",
+      "price": "8000"
+    },
+    {
+      "id": 42,
+      "floor": 1,
+      "room": 1,
+      "artist": "Pedro Paulo Honorato",
+      "title": "Jingle #1",
+      "description": "Jingle #1 é um objeto de performance transformado em escultura. Em 2019, eu apresentei o meu solo \"Desvio para o Vermelho e o Amarelo\", uma performance apresentada como projeto de finalização de quando fui aluno bolsista do Programa de \"Formação e Deformação\" da EAV Parque Lage, e em paralelo, trabalhava em franquias de fast food para me manter no programa como artista. Em 2026, eu retorno a essa performance com o solo \"Ensaio do retorno ao Desvio\", já num outro contexto, uma tentativa para esquivar da necessidade de voltar, de fato, atrás.\n\nA obra consiste de um conjunto de cadernos de caligrafia vermelhos e amarelos com o jingle do Big Mac escritos/desenhados em suas páginas. É uma reflexão sobre o objeto da Arte e um sistema voraz faminto pela próximo \"hit\", num mundo cada vez mais \"fast\" e com menos \"food\".\n\n+\n\nJingle #1\n\n2019/2026\n\nPolíptico\nObjeto de performance.\nCadernos de caligrafia, grafite, giz de cera, giz pastel e canetas hidrocor sobre papéis.\n\n83 x 31 x 12 cm.\n\n+\n\nobs1: os cadernos estão dispostos num suporte de madeira para a instalação na parede.\nobs2: Apesar do relevo que a obra possui, o mesmo não impede ou obstrui a observação de outras obras no seu campo de visão.\nobs3: O solo \"Ensaio do retorno ao Desvio #4\" será apresentado no dia 26/09 na exposição coletiva \"Cacofania\", do coletivo Arapuka e da organização estudantil da EBA UFRJ.\n\nLink para o ensaio do solo:\nhttps://vimeo.com/1220442218",
+      "saleStatus": "Sim",
+      "price": "R$4000"
+    },
+    {
+      "id": 43,
+      "floor": 1,
+      "room": 1,
+      "artist": "Gabriel Omep",
+      "title": "\"Barracão\" Cacos de azulejos, rejunte, tinta spray, tinta acrílica e palha da costa sobre madeira. 90x30cm Omep,2026.",
+      "description": "A obra se constrói como uma arquitetura de fragmentos. \nCor, matéria e uma geometria emocional, organizam diferentes camadas de memória, enquanto a rigidez das formas é atravessada pelo gesto, pela textura e pela presença orgânica da palha. \nEntre ordem e instabilidade, a composição sugere uma paisagem afetiva, onde experiências, lugares e tempos distintos parecem coexistir em uma mesma estrutura.",
+      "saleStatus": "Sim",
+      "price": "R$7.000"
+    },
+    {
+      "id": 44,
+      "floor": 1,
+      "room": 1,
+      "artist": "Bruna Manarelli",
+      "title": "Sem título",
+      "description": "Sem título, 2026. Óleo, acrílica e bastão a óleo sobre tela. 40x40cm",
+      "saleStatus": "Sim",
+      "price": "R$3.200,00"
+    },
+    {
+      "id": 45,
+      "floor": 1,
+      "room": 1,
+      "artist": "Silas Sena da Silva ",
+      "title": "Eu ainda não sei o que fazer.",
+      "description": "A obra retrata um rapaz com a mão no rosto nu sob um fundo escuro marrom. É uma pintura a Óleo em tamanho A4 de 2026.",
+      "saleStatus": "Sim",
+      "price": "100 reais."
+    },
+    {
+      "id": 46,
+      "floor": 1,
+      "room": 1,
+      "artist": "Alessandro Chux ",
+      "title": "Smile",
+      "description": "Smile a série vários tamanhos",
+      "saleStatus": "Sim",
+      "price": "450"
+    },
+    {
+      "id": 47,
+      "floor": 1,
+      "room": 1,
+      "artist": "Júli Bezerra",
+      "title": "Sincera elegância do tempo.",
+      "description": "Imagem tirada em câmera digital Nikon p520. \n\nImpressa no papel fotografico couchê 300g 33x48cm. \n\nObra de 2020.\n\n",
+      "saleStatus": "Sim",
+      "price": "2000"
+    },
+    {
+      "id": 48,
+      "floor": 1,
+      "room": 1,
+      "artist": "Maria Isabel Martins Nogueira",
+      "title": "Dilema",
+      "description": "Óleo sobre tela, 2026, 60x40cm",
+      "saleStatus": "Sim",
+      "price": "R$1500,00"
+    },
+    {
+      "id": 49,
+      "floor": 1,
+      "room": 1,
+      "artist": "Felipe Machado",
+      "title": "\"Oriente\"",
+      "description": "Acrílica sobre ráfia, 61x52cm, 2025",
+      "saleStatus": "Sim",
+      "price": "4500"
+    },
+    {
+      "id": 50,
+      "floor": 1,
+      "room": 1,
+      "artist": "Victor Curi",
+      "title": "Au + C10H14N2 & Ag + C8H10N4O2",
+      "description": "Victor Curi, 2024\n\nFotografias digitais impressas sobre papel papel de alfa-celulose em mostruário de madeira e vidro.\n\n40 x 100 cm\n",
+      "saleStatus": "Sim",
+      "price": "R$ 1200,00"
+    },
+    {
+      "id": 51,
+      "floor": 1,
+      "room": 1,
+      "artist": "Vinicius Nobre",
+      "title": "Djadja do jazz",
+      "description": "Óleo sobre tela.",
+      "saleStatus": "Sim",
+      "price": "R$2000"
+    },
+    {
+      "id": 52,
+      "floor": 1,
+      "room": 1,
+      "artist": "Claudia Revoredo ",
+      "title": "Zona oeste carioca ",
+      "description": "Zona Oeste Carioca integra o projeto de pesquisa Ainda é Sertão, desenvolvido a partir da releitura de O Sertão Carioca (1936), de Armando Magalhães Corrêa. Entre memória, ficção e vestígio, a pesquisa investiga as transformações da Zona Oeste do Rio de Janeiro e as formas como esse território foi representado, lembrado e imaginado ao longo do tempo.\nO projeto reúne fotografias de arquivo familiar, registros contemporâneos e imagens produzidas a partir de tecnologias generativas, articulando diferentes temporalidades e modos de construir uma memória visual da região. Nesse processo, o passado não é reconstituído de forma literal, mas atravessado por lembranças, documentos, fabulações e pelas transformações da própria paisagem.\nO mapa Zona Oeste Carioca é uma das interpretações desenvolvidas a partir das ilustrações de Magalhães Corrêa em O Sertão Carioca, trazendo essa referência para uma leitura contemporânea da Zona Oeste e incorporando elementos que fazem parte da experiência desse território hoje.\nMais do que uma representação geográfica, o mapa funciona como uma cartografia de memória e reconhecimento.\nA pesquisa deu origem ao fotolivro Ainda é Sertão, publicado em 2025, e posteriormente se desdobrou em uma exposição individual, com curadoria de Rafael Amorim.\nO livro Ainda é Sertão está disponível no link da bio da artista, @souclaudia.\n\nImpressão digital sob sarja de algodão \n100 x 150\n",
+      "saleStatus": "Sim",
+      "price": "1300"
+    },
+    {
+      "id": 53,
+      "floor": 1,
+      "room": 1,
+      "artist": "Mariana Moysés ",
+      "title": "Morceguinho",
+      "description": "Pintura sobre tecido de algodão, 60 cm × 70 cm feita em 2026.",
+      "saleStatus": "Sim",
+      "price": "R$ 150,00 reais"
+    },
+    {
+      "id": 54,
+      "floor": 1,
+      "room": 2,
+      "artist": "Fernando Santos ",
+      "title": "Noites de ontem",
+      "description": "Papel couchê fosco 115g  ",
+      "saleStatus": "Sim",
+      "price": "R$20"
+    },
+    {
+      "id": 55,
+      "floor": 1,
+      "room": 2,
+      "artist": "Gênesis",
+      "title": "Dispositivo Analógico para Transdução de Matéria Inobediente",
+      "description": "Dispositivo analógico para transdução de matéria inobediente, 2026. Assemblage composta por três estruturas construídas com objetos encontrados, embalagens reutilizadas de substâncias, metal, plástico, fios, conectores, componentes eletrônicos, conchas, búzios, contas e adornos. Dimensões do conjunto: 40 × 30 × 7 cm.",
+      "saleStatus": "Não",
+      "price": "Não está a venda"
+    },
+    {
+      "id": 56,
+      "floor": 1,
+      "room": 2,
+      "artist": "Iris Laerte",
+      "title": "Autorretrato ",
+      "description": "Breve descrição: Obra de caráter experimental, desenvolvida a partir da exploração de diferentes materiais e procedimentos gráficos, combinando pintura e desenho em uma composição de linguagem autoral. Esta obra é um autorretrato construído pelo olhar do outro. Um corpo negro, favelado e não binário atravessado por julgamentos, estigmas e olhares pejorativos que, pouco a pouco, também passam a habitar a própria forma de se enxergar. O que aparece na obra é, portanto, não apenas quem eu sou, mas a imagem que o outro construiu de mim e que aprendi a reconhecer como minha.\nMateriais utilizados: Papel Canson branco 200 g/m², tintas, marcador permanente (Pilot), canetinhas e outros materiais gráficos.\nDimensões: 21 × 29,7 cm (formato A4), posteriormente apresentada emoldurada.\nAno: 2020–2022.",
+      "saleStatus": "Não",
+      "price": "Não está a venda."
+    },
+    {
+      "id": 57,
+      "floor": 1,
+      "room": 2,
+      "artist": "maria de lurdes",
+      "title": null,
+      "description": null,
+      "saleStatus": null,
+      "price": null
+    },
+    {
+      "id": 58,
+      "floor": 1,
+      "room": 2,
+      "artist": "Estevão Barbiére ",
+      "title": "Dia 231 - Transparência ",
+      "description": "1 metro de altura por 50 cm de largura, realizada em 2025. Materiais:  Tinta acrílica, giz pastel oleoso e caneta à óleo.",
+      "saleStatus": "Sim",
+      "price": "R$ 5.000"
+    },
+    {
+      "id": 59,
+      "floor": 1,
+      "room": 2,
+      "artist": "Larissa Santos Rocha ",
+      "title": "Caminho aberto",
+      "description": "Acrílica sobre tela, 70x50cm, 2025",
+      "saleStatus": "Sim",
+      "price": "2400"
+    },
+    {
+      "id": 60,
+      "floor": 1,
+      "room": 2,
+      "artist": "Marcelo da Silva Pinto",
+      "title": "Agouro",
+      "description": "Tinta a óleo, tinta acrílica e pastel oleoso sobre placa de trânsito; 100x75cm; 2026",
+      "saleStatus": "Não",
+      "price": "-"
+    },
+    {
+      "id": 61,
+      "floor": 1,
+      "room": 2,
+      "artist": "Dree Beatmaker ",
+      "title": "Baile do fim do mundo",
+      "description": "Produção musical digital e armazenamento em HD, Dimensão: A3",
+      "saleStatus": "Sim",
+      "price": "a negociar"
+    },
+    {
+      "id": 62,
+      "floor": 1,
+      "room": 2,
+      "artist": "Pedro Pessanha",
+      "title": "Pulsos III",
+      "description": "Tinta acrílica e Gravura a laser sobre MDF\n35 x 35 cm\n2026",
+      "saleStatus": "Sim",
+      "price": "4500"
+    },
+    {
+      "id": 63,
+      "floor": 1,
+      "room": 2,
+      "artist": "Gabriel Labarba",
+      "title": "Mãe é céu/ A mãe brasileira.",
+      "description": "Acrílica, pastel oleoso, lápis de cor, pasta ouro, sobre papel cartão.",
+      "saleStatus": "Sim",
+      "price": "2300"
+    },
+    {
+      "id": 64,
+      "floor": 1,
+      "room": 2,
+      "artist": "Maria Juana Laranja",
+      "title": "\"My head spins, my stomach hurts. There goes my mind, there it goes.\"",
+      "description": "Tinta acrilica e massa de biscuit sobre tela. 50cm x 30cm. 2025",
+      "saleStatus": "Sim",
+      "price": "R$2.000,00"
+    },
+    {
+      "id": 65,
+      "floor": 1,
+      "room": 2,
+      "artist": "Ana Cople ",
+      "title": "Lula comendo Bozo ",
+      "description": "bandeira impressa, 85 x 58 ",
+      "saleStatus": "Sim",
+      "price": "300"
+    },
+    {
+      "id": 66,
+      "floor": 1,
+      "room": 2,
+      "artist": "João Lord",
+      "title": "Sem título",
+      "description": "Acrílica sobre madeira.",
+      "saleStatus": "Sim",
+      "price": "R$4.000"
+    },
+    {
+      "id": 67,
+      "floor": 1,
+      "room": 2,
+      "artist": "Mano Wladmir",
+      "title": "Esperança divina",
+      "description": "Óleo sobre tela.",
+      "saleStatus": "sim",
+      "price": "R$9.000"
+    },
+    {
+      "id": 68,
+      "floor": 1,
+      "room": 2,
+      "artist": "joaoladob (joão victor valim)",
+      "title": "agosto exposed ",
+      "description": "técnica e materiais: sobreposições em papéis em uma base de papelão +\nimpressões e intervenções com em papéis artesanais e tingidos com diferentes tipos de corantes, além de intervenções feitas à caneta permanente.  \n\ndimensões: 1metro de largura por 1 metro de comprimento.\nano: 2026 \n",
+      "saleStatus": "Sim",
+      "price": "R$ 2.264,00"
+    },
+    {
+      "id": 69,
+      "floor": 1,
+      "room": 2,
+      "artist": "`",
+      "title": "no meio da multidão",
+      "description": "Carvão vegetal e tinta acrílica sobre placas de drywall encontradas, 2026",
+      "saleStatus": "não",
+      "price": "-"
+    },
+    {
+      "id": 70,
+      "floor": 1,
+      "room": 2,
+      "artist": "Luna Cassinelli",
+      "title": "Pra longe, enfim",
+      "description": "Giz pastel oleoso e aquarelavel sobre látex",
+      "saleStatus": "Não",
+      "price": "-"
+    },
+    {
+      "id": 71,
+      "floor": 1,
+      "room": 2,
+      "artist": "Danyele Ferreira Lopes ",
+      "title": "O Triunfo da Morte (Iluminuras Cariocas)",
+      "description": "Óleo e folha de ouro sobre tela. 1,20m X 80cm",
+      "saleStatus": "Não",
+      "price": "-"
+    },
+    {
+      "id": 72,
+      "floor": 1,
+      "room": 2,
+      "artist": "Caio dos Anjos ",
+      "title": "\"Por onde esses trilhos passam morrem milhares\".",
+      "description": "Pastel seco sobre papel craft\n33x43\n2023\n",
+      "saleStatus": "Sim",
+      "price": "3000"
+    },
+    {
+      "id": 73,
+      "floor": 1,
+      "room": 2,
+      "artist": "Jaguar da Serra ",
+      "title": "Duas Bandida Perturbando Minha Mente ",
+      "description": "Acrílico sobre tela ",
+      "saleStatus": "sim",
+      "price": "1000"
+    },
+    {
+      "id": 74,
+      "floor": 1,
+      "room": 2,
+      "artist": "Edson Laranja Júnior ",
+      "title": "Guerra dos doze dias",
+      "description": "Tinta acrílica sobre tela, dimensões 60×90, ano 2026",
+      "saleStatus": "Sim",
+      "price": "R$ 3000,00"
+    },
+    {
+      "id": 75,
+      "floor": 1,
+      "room": 2,
+      "artist": "Drean ",
+      "title": "ZAPATSUNG 001",
+      "description": "Tecido Preto Estampado. ",
+      "saleStatus": "Sim",
+      "price": "R$500,00."
+    },
+    {
+      "id": 76,
+      "floor": 1,
+      "room": 2,
+      "artist": "Ana Sales",
+      "title": "Fascínio",
+      "description": "Ame sua preta em arte pública. Guache sob mdf desgastado, 60x70, 2026",
+      "saleStatus": "Não",
+      "price": "Sem valor"
+    },
+    {
+      "id": 77,
+      "floor": 1,
+      "room": 2,
+      "artist": "Artur 'Kjá",
+      "title": "Meier, Cultura Skateboard",
+      "description": "Obra em técnica mista, construída por sobreposição de colagens, pintura, desenho, grafismos, spray e intervenções manuais sobre suporte rígido. A composição reúne fragmentos gráficos, personagens, símbolos e marcas gestuais, criando uma narrativa visual não linear ligada à memória, cultura urbana e experiência pessoal.\n\nMateriais: colagem de papel impresso, tinta acrílica e spray, canetas/marcadores e técnicas gráficas sobre suporte rígido.\n\nDimensões: 70 × 40 × 4cm.\nAno: 2026",
+      "saleStatus": "Sim",
+      "price": "R$ 2.650,00"
+    },
+    {
+      "id": 78,
+      "floor": 1,
+      "room": 2,
+      "artist": "joão MM",
+      "title": "69 cavalos fudendo no brasil ",
+      "description": "Giz oleoso, caneta preta e papel, 45cm x 30cm, 2026",
+      "saleStatus": "Não",
+      "price": "Já foi vendida "
+    },
+    {
+      "id": 79,
+      "floor": 1,
+      "room": 2,
+      "artist": "Gabriel Nunes (Umbriel)",
+      "title": "Dinâmica Orbital",
+      "description": "65x50cm\nTinta a base de cúrcuma, tinta a base de urucum, tinta PVA sobre papel, 2026",
+      "saleStatus": "Sim",
+      "price": "r$250"
+    },
+    {
+      "id": 80,
+      "floor": 1,
+      "room": 2,
+      "artist": "Roberto ",
+      "title": "Órfico",
+      "description": "Óleo sobre tela. Dimensão: 80 x 90",
+      "saleStatus": "Sim",
+      "price": "R$10.000"
+    },
+    {
+      "id": 81,
+      "floor": 1,
+      "room": 2,
+      "artist": "Vinícius Carvas",
+      "title": "DISK TAXI 2543-9261",
+      "description": "Acrílica e pastel oleoso sobre tela, 60 x 90 cm, 2024",
+      "saleStatus": "Sim",
+      "price": "R$7.500"
+    },
+    {
+      "id": 82,
+      "floor": 1,
+      "room": 2,
+      "artist": "Vera Schueler Araripe",
+      "title": "Bananal",
+      "description": "Acrílica sobre tela\n80 x 60 cm\n2024",
+      "saleStatus": "Sim",
+      "price": "R$10.000"
+    },
+    {
+      "id": 83,
+      "floor": 1,
+      "room": 2,
+      "artist": "Camile Soares",
+      "title": "Tempo Granular",
+      "description": "100x70cm - Geotinta, acrílica, gesso e aglutinógeno no canvas com moldura em caixa preta",
+      "saleStatus": "Sim",
+      "price": "R$4000"
+    },
+    {
+      "id": 84,
+      "floor": 1,
+      "room": 2,
+      "artist": "izaias silva de oliveira",
+      "title": "confluência",
+      "description": "Esta obra é inspirada no confluência de “confluência”, cunhado por Nego Bispo, e apresenta uma imagem que simboliza o encontro de vidas que se movimentam em direções semelhantes. Para o autor, a confluência é a arte de transformar conflitos e divergências em diversidade, possibilitando formas de existência mais harmônicas, coletivas e plurais.\n\nAcrilica sobre tela 1,60 X 90cm 2025",
+      "saleStatus": "Sim",
+      "price": "1400"
+    },
+    {
+      "id": 85,
+      "floor": 1,
+      "room": 2,
+      "artist": "Társo Gentìl ",
+      "title": "São Menino",
+      "description": "Acrílica, spray e pastel seco sobre tela de algodão.\n\nDimensões: 150x110.",
+      "saleStatus": "Sim",
+      "price": "6000"
+    },
+    {
+      "id": 86,
+      "floor": 1,
+      "room": 2,
+      "artist": "Cesar Mendes ",
+      "title": "Entre Cabeças",
+      "description": "Pinceladas que surgem como cabeças. Esmalte sintético sobre  tela. Dimensôes: 100 x 70 cm.",
+      "saleStatus": "Sim",
+      "price": "R$6.800,00."
+    },
+    {
+      "id": 87,
+      "floor": 1,
+      "room": 2,
+      "artist": "Celo Moreira ",
+      "title": null,
+      "description": null,
+      "saleStatus": null,
+      "price": null
+    }
+  ]
+}
