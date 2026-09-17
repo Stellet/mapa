@@ -8,36 +8,44 @@
   </defs>
   <g fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="miter">
     <!-- Contorno e entrada superior, proporcionados a partir da planta arquitetônica. -->
-    <path id="outline" d="M40 50H142 M218 50H280V605H310V1375H280V1715H165 M115 1715H40V50"/>
+    <path id="outline" d="M40 50H142 M218 50H310V1375H280V1715H165 M115 1715H40V50"/>
     <!-- Área superior: Área 3 à esquerda, Área 1 à direita e Área 2 transversal. -->
     <g id="upper-main-walls" data-level="main">
       <path id="area-3-main" data-area="area-3" d="M40 115V605"/>
-      <path id="area-1-main" data-area="area-1" d="M280 115V605"/>
+      <path id="area-1-main" data-area="area-1" d="M310 115V605"/>
       <path id="area-2-main" data-area="area-2" d="M40 605H238"/>
     </g>
     <!-- Mezanino: segunda parede paralela e faixa hachurada nas Áreas 1, 2 e 3. -->
     <g id="mezzanine" data-level="mezzanine">
-      <path id="area-3-mezzanine" data-area="area-3" d="M72 115V573"/>
-      <path id="area-1-mezzanine" data-area="area-1" d="M248 115V573"/>
+      <path id="area-3-mezzanine" data-area="area-3" d="M72 207V573"/>
+      <path id="area-1-mezzanine" data-area="area-1" d="M278 207V573"/>
       <path id="area-2-mezzanine" data-area="area-2" d="M72 573H238"/>
-      <path d="M40 115H72V573H40Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
-      <path d="M248 115H280V573H248Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
+      <path d="M40 207H72V573H40Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
+      <path d="M278 207H310V573H278Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
       <path d="M72 573H238V605H72Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
     </g>    <!-- Rampa central da área superior. -->
     <g id="skate-ramp">
-      <path d="M103 205H221V425H103Z"/>
-      <path d="M116 397L208 233 M188 233H208V253" stroke-width="1.5"/>
+      <path d="M103 207H221V287H103Z"/>
+      <path d="M116 273L208 221 M188 221H208V241" stroke-width="1.5"/>
     </g>
     <!-- Som/DJ junto à Área 2, preservando a circulação lateral direita. -->
     <path id="sound-dj" d="M100 486H218V552H100Z"/>
     <!-- Circulação: sai pela abertura direita da Área 2 sem espelhar o percurso. -->
-    <path id="circulation" d="M238 605H280 M238 605V688H115"/>
-    <path d="M280 605H310V745H270" stroke-width="1.5"/>
+    <path id="circulation" d="M238 605V688H115"/>
     <!-- Obstáculo estrutural entre a área superior e a inferior. -->
-    <path id="upper-lower-obstacle" d="M40 688H115V790H40 M48 704H107V774H48Z M48 704L107 774 M107 704L48 774"/>
+    <path id="upper-lower-obstacle" d="M40 688H115V790H40Z"/>
     <!-- Parte inferior: Área 5 à esquerda e Área 4 à direita. -->
     <path id="area-5-main" data-area="area-5" data-level="main" d="M40 790V1215"/>
-    <path id="area-4-main" data-area="area-4" data-level="main" d="M280 745V1375"/>
+    <path id="area-4-main" data-area="area-4" data-level="main" d="M310 745V1375"/>
+    <!-- Mezanino da Sala 2: laterais e parede inferior, mantendo livre a passagem superior direita. -->
+    <g id="mezzanine-sala-2" data-level="mezzanine">
+      <path data-area="area-5" d="M72 790V1343"/>
+      <path data-area="area-4" d="M278 745V1343"/>
+      <path d="M72 1343H278"/>
+      <path d="M40 790H72V1343H40Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
+      <path d="M278 745H310V1343H278Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
+      <path d="M72 1343H278V1375H72Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
+    </g>
     <!-- Bar abaixo da Área 5. -->
     <path id="bar" d="M40 1215H126V1510H40 M68 1248H110V1478H68Z"/>
     <!-- Escada para o segundo andar no extremo inferior esquerdo. -->

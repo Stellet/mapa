@@ -187,3 +187,39 @@
 
 - Adicionado EDITAR MAPA no footer; em ?edit=1, o painel completo substitui header/sub-nav e oferece SAIR DO EDITOR. Footer mantém build e régua, com créditos e links externos de Lado B e NebulaDevs.
 - REMOVER botão/modo de acesso ao editor antes da versão final pública.
+
+
+## 2026-09-16 — posições atualizadas do mapa
+
+- Aplicadas as 100 posições enviadas em data/positions-floor-1.json e sincronizado o fallback de config.js para uso direto/local; numeração 01–100 e 13 posições de mezanino validadas.
+
+
+## 2026-09-16 — cache local do editor
+
+- O editor remove a chave antiga do localStorage e usa uma nova chave para edições futuras; as posições publicadas no JSON deixam de ser sobrescritas pelo cache anterior.
+
+
+## 2026-09-16 — geometria da rampa e do mezanino
+
+- Rampa alinhada verticalmente entre as obras 10 e 12; faixas laterais do mezanino passam a iniciar no alinhamento da obra 10. Posições das obras e demais elementos foram preservados.
+
+
+## 2026-09-16 — nova invalidação do cache do editor
+
+- Removidas as chaves locais anteriores e criada a chave v3; ao recarregar ?edit=1, o editor parte novamente das posições atuais do JSON.
+
+
+## 2026-09-16 — publicação das posições exportadas
+
+- O fallback público/local foi sincronizado integralmente com o novo data/positions-floor-1.json exportado pelo editor; as 100 posições agora coincidem também fora de ?edit=1.
+
+
+## 2026-09-16 — conexão entre as salas
+
+- Alinhadas em x=310 as paredes direitas das Salas 1 e 2 e mantida a passagem pela direita abaixo do mezanino; Sala 2 recebeu faixas de mezanino nas laterais e base, e o bloco esquerdo da entrada foi unificado.
+- Apenas os 51 slots das paredes direitas afetadas foram deslocados +30 unidades SVG, preservando altura, número, nível e distância relativa às paredes; JSON e fallback foram sincronizados.
+
+
+## 2026-09-16 — vão aberto entre as salas
+
+- Removidos os traços que fechavam a passagem pela direita entre Sala 1 e Sala 2; o vão permanece abaixo do mezanino, com paredes alinhadas e demais geometrias e posições preservadas.
