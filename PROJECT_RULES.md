@@ -11,6 +11,7 @@
 - `data/works-floor-1.json` é a fonte dos dados textuais das obras do 1º andar, vinculados às posições pelo campo `id`; coordenadas permanecem exclusivamente em `data/positions-floor-1.json`.
 - Mapeamento definitivo do 1º andar: a aba "Respostas ao formulário 1" é a fonte principal das informações e sua Column 14 define o "id"/posição da obra. Não usar LOCAL da aba "Localização Mapa" para IDs; essa aba serve apenas como fallback textual quando faltarem dados da obra. IDs 1–53 pertencem à Sala 1 e 54–87 à Sala 2.
 - Imagens e áudios são arquivos locais.
+- Imagens do 1º andar são importadas pelo manifesto data/import/image-sources-floor-1.json com 	ools/sync-images.ps1; somente arquivos de imagem validados são vinculados em data/works-floor-1.json.
 - A ficha terá: número, imagem, título, artista, descrição, audiodescrição, leitura e interesse via WhatsApp.
 - O visual é wireframe: sem cores decorativas, sombras, gradientes ou border-radius.
 - Usar tipografia, linhas, espaçamento e hierarquia.

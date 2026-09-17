@@ -10,7 +10,7 @@
       if (work.floor !== 1) continue;
       const source = byId.get(work.slot);
       if (!source) continue;
-      for (const field of ["artist", "title", "description", "saleStatus", "price"]) {
+      for (const field of ["artist", "title", "description", "saleStatus", "price", "image"]) {
         work[field] = clean(source[field]);
       }
     }

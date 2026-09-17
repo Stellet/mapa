@@ -59,11 +59,13 @@
     setOptional(document.getElementById("work-price"), work.price, document.getElementById("work-price-row"));
     document.getElementById("work-reading").textContent = work.reading;
     const image = document.getElementById("work-image");
-    image.src = work.image;
-    image.alt = work.imageAlt;
     const thumbnail = document.getElementById("work-thumbnail");
-    thumbnail.src = work.image;
-    thumbnail.alt = work.imageAlt;
+    for (const element of [image, thumbnail]) {
+      element.classList.toggle("image-empty", !work.image);
+      if (work.image) element.src = work.image;
+      else element.removeAttribute("src");
+      element.alt = "";
+    }
     audio.pause();
     audio.src = work.audio;
     audio.load();

@@ -269,3 +269,9 @@
 ## 2026-09-16 — mapeamento corrigido das obras
 
 - Validado o JSON corrigido do 1º andar com 87 IDs da Column 14 da aba Respostas ao formulário 1 (1–53 Sala 1; 54–87 Sala 2); fallback local regenerado, sem alterar posições ou geometria.
+
+
+## 2026-09-17 — imagens das obras do 1º andar
+
+- Criado tools/sync-images.ps1 e movido o manifesto para data/import. Foram baixadas e validadas 66 imagens; 12 fontes nulas foram ignoradas e 9 respostas sem formato de imagem foram rejeitadas.
+- works-floor-1.json recebeu caminhos apenas para arquivos existentes e image=null nas outras 21 obras; fallback local regenerado. A UI preserva a área vazia quando não há imagem.

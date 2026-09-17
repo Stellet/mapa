@@ -1,0 +1,617 @@
+{
+  "floor": 1,
+  "count": 87,
+  "mappingSource": "Respostas ao formulário 1 / Column 14",
+  "rule": "Only individual Drive file URLs are included. Missing/invalid/folder-only images remain null.",
+  "items": [
+    {
+      "id": 1,
+      "artist": "Jéssica Oliveira Freitas ",
+      "title": "Exu é mojubá ",
+      "source": "https://drive.google.com/open?id=1f_6bSchUhx0Y3eLQBj0qJfzGKkx-Gzw5",
+      "targetBase": "001"
+    },
+    {
+      "id": 2,
+      "artist": "Ed Martins",
+      "title": "Paz -Supervisionada",
+      "source": "https://drive.google.com/open?id=1C4T5h9EqcvBplnJYzRdiY_U-VifLFOQX",
+      "targetBase": "002"
+    },
+    {
+      "id": 3,
+      "artist": "Leandro ICE",
+      "title": "Viação canela ",
+      "source": "https://drive.google.com/open?id=1tf_Z3XWdBfb0gQuebOjBIqsR1B0o_zJM",
+      "targetBase": "003"
+    },
+    {
+      "id": 4,
+      "artist": "Alvaro Mendes ",
+      "title": "Sem título ",
+      "source": "https://drive.google.com/open?id=1ZlZsUoGg53f2n830gTlbDAkIwj3Bk0Xx",
+      "targetBase": "004"
+    },
+    {
+      "id": 5,
+      "artist": "Filipe Nardi",
+      "title": "Notorious ",
+      "source": "https://drive.google.com/open?id=18VPSSWPh3K_X7Xg4L15s22DOq9lMYIOC",
+      "targetBase": "005"
+    },
+    {
+      "id": 6,
+      "artist": "Adelia Santannna",
+      "title": "BANANÁ - Bolo I ",
+      "source": "https://drive.google.com/open?id=1HwkcxJ7ZcxlYEBnhxtckYU6k4Vy8gd2d",
+      "targetBase": "006"
+    },
+    {
+      "id": 7,
+      "artist": "Cauane da silva souza",
+      "title": "eu quero me olhar e me ver ",
+      "source": "https://drive.google.com/open?id=1MpFx5qRzpfQw5NS8BGWpue0xMI2HuQq-",
+      "targetBase": "007"
+    },
+    {
+      "id": 8,
+      "artist": "Pietra Canle",
+      "title": "Eu não ando só",
+      "source": "https://drive.google.com/open?id=13VY68hGLASafds-rSGTOXUg8RfMkvTCe",
+      "targetBase": "008"
+    },
+    {
+      "id": 9,
+      "artist": "Marcos Formiganti",
+      "title": "Procura-se",
+      "source": "https://drive.google.com/open?id=1CZD1YGjzuO_Z8MdtRaySUXGFZULWH7Qm",
+      "targetBase": "009"
+    },
+    {
+      "id": 10,
+      "artist": "Puro melt",
+      "title": "\"chat gpt é meu piru\"",
+      "source": "https://drive.google.com/open?id=1Bk8ZBzIUf-mpwty_eC6LKz1jyEvlEcne",
+      "targetBase": "010"
+    },
+    {
+      "id": 11,
+      "artist": "Brun Brasil",
+      "title": "Pirarucu",
+      "source": null,
+      "targetBase": "011"
+    },
+    {
+      "id": 12,
+      "artist": "Yuri Almeida ",
+      "title": "Sem título ",
+      "source": null,
+      "targetBase": "012"
+    },
+    {
+      "id": 13,
+      "artist": "Izabela gomes Ribeiro Mendonça ",
+      "title": "Aos três provérbios que me guiam",
+      "source": "https://drive.google.com/open?id=1iNmWsN8AboZqso_SCvSxfUQxIhln0L6w",
+      "targetBase": "013"
+    },
+    {
+      "id": 14,
+      "artist": "Felipe Braga",
+      "title": "Da People’s Republic of Quilla",
+      "source": "https://drive.google.com/open?id=18AtDRKiTafpS_9R1Vlcoa3qvkIXeM5X9",
+      "targetBase": "014"
+    },
+    {
+      "id": 15,
+      "artist": "Juliana Cazumbá",
+      "title": "De onde eu vim, todos rezavam por mim",
+      "source": "https://drive.google.com/open?id=1bV58Z_GU736MEyrifM0-rUby43WPevaD",
+      "targetBase": "015"
+    },
+    {
+      "id": 16,
+      "artist": "Gabriel Botelho vulgo Gabriel Japa",
+      "title": "Zangbeto entidade protetora da noite - Vodou - Uma Viagem ao Benin ",
+      "source": "https://drive.google.com/open?id=1NC4Kxec7y9wRFvmE0RiBe60fB7p3QvgN",
+      "targetBase": "016"
+    },
+    {
+      "id": 17,
+      "artist": "CostaBXD",
+      "title": "o salto zulu",
+      "source": "https://drive.google.com/open?id=1UKlKdjBZ0LOQn4b5ve_f83JIPBJVKXy_",
+      "targetBase": "017"
+    },
+    {
+      "id": 18,
+      "artist": "Pedro Pessanha",
+      "title": "Pulsos III",
+      "source": "https://drive.google.com/open?id=1R7tfCdtLcJYwN5tJqp3BAPE_kXG2xySg",
+      "targetBase": "018"
+    },
+    {
+      "id": 19,
+      "artist": "Mylena Godinho de Freitas",
+      "title": "Artista reflete",
+      "source": "https://drive.google.com/open?id=1XBCdiGvOFgwq-EtVQmrH6C9VSQEHqHOm",
+      "targetBase": "019"
+    },
+    {
+      "id": 20,
+      "artist": "Lucas Gomes Oliveira de Faria",
+      "title": "O Homem, o Sol e o Mar",
+      "source": "https://drive.google.com/open?id=1MPkZFtavb9KVre1sebHmWPdlA1139SO_",
+      "targetBase": "020"
+    },
+    {
+      "id": 21,
+      "artist": "Leonora Braga cruces ",
+      "title": "O pequeno ser da concha ",
+      "source": "https://drive.google.com/open?id=1Db4Sbj0EarxyAPIY-WtkX31PIt4N5OR3",
+      "targetBase": "021"
+    },
+    {
+      "id": 22,
+      "artist": "Daniel Bomfim",
+      "title": "Roupas de Cristo",
+      "source": "https://drive.google.com/open?id=1j0vrkThgE1EnujDfal1TSZMis6CQLACQ",
+      "targetBase": "022"
+    },
+    {
+      "id": 23,
+      "artist": "Thiago Paixão",
+      "title": "XVIII",
+      "source": "https://drive.google.com/open?id=1oMiA5S1LS5ex_EchPMh-NUylQaRSuJTZ",
+      "targetBase": "023"
+    },
+    {
+      "id": 24,
+      "artist": "Pedro Rangel",
+      "title": "Gaiola dourada em chamas.",
+      "source": "https://drive.google.com/open?id=1EcVsC71rElyyZVgSilYrSJVZl2WEzIjB",
+      "targetBase": "024"
+    },
+    {
+      "id": 25,
+      "artist": "Thuanny Farias ",
+      "title": "\"CRIA\"",
+      "source": "https://drive.google.com/open?id=1BIWpA6v3BBrvfygvnISTQaCCBZAcCu4k",
+      "targetBase": "025"
+    },
+    {
+      "id": 26,
+      "artist": "Liege Pereira dos Santos ",
+      "title": "Desvio também é caminho ",
+      "source": "https://drive.google.com/open?id=1QCL0jWzE_uMM0eG8rYziMVSVRzM6Aqww",
+      "targetBase": "026"
+    },
+    {
+      "id": 27,
+      "artist": "Eliane Fraulob Mattos",
+      "title": "Vejo sua sombra e escuto o farfalhar",
+      "source": "https://drive.google.com/open?id=1TqusqGuFdJKd9VXGNEQg17eiE2wqSQw8",
+      "targetBase": "027"
+    },
+    {
+      "id": 28,
+      "artist": "Alessandra V. Santhos ",
+      "title": 13,
+      "source": "https://drive.google.com/open?id=1Nh2qjFQ9jkgfyu07iwmTzAJuo2Exeg3t",
+      "targetBase": "028"
+    },
+    {
+      "id": 29,
+      "artist": "Brisa Rabicha Liberato Segalla",
+      "title": "Sei la",
+      "source": "https://drive.google.com/open?id=1AGy4DCk7SdLrj66msM1DANz6xNFR_cN7",
+      "targetBase": "029"
+    },
+    {
+      "id": 30,
+      "artist": "Danilo Nobrega",
+      "title": "\"Engula inteiro\"",
+      "source": "https://drive.google.com/open?id=1wFMAatYL5qm4A_y4tKFfTDWTGdimzIai",
+      "targetBase": "030"
+    },
+    {
+      "id": 31,
+      "artist": "Pedro Machado",
+      "title": "Verão 474",
+      "source": "https://drive.google.com/file/d/1TwUGtyDip278_L1oNt905wI1ikua2DUH/view?usp=drivesdk",
+      "targetBase": "031"
+    },
+    {
+      "id": 32,
+      "artist": "Mysteryo e Alessandra V. Santhos",
+      "title": "Fragatas e Dragões ",
+      "source": "https://drive.google.com/open?id=1oWP96ZxOZshawU5BsGrNLY1-UH1YOVF8",
+      "targetBase": "032"
+    },
+    {
+      "id": 33,
+      "artist": "Arthur Lisboa Callegari",
+      "title": "Lugar marcado",
+      "source": "https://drive.google.com/open?id=1q2pM5tYzAkF86MjVWRlWEFeCBtGUrMyp",
+      "targetBase": "033"
+    },
+    {
+      "id": 34,
+      "artist": "Thiago Barletta",
+      "title": "A GENTE TÁ INVENTANDO",
+      "source": "https://drive.google.com/open?id=1p-SSD4Lsx_iBIGmyV6Ub8sRQ4Tt4ARJx",
+      "targetBase": "034"
+    },
+    {
+      "id": 35,
+      "artist": "Bic",
+      "title": "raStrus EpytelyKoS y a Kor OracUlar do OvO das estrelaS",
+      "source": "https://drive.google.com/open?id=11t-bg3UAo0zIXJsHIdKk99GeQpG3wYpb",
+      "targetBase": "035"
+    },
+    {
+      "id": 36,
+      "artist": "Gabriel Gariba ",
+      "title": "Rua - (Série garotos)",
+      "source": "https://drive.google.com/open?id=1-vnh2ydT17FtvjqftJBP4W1Ih9XRE8Gp",
+      "targetBase": "036"
+    },
+    {
+      "id": 37,
+      "artist": "Pedro Henrique Goulart Machado",
+      "title": "Menino Santo Guerreiro",
+      "source": "https://drive.google.com/open?id=1oCozNb1uI7vbiBIVDRCyUi-9ZIHF_B2W",
+      "targetBase": "037"
+    },
+    {
+      "id": 38,
+      "artist": "Carlos Martelote ",
+      "title": 7,
+      "source": "https://drive.google.com/open?id=1HVSu0auMqdvrg-SlyppbLD0t_G66d-7S",
+      "targetBase": "038"
+    },
+    {
+      "id": 39,
+      "artist": "Gustavo Lima Dos Santos",
+      "title": "Junho 2013",
+      "source": "https://drive.google.com/open?id=1RgsKmylisQQsTN9UzCI6gEygvDIWg20x",
+      "targetBase": "039"
+    },
+    {
+      "id": 40,
+      "artist": "Thaynnara de Farias Pinto (Thata Farias)",
+      "title": "Dar Linha ao Tempo",
+      "source": "https://drive.google.com/open?id=1hJm2BgeLZ8EqfqPm7k-DiXhVNVCYG3WB",
+      "targetBase": "040"
+    },
+    {
+      "id": 41,
+      "artist": "BEATRICE FERNANDES ",
+      "title": "A verdade vos fará livre",
+      "source": "https://drive.google.com/open?id=1kZJzIx7LI_k_crbEa5Y8IlDzL6pFbmNQ",
+      "targetBase": "041"
+    },
+    {
+      "id": 42,
+      "artist": "Pedro Paulo Honorato",
+      "title": "Jingle #1",
+      "source": "https://drive.google.com/open?id=1dPJ4AlPaWmpwzTYKOA-TxE9qr2WONk4e",
+      "targetBase": "042"
+    },
+    {
+      "id": 43,
+      "artist": "Gabriel Omep",
+      "title": "\"Barracão\" Cacos de azulejos, rejunte, tinta spray, tinta acrílica e palha da costa sobre madeira. 90x30cm Omep,2026.",
+      "source": "https://drive.google.com/open?id=1BZj89VPUQRpAr0iqMv7iacUcOAR_sZEU",
+      "targetBase": "043"
+    },
+    {
+      "id": 44,
+      "artist": "Bruna Manarelli",
+      "title": "Sem título",
+      "source": "https://drive.google.com/open?id=1VB8lyQ2L2WZbJ8a1ZGao9Zg4Uo28YXI_",
+      "targetBase": "044"
+    },
+    {
+      "id": 45,
+      "artist": "Silas Sena da Silva ",
+      "title": "Eu ainda não sei o que fazer.",
+      "source": "https://drive.google.com/open?id=1VF2XZXwq8i6q-wR8u8n-SauNB4fzQpt_",
+      "targetBase": "045"
+    },
+    {
+      "id": 46,
+      "artist": "Alessandro Chux ",
+      "title": "Smile",
+      "source": "https://drive.google.com/open?id=1i2MnWY7hNsafJjjiP_H3SIrVIk-hSC0z",
+      "targetBase": "046"
+    },
+    {
+      "id": 47,
+      "artist": "Júli Bezerra",
+      "title": "Sincera elegância do tempo.",
+      "source": "https://drive.google.com/open?id=1D2QCmQhtt2fhCJ0igFBIxd3ndxlCqfhY",
+      "targetBase": "047"
+    },
+    {
+      "id": 48,
+      "artist": "Maria Isabel Martins Nogueira",
+      "title": "Dilema",
+      "source": "https://drive.google.com/open?id=1RzljTPhc6wNmts22Avg1bpmfUAxQ3pAH",
+      "targetBase": "048"
+    },
+    {
+      "id": 49,
+      "artist": "Felipe Machado",
+      "title": "\"Oriente\"",
+      "source": "https://drive.google.com/open?id=1rzACP-Cr12fb6vwWG3XF1yCr-KY-ACxh",
+      "targetBase": "049"
+    },
+    {
+      "id": 50,
+      "artist": "Victor Curi",
+      "title": "Au + C10H14N2 & Ag + C8H10N4O2",
+      "source": "https://drive.google.com/open?id=11QbvDOlWDqGH0RJNR6wMgt5s-K5NGHxQ",
+      "targetBase": "050"
+    },
+    {
+      "id": 51,
+      "artist": "Vinicius Nobre",
+      "title": "Djadja do jazz",
+      "source": null,
+      "targetBase": "051"
+    },
+    {
+      "id": 52,
+      "artist": "Claudia Revoredo ",
+      "title": "Zona oeste carioca ",
+      "source": "https://drive.google.com/open?id=1s06A9rQexNIXqeSdEUFIqUPlNxa1eXla",
+      "targetBase": "052"
+    },
+    {
+      "id": 53,
+      "artist": "Mariana Moysés ",
+      "title": "Morceguinho",
+      "source": "https://drive.google.com/open?id=1a6dOsP9TzyU5PqRysiQ_GZTrBTW9gjVj",
+      "targetBase": "053"
+    },
+    {
+      "id": 54,
+      "artist": "Fernando Santos ",
+      "title": "Noites de ontem",
+      "source": null,
+      "targetBase": "054"
+    },
+    {
+      "id": 55,
+      "artist": "Gênesis",
+      "title": "Dispositivo Analógico para Transdução de Matéria Inobediente",
+      "source": "https://drive.google.com/open?id=1XQ7IX4JDd77RNNGrRZDpw98QZ0VBVo99",
+      "targetBase": "055"
+    },
+    {
+      "id": 56,
+      "artist": "Iris Laerte",
+      "title": "Autorretrato ",
+      "source": "https://drive.google.com/open?id=1KSraAFaPFJrxVz4tGLeZQwK44A_fNHP1",
+      "targetBase": "056"
+    },
+    {
+      "id": 57,
+      "artist": "maria de lurdes",
+      "title": null,
+      "source": null,
+      "targetBase": "057"
+    },
+    {
+      "id": 58,
+      "artist": "Estevão Barbiére ",
+      "title": "Dia 231 - Transparência ",
+      "source": "https://drive.google.com/open?id=1VF9JvUBtczvuT1PVl6P4nVVF2cxs-2jc",
+      "targetBase": "058"
+    },
+    {
+      "id": 59,
+      "artist": "Larissa Santos Rocha ",
+      "title": "Caminho aberto",
+      "source": "https://drive.google.com/open?id=1SSfRobp1nRlP7C-8w1lIX5bV64lIR9ZJ",
+      "targetBase": "059"
+    },
+    {
+      "id": 60,
+      "artist": "Marcelo da Silva Pinto",
+      "title": "Agouro",
+      "source": "https://drive.google.com/open?id=1DISfNWvfblk_Bk2W0l18JBczPFr1gC5q",
+      "targetBase": "060"
+    },
+    {
+      "id": 61,
+      "artist": "Dree Beatmaker ",
+      "title": "Baile do fim do mundo",
+      "source": null,
+      "targetBase": "061"
+    },
+    {
+      "id": 62,
+      "artist": "Pedro Pessanha",
+      "title": "Pulsos III",
+      "source": "https://drive.google.com/open?id=1R7tfCdtLcJYwN5tJqp3BAPE_kXG2xySg",
+      "targetBase": "062"
+    },
+    {
+      "id": 63,
+      "artist": "Gabriel Labarba",
+      "title": "Mãe é céu/ A mãe brasileira.",
+      "source": "https://drive.google.com/open?id=1_pbUAhLy_2I-CbkHKB_BcdtuFzijJBY9",
+      "targetBase": "063"
+    },
+    {
+      "id": 64,
+      "artist": "Maria Juana Laranja",
+      "title": "\"My head spins, my stomach hurts. There goes my mind, there it goes.\"",
+      "source": "https://drive.google.com/open?id=17TqpgXh3CjTj80QPkv8W11NnzFGLfvHm",
+      "targetBase": "064"
+    },
+    {
+      "id": 65,
+      "artist": "Ana Cople ",
+      "title": "Lula comendo Bozo ",
+      "source": "https://drive.google.com/open?id=1iRTwr7h8ce5yhA3jm-wIXj4L-Ub3alYP",
+      "targetBase": "065"
+    },
+    {
+      "id": 66,
+      "artist": "João Lord",
+      "title": "Sem título",
+      "source": null,
+      "targetBase": "066"
+    },
+    {
+      "id": 67,
+      "artist": "Mano Wladmir",
+      "title": "Esperança divina",
+      "source": null,
+      "targetBase": "067"
+    },
+    {
+      "id": 68,
+      "artist": "joaoladob (joão victor valim)",
+      "title": "agosto exposed ",
+      "source": "https://drive.google.com/open?id=1fZrwaoj5GIEl8E0WeUftdUYQlt0Lnmsw",
+      "targetBase": "068"
+    },
+    {
+      "id": 69,
+      "artist": "`",
+      "title": "no meio da multidão",
+      "source": "https://drive.google.com/open?id=18mSTiWcdVNvthL6fBbn0ZWsGVaC4R-e4",
+      "targetBase": "069"
+    },
+    {
+      "id": 70,
+      "artist": "Luna Cassinelli",
+      "title": "Pra longe, enfim",
+      "source": "https://drive.google.com/open?id=1nBbeKe52Yml-3CeA23DRBNvrbEjc6aJq",
+      "targetBase": "070"
+    },
+    {
+      "id": 71,
+      "artist": "Danyele Ferreira Lopes ",
+      "title": "O Triunfo da Morte (Iluminuras Cariocas)",
+      "source": "https://drive.google.com/open?id=19j4TI_8cdZxmrjYU7gRgyAAkyY7xkud2",
+      "targetBase": "071"
+    },
+    {
+      "id": 72,
+      "artist": "Caio dos Anjos ",
+      "title": "\"Por onde esses trilhos passam morrem milhares\".",
+      "source": "https://drive.google.com/open?id=1ex40kPi-urCd-vLt4zAnUy23QIZCNtv1",
+      "targetBase": "072"
+    },
+    {
+      "id": 73,
+      "artist": "Jaguar da Serra ",
+      "title": "Duas Bandida Perturbando Minha Mente ",
+      "source": "https://drive.google.com/file/d/1g5GVY0EokiG-KGbk_2Y6d_uy3mSRV8lx/view?usp=drivesdk",
+      "targetBase": "073"
+    },
+    {
+      "id": 74,
+      "artist": "Edson Laranja Júnior ",
+      "title": "Guerra dos doze dias",
+      "source": "https://drive.google.com/open?id=1Hdu_A2VpTU5lEAuLRNgQ8jZfR1jw_Jfx",
+      "targetBase": "074"
+    },
+    {
+      "id": 75,
+      "artist": "Drean ",
+      "title": "ZAPATSUNG 001",
+      "source": null,
+      "targetBase": "075"
+    },
+    {
+      "id": 76,
+      "artist": "Ana Sales",
+      "title": "Fascínio",
+      "source": "https://drive.google.com/open?id=1_mj15PxQp03saz4GPdD9Pmfd8ryRE8yL",
+      "targetBase": "076"
+    },
+    {
+      "id": 77,
+      "artist": "Artur 'Kjá",
+      "title": "Meier, Cultura Skateboard",
+      "source": "https://drive.google.com/open?id=1fUEOs170Uw2E5WZK9WOwTFF8kwvYbw1R",
+      "targetBase": "077"
+    },
+    {
+      "id": 78,
+      "artist": "joão MM",
+      "title": "69 cavalos fudendo no brasil ",
+      "source": "https://drive.google.com/open?id=180p1VmVZGZyB4P3zmhofqZ0I6niEWqfp",
+      "targetBase": "078"
+    },
+    {
+      "id": 79,
+      "artist": "Gabriel Nunes (Umbriel)",
+      "title": "Dinâmica Orbital",
+      "source": "https://drive.google.com/open?id=1uAhChbjnQ-mbA_uhiXvhrP6_l52v2SnR",
+      "targetBase": "079"
+    },
+    {
+      "id": 80,
+      "artist": "Roberto ",
+      "title": null,
+      "source": null,
+      "targetBase": "080"
+    },
+    {
+      "id": 81,
+      "artist": "Vinícius Carvas",
+      "title": "DISK TAXI 2543-9261",
+      "source": "https://drive.google.com/open?id=1UNpUVOJbESugoMt9rHnZWBa6qa7c0YxH",
+      "targetBase": "081"
+    },
+    {
+      "id": 82,
+      "artist": "Vera Schueler Araripe",
+      "title": "Bananal",
+      "source": "https://drive.google.com/open?id=1iANI6psSYBbk2hLvJ6TirKm1xhCzPpaQ",
+      "targetBase": "082"
+    },
+    {
+      "id": 83,
+      "artist": "Camile Soares",
+      "title": "Tempo Granular",
+      "source": "https://drive.google.com/open?id=1lnrAdHoheQ8KzhXYI1mLJKmNtC409CHX",
+      "targetBase": "083"
+    },
+    {
+      "id": 84,
+      "artist": "izaias silva de oliveira",
+      "title": "confluência",
+      "source": "https://drive.google.com/open?id=1u1UALSdBkao_hBsxK6mLWJ3YFoT1IXv5",
+      "targetBase": "084"
+    },
+    {
+      "id": 85,
+      "artist": "Társo Gentìl ",
+      "title": "São Menino",
+      "source": "https://drive.google.com/open?id=1MRRsjytNMoNY9Xr_0O0tMPgw1ZLRuP8F",
+      "targetBase": "085"
+    },
+    {
+      "id": 86,
+      "artist": "Cesar Mendes ",
+      "title": "Entre Cabeças",
+      "source": null,
+      "targetBase": "086"
+    },
+    {
+      "id": 87,
+      "artist": "Celo Moreira ",
+      "title": null,
+      "source": null,
+      "targetBase": "087"
+    }
+  ]
+}
