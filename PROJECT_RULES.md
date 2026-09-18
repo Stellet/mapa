@@ -9,7 +9,7 @@
 - Obras são vinculadas por andar + slot.
 - Os dados virão de arquivo local gerado posteriormente a partir de planilha.
 - `data/works-floor-1.json` é a fonte dos dados textuais das obras do 1º andar, vinculados às posições pelo campo `id`; coordenadas permanecem exclusivamente em `data/positions-floor-1.json`.
-- Mapeamento definitivo do 1º andar: a aba "Respostas ao formulário 1" é a fonte principal das informações e sua Column 14 define o "id"/posição da obra. Não usar LOCAL da aba "Localização Mapa" para IDs; essa aba serve apenas como fallback textual quando faltarem dados da obra. IDs 1–53 pertencem à Sala 1 e 54–87 à Sala 2.
+- Mapeamento definitivo do 1º andar: a aba "Respostas ao formulário 1" é a fonte principal das informações e sua Column 14 define o "id"/posição da obra. Não usar LOCAL da aba "Localização Mapa" para IDs; essa aba serve apenas como fallback textual quando faltarem dados da obra. IDs 1–53 e 88 pertencem à Sala 1; 54–87 à Sala 2.
 - Imagens e áudios são arquivos locais.
 - Imagens do 1º andar são importadas pelo manifesto data/import/image-sources-floor-1.json com 	ools/sync-images.ps1; somente arquivos de imagem validados são vinculados em data/works-floor-1.json.
 - A ficha terá: número, imagem, título, artista, descrição, audiodescrição, leitura e interesse via WhatsApp.
@@ -31,11 +31,12 @@
 - `maps/`: plantas SVG locais.
 - `obras/imagens/` e `obras/audio/`: arquivos locais futuros.
 - Scripts clássicos, carregados com `defer`, para permitir abrir `index.html` diretamente, sem servidor.
-- `APP_VERSION` é definido uma única vez em `js/config.js`, no formato `YYYY.MM.DD-HHMM`, exibido no footer e registrado no console.
+
+
 
 ## Escopo atual
 
-Wireframe estático com exploração por mapa e lista. Andar 1 contém 100 slots fictícios, sem seleção inicial. Andares 2 e 3 têm plantas placeholder e nenhum slot cadastrado. Selecionar um slot abre um bottom sheet não modal com conteúdo mock e mídias locais. Fechar remove a seleção. O botão de interesse permanece demonstrativo, sem integração com WhatsApp.
+Wireframe estático com exploração por mapa e lista. Andar 1 contém 88 obras com posição no mapa e andar 2 contém 15 obras posicionadas conforme o mapa impresso v10, sem seleção inicial. Andar 3 permanece sem slots cadastrados. Selecionar um slot abre um bottom sheet não modal com conteúdo mock e mídias locais. Fechar remove a seleção. O botão de interesse abre o WhatsApp com mensagem específica da obra, sem formulário ou backend.
 
 
 ## Orientação das plantas e coordenadas dos slots
@@ -57,16 +58,16 @@ Wireframe estático com exploração por mapa e lista. Andar 1 contém 100 slots
 - A interface não possui filtros. Área, tipo e tags permanecem nos dados; mudar de modo mantém a seleção e trocar de andar fecha o painel.
 - A lista permite agrupamento por área. No 1º andar, os metadados internos distinguem Áreas 1 a 5.
 - Header e sub-nav formam uma pilha sticky. O mapa usa toda a largura e a altura disponível abaixo dessa pilha; mudanças de viewport e orientação recalculam o enquadramento. Em telas baixas o header inicia compacto.
-- O botão TENHO INTERESSE permanece no rodapé do painel expandido, ainda demonstrativo, sem formulário, backend ou proposta.
+- O botão TENHO INTERESSE abre o WhatsApp a partir dos estados parcial e expandido, com número, título e artista disponíveis; não há formulário ou backend.
 - OUVIR TELA usa somente speechSynthesis e vozes locais do dispositivo. A fala deriva do conteúdo textual/semântico do modo atual ou da ficha aberta; não interpreta o desenho do mapa. Preservar os controles semânticos para leitores de tela.
 - As coordenadas, cadastro e geometria permanecem separados da exploração. O mezanino é um nível distinto nos dados, acima das Áreas 1, 2 e 3; suas posições definitivas ainda dependem de validação. Backend/propostas continuam fora do escopo.
 
 ## Motor de mapa e navegação
 
-- O SVG exibe apenas geometria, sem rótulos visuais internos. Áreas permanecem nos dados e na lista.
+- O SVG oficial da planta mantém a geometria sem alterações; rótulos de BAR e BANHEIROS são sobrepostos no mapa interativo e acompanham pan/zoom. Áreas permanecem nos dados e na lista.
 - Pointer Events ficam no SVG raiz; clientX/clientY são convertidos por createSVGPoint e getScreenCTM().inverse(). Pan, pinch pelo ponto médio, wheel ancorado no cursor e botões compartilham { x, y, scale }, aplicado somente ao grupo interno map-content, sem transform CSS concorrente.
 - 100% ajusta a planta à largura disponível (fit-width), sem expor a escala antiga. O zoom pode descer até 20% para visão geral; reset e redimensionamento voltam a 100%. Os limites se aplicam à posição final, não aos deltas.
-- Clusters por proximidade na tela separam progressivamente os slots conforme o zoom. Exibir quantidade maior e intervalo abaixo somente para slots contíguos; grupos não contíguos usam lista compacta com reticências quando necessário. Todos os números permanecem no nome acessível. Agrupar não altera coordenadas nem cadastro.
+- Clusters por proximidade na tela separam progressivamente os slots conforme o zoom. Fechados, exibem somente a quantidade; abertos, mantêm o centro como botão de fechar e distribuem obras numeradas em círculos dentro da viewport. Todos os números permanecem no nome acessível. Agrupar não altera coordenadas nem cadastro.
 - Miniaturas locais aparecem a partir de 400%, somente para slots individuais visíveis; não pré-carregar as 100 imagens. Número e seleção continuam acessíveis.
 - Sub-nav em uma linha desde 320px: MAPA / LISTA | ANDAR 1 / 2 | OUVIR TELA, com separadores verticais e estados ativos. A compactação sticky continua controlada pela sentinela. O andar 3 permanece apenas na configuração, sem controle visível.
 - Viewport/SVG usam touch-action:none para pan/pinch. Wheel sobre o mapa controla zoom e impede scroll apenas durante essa interação; fora do mapa, scroll permanece nativo. Bottom sheet mantém seu comportamento próprio.
@@ -84,11 +85,11 @@ Wireframe estático com exploração por mapa e lista. Andar 1 contém 100 slots
 
 ## Referência do 2º andar
 
-- references/mapa_2o_andar_rios_reais_v9_qr.pdf é a fonte principal e mais atual para organização espacial, entrada, escadas, sala de vidro, circulação e relação entre obras e ambientes do 2º andar; prevalece sobre rascunhos e versões anteriores.
+- references/mapa_2o_andar_rios_reais_v10_qr.pdf é a fonte principal e mais atual para organização espacial, entrada, escadas, sala de vidro, circulação e relação entre obras e ambientes do 2º andar; prevalece sobre rascunhos e versões anteriores.
 
 ## Editor local de posições
 
-- O parâmetro ?edit=1 ativa somente no navegador local os modos NAVEGAR e POSICIONAR do 1º andar. Seu menu fica na pilha sticky, acima do header e fora do mapa. Posições usam coordenadas internas do SVG, persistem temporariamente em localStorage e podem ser exportadas como JSON com id, x, y e level. A URL pública não exibe nem ativa o editor.
+- O parâmetro ?edit=1 ativa somente no navegador local os modos NAVEGAR e POSICIONAR do 1º andar, sem botão de acesso no rodapé público. Seu menu fica na pilha sticky, acima do header e fora do mapa. Posições usam coordenadas internas do SVG, persistem temporariamente em localStorage e podem ser exportadas como JSON com id, x, y e level. A URL pública não exibe nem ativa o editor.
 
 ## Arquivos de posições
 
@@ -101,3 +102,9 @@ Sempre que qualquer JSON de runtime em /data for criado, removido ou alterado, e
 `powershell -ExecutionPolicy Bypass -File tools/sync-local-data.ps1`
 
 O fallback local gerado deve permanecer sincronizado com os JSONs antes de considerar a tarefa concluída.
+
+## Geometria oficial do 1º andar
+
+- A versão atual de "maps/andar-1.svg" editada manualmente pelo usuário é a fonte oficial da geometria do mapa.
+- Preservar integralmente essas alterações manuais: não recriar, reverter ou substituir o SVG com base em versões anteriores.
+- Em ajustes futuros do mapa interativo, adaptar o restante da implementação à geometria atual desse arquivo.

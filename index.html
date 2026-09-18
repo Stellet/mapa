@@ -69,6 +69,13 @@
           <g id="map-content">
             <rect id="map-grid" x="0" y="0" width="360" height="1780" fill="url(#map-grid-major)" pointer-events="none" aria-hidden="true" />
             <image id="floor-map" href="maps/andar-1.svg" width="360" height="1780" aria-label="Planta do andar" />
+            <g id="map-location-labels" aria-hidden="true" pointer-events="none" fill="#fff" font-family="Courier, monospace" font-size="12" text-anchor="middle">
+              <text x="102" y="108">BAR</text>
+              <text x="174" y="250">PISTA DE SKATE</text>
+              <text x="170" y="512">SOM / DJ</text>
+              <text x="90" y="1200">BAR</text>
+              <text x="267" y="1455">BANHEIROS</text>
+            </g>
             <foreignObject x="0" y="0" width="360" height="1780" class="map-overlay">
               <div xmlns="http://www.w3.org/1999/xhtml" class="map-markers">
                 <div id="slots" role="group" aria-label="Slots de obras"></div>
@@ -105,7 +112,7 @@
         </div>
         <div id="sheet-partial-actions" class="sheet-partial-actions">
           <button id="sheet-more" type="button" aria-controls="sheet-content">VER MAIS</button>
-          <button class="partial-interest" type="button" disabled aria-describedby="interest-note">TENHO INTERESSE</button>
+          <button class="partial-interest" type="button">TENHO INTERESSE</button>
         </div>
       </header>
       <div id="sheet-content" class="sheet-content" tabindex="0" role="region" aria-label="Informações da obra">
@@ -115,27 +122,23 @@
           <div id="work-sale-status-row"><dt>VENDA</dt><dd id="work-sale-status"></dd></div>
           <div id="work-price-row"><dt>PREÇO</dt><dd id="work-price"></dd></div>
         </dl>
-        <section class="sheet-section" aria-labelledby="audio-heading">
+        <section id="work-audio-section" class="sheet-section" aria-labelledby="audio-heading" hidden>
           <h3 id="audio-heading">AUDIODESCRIÇÃO</h3>
-          <audio id="work-audio" controls preload="none" aria-labelledby="audio-heading" aria-describedby="audio-note"></audio>
-          <p id="audio-note" class="note">Áudio mock: sinal sonoro de teste, sem audiodescrição gravada.</p>
+          <audio id="work-audio" controls preload="none" aria-labelledby="audio-heading"></audio>
         </section>
-        <section class="sheet-section" aria-labelledby="reading-heading">
+        <section id="work-reading-section" class="sheet-section" aria-labelledby="reading-heading" hidden>
           <h3 id="reading-heading">LEITURA</h3>
           <p id="work-reading"></p>
         </section>
       </div>
       <footer class="sheet-footer">
-        <button class="interest-button" type="button" disabled aria-describedby="interest-note">TENHO INTERESSE</button>
-        <p id="interest-note" class="note">Botão demonstrativo. Contato ainda não disponível.</p></footer>
+        <button class="interest-button" type="button">TENHO INTERESSE</button></footer>
     </section>
         <section class="sponsors-strip" aria-label="Patrocinadores e apoiadores">
           <img src="assets/regua-patrocinadores-riosreais.svg" alt="Patrocinadores e apoiadores da exposição" width="4500" height="585" loading="lazy">
         </section>
-    <footer id="site-footer" class="site-footer" aria-label="Créditos e versão do site">
+    <footer id="site-footer" class="site-footer" aria-label="Créditos do site">
       <p class="footer-credits">Realização <a id="venue-instagram" href="https://www.instagram.com/___ladob/" target="_blank" rel="noopener noreferrer">Lado B</a>. Desenvolvido por <a href="https://instagram.com/NebulaDevs" target="_blank" rel="noopener noreferrer">NebulaDevs</a></p>
-      <a class="footer-edit" href="?edit=1">EDITAR MAPA</a>
-      <span id="app-version" aria-label="Versão do site"></span>
     </footer>
   </body>
 </html>

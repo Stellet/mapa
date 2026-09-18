@@ -275,3 +275,86 @@
 
 - Criado tools/sync-images.ps1 e movido o manifesto para data/import. Foram baixadas e validadas 66 imagens; 12 fontes nulas foram ignoradas e 9 respostas sem formato de imagem foram rejeitadas.
 - works-floor-1.json recebeu caminhos apenas para arquivos existentes e image=null nas outras 21 obras; fallback local regenerado. A UI preserva a área vazia quando não há imagem.
+
+
+## 2026-09-17 — geometria oficial do 1º andar
+
+- Registrada a edição manual atual de maps/andar-1.svg como fonte oficial; próximas alterações interativas devem partir dela. SVG preservado sem modificações.
+
+
+## 2026-09-17 — rodapé desktop
+
+- No desktop, régua e faixa de versão ficam limitadas juntas a 100px, com SVG contido sem distorção/overflow; medição existente reserva a altura real para o mapa. Mobile preservado.
+
+
+## 2026-09-17 — rodapé, posições e legendas
+
+- Removido o link público EDITAR MAPA, preservando ?edit=1; régua e créditos centralizados, mantendo o limite desktop de 100px.
+- JSON atual de posições sincronizado para file:// e aplicado integralmente ao 1º andar; BAR (dois pontos) e BANHEIROS aparecem em camada interativa sem modificar maps/andar-1.svg.
+
+
+## 2026-09-17 — remoção do versionamento visível
+
+- Removidos o número de versão do rodapé e o registro APP_VERSION no console; medição do rodapé e reserva de espaço do mapa preservadas.
+
+
+## 2026-09-17 — largura dos botões de andar
+
+- O seletor ANDAR agora preenche a largura disponível do seu grupo; 1 e 2 ocupam colunas iguais, com "min-width: 90%" e separadores preservados.
+
+## 2026-09-17 — mapa do 2º andar
+
+- Legendas PISTA DE SKATE e SOM / DJ sobrepostas ao mapa interativo do 1º andar, sem alterar o SVG oficial.
+- Os 15 marcadores do 2º andar foram transcritos do mapa impresso v10 para positions-floor-2.json; troca de andar agora ajusta mapa, slots e zoom à altura de cada planta. Fallback local sincronizado.
+
+## 2026-09-17 — clusters circulares
+
+- Cluster fechado mostra apenas a quantidade; aberto usa o centro como botão × e distribui os números em círculos dentro da viewport, com camadas adicionais conforme necessário.
+
+## 2026-09-17 — posições atualizadas
+
+- Sincronizadas as 15 posições alteradas do 1º andar a partir do JSON oficial; cache anterior do editor invalidado para não sobrepor os novos pontos.
+
+
+## 2026-09-17 — catálogo e mídias do 1º andar
+
+- Validado o catálogo 1–88; manifest de imagens consolidado e import temporário removido. 66 imagens locais vinculadas; 9 fontes faltantes são PDFs, sem arquivo de imagem válido.
+- Manifest de áudio e sincronizador adicionados; 73 links exigem login no Drive, então nenhum áudio foi salvo e o bloco de audiodescrição fica oculto. Fallback local sincronizado; obra 88 aparece na lista, aguardando coordenada no mapa.
+
+## 2026-09-17 — obra 88 e interesse
+
+- Obra 88 posicionada junto da 53 no mezanino; as 87 coordenadas anteriores foram preservadas e o fallback local sincronizado.
+- TENHO INTERESSE ativo nos estados parcial e expandido, abrindo WhatsApp em nova aba com mensagem montada pelos dados disponíveis.
+
+## 2026-09-17 — leitura opcional
+
+- A seção LEITURA e sua menção em OUVIR TELA ficam ocultas quando o campo está vazio; conteúdo futuro continua sendo exibido normalmente.
+
+
+## 2026-09-17 — remoção da leitura fictícia
+
+- Removidos os três textos de leitura mock; sem leitura real, a seção permanece oculta. O campo continua disponível nos dados oficiais para conteúdo futuro.
+
+## 2026-09-17 — imagens das obras 11 e 88
+
+- Imagens locais renomeadas e vinculadas às obras 11 e 88; fallback local sincronizado, sem alterações nos demais registros.
+
+## 2026-09-17 — cabeçalho da ficha
+
+- O cabeçalho do bottom sheet agora acompanha a altura do conteúdo, sem reservar altura fixa.
+
+## 2026-09-17 — audiodescrições locais
+
+- 73 áudios válidos importados do manifesto oficial em OGA/OGG/M4A/MP3/WAV e vinculados às obras; 15 obras sem fonte permanecem sem áudio. Fallback local sincronizado.
+
+## 2026-09-17 — espaçamento da ficha reduzida
+
+- Removido apenas o padding inferior do cabeçalho no estado parcial; o estado expandido mantém o espaçamento anterior.
+
+## 2026-09-17 — altura do painel reduzido
+
+- O conteúdo completo oculto sai do fluxo no estado parcial; o painel reduzido termina após o resumo, mantendo o estado expandido e sua rolagem.
+
+## 2026-09-17 — respiro da ficha reduzida
+
+- Removido o ajuste extra de padding do cabeçalho parcial; permanece o espaçamento padrão da ficha.

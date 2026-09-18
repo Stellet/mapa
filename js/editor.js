@@ -11,7 +11,7 @@
   const svg = document.getElementById("map-svg");
   const content = document.getElementById("map-content");
   const slots = document.getElementById("slots");
-  const storageKey = "rios-reais:andar-1:positions:v5";
+  const storageKey = "rios-reais:andar-1:positions:v6";
   let mode = "navigate";
   let selected = null;
   let gesture = null;
@@ -183,6 +183,7 @@ function floorOneActive() {
   localStorage.removeItem("rios-reais:andar-1:positions:v2");
   localStorage.removeItem("rios-reais:andar-1:positions:v3");
   localStorage.removeItem("rios-reais:andar-1:positions:v4");
+  localStorage.removeItem("rios-reais:andar-1:positions:v5");
   restore();
   select(null);
   setMode("navigate");

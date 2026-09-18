@@ -1,6 +1,6 @@
 {
   "floor": 1,
-  "count": 87,
+  "count": 88,
   "mappingSource": "Respostas ao formulário 1 / Column 14",
   "works": [
     {
@@ -12,7 +12,8 @@
       "description": "Mosaico em azulejo de cerâmica e búzio natural, 16x16 cm, 2026.",
       "saleStatus": "Sim",
       "price": "160 reais",
-      "image": "./obras/imagens/001.jpg"
+      "image": "./obras/imagens/001.jpg",
+      "audio": "./obras/audios/001.oga"
     },
     {
       "id": 2,
@@ -23,7 +24,8 @@
       "description": "Título: Pomba da Paz — Corpo-Testemunha\nTécnica: Aquarela e caneta acrílica sobre papel Canson 300g\nDimensões: A4 — 21 × 29,7 cm\n\nDescrição:\n\nA obra apresenta uma pomba em voo, tradicionalmente reconhecida como símbolo da paz, equipada com um dispositivo de câmera corporal. A imagem estabelece uma tensão entre a representação clássica da pomba como signo de paz e a presença de um equipamento associado ao registro, à vigilância e à observação.\n\nA obra integra uma pesquisa artística que investiga a permanência e a transformação do símbolo da pomba da paz no imaginário contemporâneo. Ao inserir um dispositivo tecnológico sobre o corpo do animal, a imagem desloca esse símbolo para um contexto de observação e testemunho, questionando o que significa representar a paz em uma sociedade marcada pela vigilância, pela violência e pela produção constante de imagens.\n\nA obra integra uma pesquisa artística que investiga a permanência e a transformação da pomba da paz no imaginário contemporâneo. Artista cuja trajetória está fortemente ligada às linguagens digitais e às novas tecnologias, venho ampliando minha prática por meio da experimentação com diferentes técnicas e linguagens artísticas. Neste trabalho, a utilização da aquarela e da caneta acrílica sobre papel representa também esse movimento de transição e experimentação, aproximando uma técnica tradicional de uma temática atravessada pela tecnologia, pelo registro e pela vigilância.",
       "saleStatus": "Sim",
       "price": "750",
-      "image": null
+      "image": null,
+      "audio": "./obras/audios/002.ogg"
     },
     {
       "id": 3,
@@ -34,7 +36,8 @@
       "description": "Ano: 2025\nTécnica: Tinta acrílica s/ MDF\nMedidas: 40x40\nConceito: Arte inspirada em imagens antigas de ônibus que eu utilizava em algumas locomoções do dia-a-dia como: ir a escola(Tanque), Mercadão de Madureira, Cascadura e praia da Barra(posto 3). Oriunda da minha pesquisa “Memórias afetivas”.\n",
       "saleStatus": "Sim",
       "price": "R$ 2.300,00(dois mil e trezentos reais)",
-      "image": "./obras/imagens/003.jpg"
+      "image": "./obras/imagens/003.jpg",
+      "audio": "./obras/audios/003.m4a"
     },
     {
       "id": 4,
@@ -44,8 +47,9 @@
       "title": "Sem título ",
       "description": "Colagem manual \n52,5cm x 52,5cm \n2026 \n",
       "saleStatus": "Sim",
-      "price": "1500",
-      "image": "./obras/imagens/004.jpg"
+      "price": "1.500",
+      "image": "./obras/imagens/004.jpg",
+      "audio": "./obras/audios/004.m4a"
     },
     {
       "id": 5,
@@ -56,7 +60,8 @@
       "description": "Tamanho: 10x15 \nMateriais: Tinta acrílica e tinta óleo \nAno 2024",
       "saleStatus": "Sim",
       "price": "R$6500,00",
-      "image": "./obras/imagens/005.jpg"
+      "image": "./obras/imagens/005.jpg",
+      "audio": "./obras/audios/005.m4a"
     },
     {
       "id": 6,
@@ -67,7 +72,8 @@
       "description": "Parte I de III. Objeto tridimensional a base de madeira, matéria autoral, cerâmica fria e tinta óleo. 2026.",
       "saleStatus": "Sim",
       "price": "R$3.000,00",
-      "image": "./obras/imagens/006.jpg"
+      "image": "./obras/imagens/006.jpg",
+      "audio": "./obras/audios/006.m4a"
     },
     {
       "id": 7,
@@ -77,8 +83,9 @@
       "title": "eu quero me olhar e me ver ",
       "description": "tinta acrílica ",
       "saleStatus": "Sim",
-      "price": "13000",
-      "image": "./obras/imagens/007.png"
+      "price": "13.000",
+      "image": "./obras/imagens/007.png",
+      "audio": "./obras/audios/007.m4a"
     },
     {
       "id": 8,
@@ -89,7 +96,8 @@
       "description": "dimensão: 130cm x 90cm\nmateriais utilizados: FineArt e giz pastel oleoso \nano: 2024",
       "saleStatus": "Sim",
       "price": "R$4.000",
-      "image": "./obras/imagens/008.jpg"
+      "image": "./obras/imagens/008.jpg",
+      "audio": "./obras/audios/008.m4a"
     },
     {
       "id": 9,
@@ -100,7 +108,8 @@
       "description": "Linhas de poliester e algodão sobre latas de alumínio\n~42x30cm\n2026\n",
       "saleStatus": "Sim",
       "price": "5mil (uma ressalva é que este trabalho está de fato em processo, de qualquer modo esse é o valor definitivo caso haja interesse)",
-      "image": "./obras/imagens/009.jpg"
+      "image": "./obras/imagens/009.jpg",
+      "audio": "./obras/audios/009.mp3"
     },
     {
       "id": 10,
@@ -111,7 +120,8 @@
       "description": "Acrílica sobre papel parana, 40x50cm, 2026.",
       "saleStatus": "Sim",
       "price": "R$1.500",
-      "image": "./obras/imagens/010.jpg"
+      "image": "./obras/imagens/010.jpg",
+      "audio": "./obras/audios/010.m4a"
     },
     {
       "id": 11,
@@ -122,7 +132,8 @@
       "description": "130x25 Impressão em tecido oxford",
       "saleStatus": "sim",
       "price": "180",
-      "image": null
+      "image": "./obras/imagens/011.jpeg",
+      "audio": null
     },
     {
       "id": 12,
@@ -133,7 +144,8 @@
       "description": "Giz de cera sobre papelão. Dimensões: 17 x 64 cm.",
       "saleStatus": "sim",
       "price": "R$500,00.",
-      "image": null
+      "image": null,
+      "audio": null
     },
     {
       "id": 13,
@@ -143,8 +155,9 @@
       "title": "Aos três provérbios que me guiam",
       "description": "Acrílica, guache e acrílico metálico sobre tela.\n150x70cm\n2025",
       "saleStatus": "Sim",
-      "price": "1500",
-      "image": "./obras/imagens/013.jpg"
+      "price": "1.500,00",
+      "image": "./obras/imagens/013.jpg",
+      "audio": "./obras/audios/013.m4a"
     },
     {
       "id": 14,
@@ -155,7 +168,8 @@
       "description": "Máscara de papel machê, espelhos, tecido, pérolas sintéticas, miçangas, linha, pins e plástico\n45 x 35 x 15 cm\n2024",
       "saleStatus": "Não",
       "price": "-",
-      "image": "./obras/imagens/014.jpg"
+      "image": "./obras/imagens/014.jpg",
+      "audio": "./obras/audios/014.m4a"
     },
     {
       "id": 15,
@@ -166,7 +180,8 @@
       "description": "Essa obra é feita com telha colonial como suporte e tinta a óleo, a partir desses materiais trago minha pesquisa acerca da casa, da família, da ancestralidade e do afeto. \nTrago na pintura um conjunto de Adinkras, símbolos de origem africana, do povo Akan de Gana, onde tais símbolos, o Sankofa e o Dwennimmen, que juntos representam a importância de retornar ao passado para buscar sabedoria e construir o futuro e a busca constante por sabedoria e evolução, respectivamente.\nEssa telha era de fato a telha utilizada na minha casa, usada, gasta, com marcas de uso, sol, chuva, a vida aconteceu e ela abrigou uma família.\nDimensão: 50 cm x 20 cm\nAno: 2026",
       "saleStatus": "Sim",
       "price": "1000",
-      "image": "./obras/imagens/015.jpg"
+      "image": "./obras/imagens/015.jpg",
+      "audio": "./obras/audios/015.m4a"
     },
     {
       "id": 16,
@@ -177,7 +192,8 @@
       "description": "Fotografia impressa em a4/ ano de 2026 / moldura A3 ",
       "saleStatus": "Não",
       "price": "Não está a venda ",
-      "image": "./obras/imagens/016.jpg"
+      "image": "./obras/imagens/016.jpg",
+      "audio": "./obras/audios/016.m4a"
     },
     {
       "id": 17,
@@ -188,7 +204,8 @@
       "description": "Fotografia digital impressa em papel fosco, 24 cm x 33 cm, 2017. Saracuruna, Duque de Caxias. Participação do dançarino Zulu.",
       "saleStatus": "Sim",
       "price": "R$2000 ",
-      "image": "./obras/imagens/017.jpg"
+      "image": "./obras/imagens/017.jpg",
+      "audio": "./obras/audios/017.mp3"
     },
     {
       "id": 18,
@@ -198,8 +215,9 @@
       "title": "Pulsos III",
       "description": "Tinta acrílica e Gravura a laser sobre MDF\n35 x 35 cm\n2026",
       "saleStatus": "Sim",
-      "price": "4500",
-      "image": "./obras/imagens/018.jpg"
+      "price": "4.500",
+      "image": "./obras/imagens/018.jpg",
+      "audio": "./obras/audios/018.m4a"
     },
     {
       "id": 19,
@@ -210,7 +228,8 @@
       "description": "Artista reflete, 2025\nPlástico adesivo sobre espelho\n40 cm de diâmetro\n\nObs: Tiragem de 5 + 1 P.A. (1 disponível para venda)",
       "saleStatus": "Sim",
       "price": "R$1150",
-      "image": "./obras/imagens/019.png"
+      "image": "./obras/imagens/019.png",
+      "audio": "./obras/audios/019.m4a"
     },
     {
       "id": 20,
@@ -221,7 +240,8 @@
       "description": "Fotografia em papel fotográfico A4, julho de 2026",
       "saleStatus": "Sim",
       "price": "R$250,00",
-      "image": "./obras/imagens/020.jpg"
+      "image": "./obras/imagens/020.jpg",
+      "audio": "./obras/audios/020.m4a"
     },
     {
       "id": 21,
@@ -232,7 +252,8 @@
       "description": "Aquarela sobre papel\n18x24 cm ",
       "saleStatus": "Sim",
       "price": "400",
-      "image": "./obras/imagens/021.png"
+      "image": "./obras/imagens/021.png",
+      "audio": "./obras/audios/021.m4a"
     },
     {
       "id": 22,
@@ -243,7 +264,8 @@
       "description": "Fotografia digital impressa em fine art\n29,7 x 42 cm \n2025",
       "saleStatus": "Sim",
       "price": "300 reais",
-      "image": null
+      "image": null,
+      "audio": "./obras/audios/022.m4a"
     },
     {
       "id": 23,
@@ -254,7 +276,8 @@
       "description": "Óleo sobre tela, 70x50, 2026",
       "saleStatus": "Não",
       "price": "Não está a venda",
-      "image": "./obras/imagens/023.jpg"
+      "image": "./obras/imagens/023.jpg",
+      "audio": "./obras/audios/023.m4a"
     },
     {
       "id": 24,
@@ -264,8 +287,9 @@
       "title": "Gaiola dourada em chamas.",
       "description": "Pintura em óleo sobre tela. 60 x 52 cm.",
       "saleStatus": "Sim",
-      "price": "1200",
-      "image": "./obras/imagens/024.jpg"
+      "price": "1.200,00",
+      "image": "./obras/imagens/024.jpg",
+      "audio": "./obras/audios/024.m4a"
     },
     {
       "id": 25,
@@ -276,7 +300,8 @@
       "description": "TÉCNICA: Pintura acrílica sobre tela DIMENSÕES: 21x30cm ANO: 2026",
       "saleStatus": "Sim",
       "price": "R$200",
-      "image": null
+      "image": null,
+      "audio": "./obras/audios/025.oga"
     },
     {
       "id": 26,
@@ -287,7 +312,8 @@
       "description": "Viu também a caminho é uma bandeira em tecido  75 x 100 em microfibra",
       "saleStatus": "Sim",
       "price": "650",
-      "image": "./obras/imagens/026.png"
+      "image": "./obras/imagens/026.png",
+      "audio": "./obras/audios/026.mp3"
     },
     {
       "id": 27,
@@ -298,7 +324,8 @@
       "description": "\n2026, Massa fria, lápis aquarelável, lápis multicolorido, caneta posca e acrílica sobre tela, 20 x 20 cm",
       "saleStatus": "Sim",
       "price": "2000",
-      "image": "./obras/imagens/027.png"
+      "image": "./obras/imagens/027.png",
+      "audio": "./obras/audios/027.m4a"
     },
     {
       "id": 28,
@@ -309,7 +336,8 @@
       "description": "13 é um sigilo somente aberto para aqueles que com seus próprios caminhos encontra.\n\nA obra é uma colagem digital feita a partir de fotos e desenho com giz pastel.\n\nAno\n2025\n\nMedida \nA4 - 21 x 29,7 cm",
       "saleStatus": "Sim",
       "price": "Prints Fineart por R$ 300,00",
-      "image": "./obras/imagens/028.jpg"
+      "image": "./obras/imagens/028.jpg",
+      "audio": "./obras/audios/028.m4a"
     },
     {
       "id": 29,
@@ -320,7 +348,8 @@
       "description": "Cigarro, cartela de remedio, tinta oleosa, incendio do predio que danificou a obra",
       "saleStatus": "Sim",
       "price": "200",
-      "image": "./obras/imagens/029.jpg"
+      "image": "./obras/imagens/029.jpg",
+      "audio": "./obras/audios/029.m4a"
     },
     {
       "id": 30,
@@ -331,7 +360,8 @@
       "description": "Giz pastel oleoso sobre tecido preto, intervenções em cinzal, guizos e 33 dentes de cavalo.\n1m4cm X 80cm\n2026",
       "saleStatus": "Sim",
       "price": "R$2000,00",
-      "image": "./obras/imagens/030.jpg"
+      "image": "./obras/imagens/030.jpg",
+      "audio": "./obras/audios/030.mp3"
     },
     {
       "id": 31,
@@ -342,7 +372,8 @@
       "description": "PRINT A4 - Papel couche 250g",
       "saleStatus": "sim",
       "price": "250",
-      "image": "./obras/imagens/031.heic"
+      "image": "./obras/imagens/031.heic",
+      "audio": null
     },
     {
       "id": 32,
@@ -353,7 +384,8 @@
       "description": "Impressão em papel fotográfico luminoso, A3.\n2025",
       "saleStatus": "Sim",
       "price": "600",
-      "image": "./obras/imagens/032.jpg"
+      "image": "./obras/imagens/032.jpg",
+      "audio": "./obras/audios/032.mp3"
     },
     {
       "id": 33,
@@ -364,7 +396,8 @@
       "description": "Fotografia analogica medio formato em papel algodão ",
       "saleStatus": "Sim",
       "price": "R$650",
-      "image": "./obras/imagens/033.jpg"
+      "image": "./obras/imagens/033.jpg",
+      "audio": "./obras/audios/033.m4a"
     },
     {
       "id": 34,
@@ -375,7 +408,8 @@
       "description": "ACRÍLICO SOBRE TELA\n\n87x92cm\n\n2026",
       "saleStatus": "Sim",
       "price": "R$5000",
-      "image": null
+      "image": null,
+      "audio": "./obras/audios/034.m4a"
     },
     {
       "id": 35,
@@ -386,7 +420,8 @@
       "description": "moldura de madeira, lã, sementes, pena, marisco, pedra, búzios, argila e bacia de plástico \n54x47 cm. 2026.",
       "saleStatus": "Não",
       "price": "nao há",
-      "image": "./obras/imagens/035.jpg"
+      "image": "./obras/imagens/035.jpg",
+      "audio": "./obras/audios/035.m4a"
     },
     {
       "id": 36,
@@ -397,7 +432,8 @@
       "description": "Nome da obra: Rua. \nSérie intitulada \"Garotos”. \n\nTécnica: Formação da palavra RUA escrita a partir de balas Garoto. Coladas em uma \nsuperfície rígida e protegidas por caixa acrílica. 31x23,5 cm\n\nArtista: Gabriel Gariba.\n\nAno 2023.\n\n\nBreve descrição do artista: \nSegundo a história da fábrica, a Garoto tem esse nome porque inicialmente os primeiros vendedores eram meninos que vendiam balas nos pontos do bonde em Vila Velha - ES.  Na época a empresa tornou-se conhecida popularmente por “bala dos garotos”, batizou-se então a fábrica de “Garoto” em menção aos meninos vendedores dos bondes. O trabalho aqui busca subverter a ideia inicial de “garoto”, mostrando uma realidade que perpetua ao longo de décadas, meninos que seguem sendo trabalhadores informais nas ruas.\n",
       "saleStatus": "Sim",
       "price": "1600",
-      "image": null
+      "image": null,
+      "audio": "./obras/audios/036.m4a"
     },
     {
       "id": 37,
@@ -408,7 +444,8 @@
       "description": "Acrílica sobre duratex",
       "saleStatus": "Sim",
       "price": "1000.00",
-      "image": "./obras/imagens/037.webp"
+      "image": "./obras/imagens/037.webp",
+      "audio": "./obras/audios/037.mp3"
     },
     {
       "id": 38,
@@ -419,7 +456,8 @@
       "description": "2026\nda série \"fiat lux\"\nacrílica sobre feltro\n80 cm x 110 cm\n",
       "saleStatus": "Sim",
       "price": "R$3000",
-      "image": "./obras/imagens/038.jpg"
+      "image": "./obras/imagens/038.jpg",
+      "audio": "./obras/audios/038.m4a"
     },
     {
       "id": 39,
@@ -430,7 +468,8 @@
       "description": "acrílica sobre tela; 50cm x 30cm;2024",
       "saleStatus": "Sim",
       "price": "150",
-      "image": "./obras/imagens/039.jpg"
+      "image": "./obras/imagens/039.jpg",
+      "audio": "./obras/audios/039.m4a"
     },
     {
       "id": 40,
@@ -441,7 +480,8 @@
       "description": "Gis pastel oleoso e linha de pipa sobre papelão.\n70x60\n2026\n@thatafarias_",
       "saleStatus": "Sim",
       "price": "R$700",
-      "image": "./obras/imagens/040.jpg"
+      "image": "./obras/imagens/040.jpg",
+      "audio": "./obras/audios/040.m4a"
     },
     {
       "id": 41,
@@ -451,8 +491,9 @@
       "title": "A verdade vos fará livre",
       "description": "Colagem de sacos de pipoca sobre madeira, 2024. 114 x 63 x 5 cm. ",
       "saleStatus": "Sim",
-      "price": "8000",
-      "image": "./obras/imagens/041.jpg"
+      "price": "8.000,00",
+      "image": "./obras/imagens/041.jpg",
+      "audio": "./obras/audios/041.m4a"
     },
     {
       "id": 42,
@@ -463,7 +504,8 @@
       "description": "Jingle #1 é um objeto de performance transformado em escultura. Em 2019, eu apresentei o meu solo \"Desvio para o Vermelho e o Amarelo\", uma performance apresentada como projeto de finalização de quando fui aluno bolsista do Programa de \"Formação e Deformação\" da EAV Parque Lage, e em paralelo, trabalhava em franquias de fast food para me manter no programa como artista. Em 2026, eu retorno a essa performance com o solo \"Ensaio do retorno ao Desvio\", já num outro contexto, uma tentativa para esquivar da necessidade de voltar, de fato, atrás.\n\nA obra consiste de um conjunto de cadernos de caligrafia vermelhos e amarelos com o jingle do Big Mac escritos/desenhados em suas páginas. É uma reflexão sobre o objeto da Arte e um sistema voraz faminto pela próximo \"hit\", num mundo cada vez mais \"fast\" e com menos \"food\".\n\n+\n\nJingle #1\n\n2019/2026\n\nPolíptico\nObjeto de performance.\nCadernos de caligrafia, grafite, giz de cera, giz pastel e canetas hidrocor sobre papéis.\n\n83 x 31 x 12 cm.\n\n+\n\nobs1: os cadernos estão dispostos num suporte de madeira para a instalação na parede.\nobs2: Apesar do relevo que a obra possui, o mesmo não impede ou obstrui a observação de outras obras no seu campo de visão.\nobs3: O solo \"Ensaio do retorno ao Desvio #4\" será apresentado no dia 26/09 na exposição coletiva \"Cacofania\", do coletivo Arapuka e da organização estudantil da EBA UFRJ.\n\nLink para o ensaio do solo:\nhttps://vimeo.com/1220442218",
       "saleStatus": "Sim",
       "price": "R$4000",
-      "image": null
+      "image": null,
+      "audio": "./obras/audios/042.mp3"
     },
     {
       "id": 43,
@@ -474,7 +516,8 @@
       "description": "A obra se constrói como uma arquitetura de fragmentos. \nCor, matéria e uma geometria emocional, organizam diferentes camadas de memória, enquanto a rigidez das formas é atravessada pelo gesto, pela textura e pela presença orgânica da palha. \nEntre ordem e instabilidade, a composição sugere uma paisagem afetiva, onde experiências, lugares e tempos distintos parecem coexistir em uma mesma estrutura.",
       "saleStatus": "Sim",
       "price": "R$7.000",
-      "image": "./obras/imagens/043.jpg"
+      "image": "./obras/imagens/043.jpg",
+      "audio": "./obras/audios/043.m4a"
     },
     {
       "id": 44,
@@ -485,7 +528,8 @@
       "description": "Sem título, 2026. Óleo, acrílica e bastão a óleo sobre tela. 40x40cm",
       "saleStatus": "Sim",
       "price": "R$3.200,00",
-      "image": "./obras/imagens/044.heic"
+      "image": "./obras/imagens/044.heic",
+      "audio": "./obras/audios/044.mp3"
     },
     {
       "id": 45,
@@ -496,7 +540,8 @@
       "description": "A obra retrata um rapaz com a mão no rosto nu sob um fundo escuro marrom. É uma pintura a Óleo em tamanho A4 de 2026.",
       "saleStatus": "Sim",
       "price": "100 reais.",
-      "image": "./obras/imagens/045.jpg"
+      "image": "./obras/imagens/045.jpg",
+      "audio": "./obras/audios/045.wav"
     },
     {
       "id": 46,
@@ -507,7 +552,8 @@
       "description": "Smile a série vários tamanhos",
       "saleStatus": "Sim",
       "price": "450",
-      "image": null
+      "image": null,
+      "audio": "./obras/audios/046.m4a"
     },
     {
       "id": 47,
@@ -518,7 +564,8 @@
       "description": "Imagem tirada em câmera digital Nikon p520. \n\nImpressa no papel fotografico couchê 300g 33x48cm. \n\nObra de 2020.\n\n",
       "saleStatus": "Sim",
       "price": "2000",
-      "image": "./obras/imagens/047.jpg"
+      "image": "./obras/imagens/047.jpg",
+      "audio": "./obras/audios/047.ogg"
     },
     {
       "id": 48,
@@ -529,7 +576,8 @@
       "description": "Óleo sobre tela, 2026, 60x40cm",
       "saleStatus": "Sim",
       "price": "R$1500,00",
-      "image": "./obras/imagens/048.png"
+      "image": "./obras/imagens/048.png",
+      "audio": "./obras/audios/048.m4a"
     },
     {
       "id": 49,
@@ -539,8 +587,9 @@
       "title": "\"Oriente\"",
       "description": "Acrílica sobre ráfia, 61x52cm, 2025",
       "saleStatus": "Sim",
-      "price": "4500",
-      "image": "./obras/imagens/049.jpg"
+      "price": "4.500",
+      "image": "./obras/imagens/049.jpg",
+      "audio": "./obras/audios/049.mp3"
     },
     {
       "id": 50,
@@ -551,7 +600,8 @@
       "description": "Victor Curi, 2024\n\nFotografias digitais impressas sobre papel papel de alfa-celulose em mostruário de madeira e vidro.\n\n40 x 100 cm\n",
       "saleStatus": "Sim",
       "price": "R$ 1200,00",
-      "image": null
+      "image": null,
+      "audio": "./obras/audios/050.m4a"
     },
     {
       "id": 51,
@@ -562,7 +612,8 @@
       "description": "Óleo sobre tela.",
       "saleStatus": "Sim",
       "price": "R$2000",
-      "image": null
+      "image": null,
+      "audio": null
     },
     {
       "id": 52,
@@ -573,7 +624,8 @@
       "description": "Zona Oeste Carioca integra o projeto de pesquisa Ainda é Sertão, desenvolvido a partir da releitura de O Sertão Carioca (1936), de Armando Magalhães Corrêa. Entre memória, ficção e vestígio, a pesquisa investiga as transformações da Zona Oeste do Rio de Janeiro e as formas como esse território foi representado, lembrado e imaginado ao longo do tempo.\nO projeto reúne fotografias de arquivo familiar, registros contemporâneos e imagens produzidas a partir de tecnologias generativas, articulando diferentes temporalidades e modos de construir uma memória visual da região. Nesse processo, o passado não é reconstituído de forma literal, mas atravessado por lembranças, documentos, fabulações e pelas transformações da própria paisagem.\nO mapa Zona Oeste Carioca é uma das interpretações desenvolvidas a partir das ilustrações de Magalhães Corrêa em O Sertão Carioca, trazendo essa referência para uma leitura contemporânea da Zona Oeste e incorporando elementos que fazem parte da experiência desse território hoje.\nMais do que uma representação geográfica, o mapa funciona como uma cartografia de memória e reconhecimento.\nA pesquisa deu origem ao fotolivro Ainda é Sertão, publicado em 2025, e posteriormente se desdobrou em uma exposição individual, com curadoria de Rafael Amorim.\nO livro Ainda é Sertão está disponível no link da bio da artista, @souclaudia.\n\nImpressão digital sob sarja de algodão \n100 x 150\n",
       "saleStatus": "Sim",
       "price": "1300",
-      "image": "./obras/imagens/052.jpg"
+      "image": "./obras/imagens/052.jpg",
+      "audio": "./obras/audios/052.mp3"
     },
     {
       "id": 53,
@@ -584,7 +636,8 @@
       "description": "Pintura sobre tecido de algodão, 60 cm × 70 cm feita em 2026.",
       "saleStatus": "Sim",
       "price": "R$ 150,00 reais",
-      "image": "./obras/imagens/053.heic"
+      "image": "./obras/imagens/053.heic",
+      "audio": "./obras/audios/053.m4a"
     },
     {
       "id": 54,
@@ -595,7 +648,8 @@
       "description": "Papel couchê fosco 115g  ",
       "saleStatus": "Sim",
       "price": "R$20",
-      "image": null
+      "image": null,
+      "audio": null
     },
     {
       "id": 55,
@@ -606,7 +660,8 @@
       "description": "Dispositivo analógico para transdução de matéria inobediente, 2026. Assemblage composta por três estruturas construídas com objetos encontrados, embalagens reutilizadas de substâncias, metal, plástico, fios, conectores, componentes eletrônicos, conchas, búzios, contas e adornos. Dimensões do conjunto: 40 × 30 × 7 cm.",
       "saleStatus": "Não",
       "price": "Não está a venda",
-      "image": "./obras/imagens/055.png"
+      "image": "./obras/imagens/055.png",
+      "audio": "./obras/audios/055.mp3"
     },
     {
       "id": 56,
@@ -617,7 +672,8 @@
       "description": "Breve descrição: Obra de caráter experimental, desenvolvida a partir da exploração de diferentes materiais e procedimentos gráficos, combinando pintura e desenho em uma composição de linguagem autoral. Esta obra é um autorretrato construído pelo olhar do outro. Um corpo negro, favelado e não binário atravessado por julgamentos, estigmas e olhares pejorativos que, pouco a pouco, também passam a habitar a própria forma de se enxergar. O que aparece na obra é, portanto, não apenas quem eu sou, mas a imagem que o outro construiu de mim e que aprendi a reconhecer como minha.\nMateriais utilizados: Papel Canson branco 200 g/m², tintas, marcador permanente (Pilot), canetinhas e outros materiais gráficos.\nDimensões: 21 × 29,7 cm (formato A4), posteriormente apresentada emoldurada.\nAno: 2020–2022.",
       "saleStatus": "Não",
       "price": "Não está a venda.",
-      "image": "./obras/imagens/056.jpg"
+      "image": "./obras/imagens/056.jpg",
+      "audio": "./obras/audios/056.m4a"
     },
     {
       "id": 57,
@@ -628,7 +684,8 @@
       "description": null,
       "saleStatus": null,
       "price": null,
-      "image": null
+      "image": null,
+      "audio": null
     },
     {
       "id": 58,
@@ -639,7 +696,8 @@
       "description": "1 metro de altura por 50 cm de largura, realizada em 2025. Materiais:  Tinta acrílica, giz pastel oleoso e caneta à óleo.",
       "saleStatus": "Sim",
       "price": "R$ 5.000",
-      "image": "./obras/imagens/058.jpg"
+      "image": "./obras/imagens/058.jpg",
+      "audio": "./obras/audios/058.mp3"
     },
     {
       "id": 59,
@@ -649,8 +707,9 @@
       "title": "Caminho aberto",
       "description": "Acrílica sobre tela, 70x50cm, 2025",
       "saleStatus": "Sim",
-      "price": "2400",
-      "image": "./obras/imagens/059.jpg"
+      "price": "2.400,00",
+      "image": "./obras/imagens/059.jpg",
+      "audio": "./obras/audios/059.m4a"
     },
     {
       "id": 60,
@@ -661,7 +720,8 @@
       "description": "Tinta a óleo, tinta acrílica e pastel oleoso sobre placa de trânsito; 100x75cm; 2026",
       "saleStatus": "Não",
       "price": "-",
-      "image": "./obras/imagens/060.jpg"
+      "image": "./obras/imagens/060.jpg",
+      "audio": "./obras/audios/060.m4a"
     },
     {
       "id": 61,
@@ -672,7 +732,8 @@
       "description": "Produção musical digital e armazenamento em HD, Dimensão: A3",
       "saleStatus": "Sim",
       "price": "a negociar",
-      "image": null
+      "image": null,
+      "audio": null
     },
     {
       "id": 62,
@@ -683,7 +744,8 @@
       "description": "Tinta acrílica e Gravura a laser sobre MDF\n35 x 35 cm\n2026",
       "saleStatus": "Sim",
       "price": "4500",
-      "image": "./obras/imagens/062.jpg"
+      "image": "./obras/imagens/062.jpg",
+      "audio": "./obras/audios/062.m4a"
     },
     {
       "id": 63,
@@ -694,7 +756,8 @@
       "description": "Acrílica, pastel oleoso, lápis de cor, pasta ouro, sobre papel cartão.",
       "saleStatus": "Sim",
       "price": "2300",
-      "image": "./obras/imagens/063.jpg"
+      "image": "./obras/imagens/063.jpg",
+      "audio": "./obras/audios/063.mp3"
     },
     {
       "id": 64,
@@ -705,7 +768,8 @@
       "description": "Tinta acrilica e massa de biscuit sobre tela. 50cm x 30cm. 2025",
       "saleStatus": "Sim",
       "price": "R$2.000,00",
-      "image": "./obras/imagens/064.jpg"
+      "image": "./obras/imagens/064.jpg",
+      "audio": "./obras/audios/064.m4a"
     },
     {
       "id": 65,
@@ -716,7 +780,8 @@
       "description": "bandeira impressa, 85 x 58 ",
       "saleStatus": "Sim",
       "price": "300",
-      "image": "./obras/imagens/065.jpg"
+      "image": "./obras/imagens/065.jpg",
+      "audio": "./obras/audios/065.m4a"
     },
     {
       "id": 66,
@@ -727,7 +792,8 @@
       "description": "Acrílica sobre madeira.",
       "saleStatus": "Sim",
       "price": "R$4.000",
-      "image": null
+      "image": null,
+      "audio": null
     },
     {
       "id": 67,
@@ -738,7 +804,8 @@
       "description": "Óleo sobre tela.",
       "saleStatus": "sim",
       "price": "R$9.000",
-      "image": null
+      "image": null,
+      "audio": null
     },
     {
       "id": 68,
@@ -749,7 +816,8 @@
       "description": "técnica e materiais: sobreposições em papéis em uma base de papelão +\nimpressões e intervenções com em papéis artesanais e tingidos com diferentes tipos de corantes, além de intervenções feitas à caneta permanente.  \n\ndimensões: 1metro de largura por 1 metro de comprimento.\nano: 2026 \n",
       "saleStatus": "Sim",
       "price": "R$ 2.264,00",
-      "image": "./obras/imagens/068.jpg"
+      "image": "./obras/imagens/068.jpg",
+      "audio": "./obras/audios/068.m4a"
     },
     {
       "id": 69,
@@ -760,7 +828,8 @@
       "description": "Carvão vegetal e tinta acrílica sobre placas de drywall encontradas, 2026",
       "saleStatus": "não",
       "price": "-",
-      "image": "./obras/imagens/069.jpg"
+      "image": "./obras/imagens/069.jpg",
+      "audio": "./obras/audios/069.m4a"
     },
     {
       "id": 70,
@@ -771,7 +840,8 @@
       "description": "Giz pastel oleoso e aquarelavel sobre látex",
       "saleStatus": "Não",
       "price": "-",
-      "image": "./obras/imagens/070.jpg"
+      "image": "./obras/imagens/070.jpg",
+      "audio": "./obras/audios/070.m4a"
     },
     {
       "id": 71,
@@ -782,7 +852,8 @@
       "description": "Óleo e folha de ouro sobre tela. 1,20m X 80cm",
       "saleStatus": "Não",
       "price": "-",
-      "image": "./obras/imagens/071.jpg"
+      "image": "./obras/imagens/071.jpg",
+      "audio": "./obras/audios/071.m4a"
     },
     {
       "id": 72,
@@ -793,7 +864,8 @@
       "description": "Pastel seco sobre papel craft\n33x43\n2023\n",
       "saleStatus": "Sim",
       "price": "3000",
-      "image": "./obras/imagens/072.jpg"
+      "image": "./obras/imagens/072.jpg",
+      "audio": "./obras/audios/072.m4a"
     },
     {
       "id": 73,
@@ -803,8 +875,9 @@
       "title": "Duas Bandida Perturbando Minha Mente ",
       "description": "Acrílico sobre tela ",
       "saleStatus": "sim",
-      "price": "1000",
-      "image": "./obras/imagens/073.jpg"
+      "price": "1.000",
+      "image": "./obras/imagens/073.jpg",
+      "audio": null
     },
     {
       "id": 74,
@@ -815,7 +888,8 @@
       "description": "Tinta acrílica sobre tela, dimensões 60×90, ano 2026",
       "saleStatus": "Sim",
       "price": "R$ 3000,00",
-      "image": "./obras/imagens/074.jpg"
+      "image": "./obras/imagens/074.jpg",
+      "audio": "./obras/audios/074.m4a"
     },
     {
       "id": 75,
@@ -826,7 +900,8 @@
       "description": "Tecido Preto Estampado. ",
       "saleStatus": "Sim",
       "price": "R$500,00.",
-      "image": null
+      "image": null,
+      "audio": null
     },
     {
       "id": 76,
@@ -837,7 +912,8 @@
       "description": "Ame sua preta em arte pública. Guache sob mdf desgastado, 60x70, 2026",
       "saleStatus": "Não",
       "price": "Sem valor",
-      "image": "./obras/imagens/076.heic"
+      "image": "./obras/imagens/076.heic",
+      "audio": "./obras/audios/076.mp3"
     },
     {
       "id": 77,
@@ -848,7 +924,8 @@
       "description": "Obra em técnica mista, construída por sobreposição de colagens, pintura, desenho, grafismos, spray e intervenções manuais sobre suporte rígido. A composição reúne fragmentos gráficos, personagens, símbolos e marcas gestuais, criando uma narrativa visual não linear ligada à memória, cultura urbana e experiência pessoal.\n\nMateriais: colagem de papel impresso, tinta acrílica e spray, canetas/marcadores e técnicas gráficas sobre suporte rígido.\n\nDimensões: 70 × 40 × 4cm.\nAno: 2026",
       "saleStatus": "Sim",
       "price": "R$ 2.650,00",
-      "image": "./obras/imagens/077.jpg"
+      "image": "./obras/imagens/077.jpg",
+      "audio": "./obras/audios/077.m4a"
     },
     {
       "id": 78,
@@ -859,7 +936,8 @@
       "description": "Giz oleoso, caneta preta e papel, 45cm x 30cm, 2026",
       "saleStatus": "Não",
       "price": "Já foi vendida ",
-      "image": "./obras/imagens/078.jpg"
+      "image": "./obras/imagens/078.jpg",
+      "audio": "./obras/audios/078.m4a"
     },
     {
       "id": 79,
@@ -870,7 +948,8 @@
       "description": "65x50cm\nTinta a base de cúrcuma, tinta a base de urucum, tinta PVA sobre papel, 2026",
       "saleStatus": "Sim",
       "price": "r$250",
-      "image": "./obras/imagens/079.jpg"
+      "image": "./obras/imagens/079.jpg",
+      "audio": "./obras/audios/079.m4a"
     },
     {
       "id": 80,
@@ -881,7 +960,8 @@
       "description": "Óleo sobre tela. Dimensão: 80 x 90",
       "saleStatus": "Sim",
       "price": "R$10.000",
-      "image": null
+      "image": null,
+      "audio": null
     },
     {
       "id": 81,
@@ -892,7 +972,8 @@
       "description": "Acrílica e pastel oleoso sobre tela, 60 x 90 cm, 2024",
       "saleStatus": "Sim",
       "price": "R$7.500",
-      "image": "./obras/imagens/081.jpg"
+      "image": "./obras/imagens/081.jpg",
+      "audio": "./obras/audios/081.m4a"
     },
     {
       "id": 82,
@@ -903,7 +984,8 @@
       "description": "Acrílica sobre tela\n80 x 60 cm\n2024",
       "saleStatus": "Sim",
       "price": "R$10.000",
-      "image": "./obras/imagens/082.jpg"
+      "image": "./obras/imagens/082.jpg",
+      "audio": "./obras/audios/082.m4a"
     },
     {
       "id": 83,
@@ -914,7 +996,8 @@
       "description": "100x70cm - Geotinta, acrílica, gesso e aglutinógeno no canvas com moldura em caixa preta",
       "saleStatus": "Sim",
       "price": "R$4000",
-      "image": "./obras/imagens/083.jpg"
+      "image": "./obras/imagens/083.jpg",
+      "audio": "./obras/audios/083.m4a"
     },
     {
       "id": 84,
@@ -924,8 +1007,9 @@
       "title": "confluência",
       "description": "Esta obra é inspirada no confluência de “confluência”, cunhado por Nego Bispo, e apresenta uma imagem que simboliza o encontro de vidas que se movimentam em direções semelhantes. Para o autor, a confluência é a arte de transformar conflitos e divergências em diversidade, possibilitando formas de existência mais harmônicas, coletivas e plurais.\n\nAcrilica sobre tela 1,60 X 90cm 2025",
       "saleStatus": "Sim",
-      "price": "1400",
-      "image": null
+      "price": "1.400",
+      "image": null,
+      "audio": "./obras/audios/084.mp3"
     },
     {
       "id": 85,
@@ -935,8 +1019,9 @@
       "title": "São Menino",
       "description": "Acrílica, spray e pastel seco sobre tela de algodão.\n\nDimensões: 150x110.",
       "saleStatus": "Sim",
-      "price": "6000",
-      "image": "./obras/imagens/085.jpg"
+      "price": "6.000,00",
+      "image": "./obras/imagens/085.jpg",
+      "audio": "./obras/audios/085.mp3"
     },
     {
       "id": 86,
@@ -947,7 +1032,8 @@
       "description": "Pinceladas que surgem como cabeças. Esmalte sintético sobre  tela. Dimensôes: 100 x 70 cm.",
       "saleStatus": "Sim",
       "price": "R$6.800,00.",
-      "image": null
+      "image": null,
+      "audio": null
     },
     {
       "id": 87,
@@ -958,7 +1044,20 @@
       "description": null,
       "saleStatus": null,
       "price": null,
-      "image": null
+      "image": null,
+      "audio": null
+    },
+    {
+      "id": 88,
+      "floor": 1,
+      "room": 1,
+      "artist": "Tatyane Menendes",
+      "title": "Joaninha Dark",
+      "description": "62x63 Impressao em seda ",
+      "saleStatus": "sim",
+      "price": "200",
+      "image": "./obras/imagens/088.jpeg",
+      "audio": null
     }
   ]
 }

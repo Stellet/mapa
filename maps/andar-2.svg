@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 992" role="img" aria-labelledby="title desc">
   <title id="title">Planta do segundo andar</title>
-  <desc id="desc">Base visual do segundo andar conforme o mapa v9. Entrada e escada no canto inferior direito. Primeira sala na metade inferior, com posições futuras das obras 01 a 06. Segunda sala na metade superior, com posições futuras das obras 07 a 14. Sala de vidro no canto superior direito, com posição futura da obra 15. Blocos estruturais e passagens permanecem livres.</desc>
+  <desc id="desc">Base visual do segundo andar conforme o mapa impresso v10. Entrada e escada no canto inferior direito. Primeira sala na metade inferior, com obras 01 a 06. Segunda sala na metade superior, com obras 07 a 14. Sala de vidro no canto superior direito, com obra 15. Blocos estruturais e passagens permanecem livres.</desc>
   <g fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="miter">
-    <!-- Contorno geral proporcional ao desenho do PDF v9. -->
+    <!-- Contorno geral proporcional ao desenho do PDF v10. -->
     <path id="perimeter" d="M0 0H360V992H0Z"/>
 
     <!-- Compartimento estrutural superior esquerdo; função não identificada no PDF. -->

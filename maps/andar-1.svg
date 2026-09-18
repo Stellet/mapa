@@ -1,64 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1780" role="img" aria-labelledby="title desc">
-  <title id="title">Planta simplificada do primeiro andar</title>
-  <desc id="desc">Planta vertical baseada na referência arquitetônica e na organização espacial atual. A entrada fica no topo. A área superior tem rampa central, som e DJ junto à parede transversal, e mezanino nas paredes esquerda, direita e transversal. A circulação segue pelo lado direito até a parte inferior, com bar e escada à esquerda e banheiros à direita.</desc>
-  <defs>
-    <pattern id="mezzanine-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-      <path d="M0 0V10" fill="none" stroke="#fff" stroke-width="1"/>
-    </pattern>
-  </defs>
-  <g fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="miter">
-    <!-- Contorno e entrada superior, proporcionados a partir da planta arquitetônica. -->
-    <path id="outline" d="M40 50H142 M218 50H310V1375H280V1715H165 M115 1715H40V50"/>
-    <!-- Área superior: Área 3 à esquerda, Área 1 à direita e Área 2 transversal. -->
-    <g id="upper-main-walls" data-level="main">
-      <path id="area-3-main" data-area="area-3" d="M40 115V605"/>
-      <path id="area-1-main" data-area="area-1" d="M310 115V605"/>
-      <path id="area-2-main" data-area="area-2" d="M40 605H238"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 360 1780" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g>
+        <g id="outline" transform="matrix(1,0,0,0.975006,0,1.24969)">
+            <path d="M40,50L188.967,50M265.75,50L310,50L310,1375L308.662,1655.551L308.662,1806.15M195.37,1806.15L195.438,1761.213L40,1761.213L40,50" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        </g>
+        <g id="upper-main-walls">
+            <path id="area-3-main" d="M40,115L40,605" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+            <path id="area-1-main" d="M310,115L310,605" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+            <path id="area-2-main" d="M40,605L238,605" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        </g>
+        <g id="mezzanine">
+            <path id="area-3-mezzanine" d="M72,214.348L72,573" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+            <path id="area-1-mezzanine" d="M278,212.023L278,573" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+            <path id="area-2-mezzanine" d="M72,573L238,573" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+            <path d="M40,207L67,207L72,212L72,573L40,573L40,207Z" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+            <g transform="matrix(1,0,0,1.087432,0,-18.098361)">
+                <path d="M278,212L283,207L310,207L310,573L278,573L278,212Z" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+            </g>
+            <g transform="matrix(1.433735,0,0,1,-31.228916,0)">
+                <rect x="72" y="573" width="166" height="32" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+            </g>
+        </g>
+        <g id="skate-ramp" transform="matrix(0.697394,0,0,0.795016,52.711495,53.450991)">
+            <path d="M40,207L40,225C40,263 78,287 120,287L230,287C272,287 310,263 310,225L310,207" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        </g>
+        <g id="skate-ramp-base" transform="matrix(1.674508,0,0,1.148256,-91.246727,-344.496131)">
+            <rect x="100" y="486" width="118" height="66" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.04px;"/>
+        </g>
+        <g id="sound-dj" transform="matrix(1.134965,0,0,0.971044,-10.948373,5.154196)">
+            <rect x="100" y="486" width="118" height="66" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        </g>
+        <path id="circulation" d="M238,605L238,688L40,688" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path id="area-5-main" d="M40,790L40,1086.87" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path id="area-4-main" d="M310,745L310,1375" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <g id="mezzanine-sala-2">
+            <path d="M72,790L72,1343" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+            <path d="M278,745L278,1343" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+            <path d="M72,1343L278,1343" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+            <rect x="40" y="790" width="32" height="553" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+            <rect x="278" y="745" width="32" height="598" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+            <g transform="matrix(1,0,0,1,0,-32)">
+                <rect x="72" y="1343" width="206" height="32" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+            </g>
+        </g>
+        <g id="bar-2" transform="matrix(1.133333,0,0,0.605322,-5.333323,428.963415)">
+            <path d="M40,1086.87L126,1086.87L126,1510L40,1510" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        </g>
+        <g id="bar-1" transform="matrix(1.447406,0,0,0.22929,-18.015695,-199.154941)">
+            <path d="M40,1086.87L126,1086.87L126,1510L40,1510" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        </g>
+        <g id="stairs-floor-2" transform="matrix(1,0,0,1.094293,0,-230.038438)">
+            <rect x="40" y="1510" width="86" height="205" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+            <path d="M40,1528L126,1528M40,1546L126,1546M40,1564L126,1564M40,1582L126,1582M40,1600L126,1600M40,1618L126,1618M40,1636L126,1636M40,1654L126,1654M40,1672L126,1672M40,1690L126,1690" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+        </g>
+        <g transform="matrix(0.720812,0,0,0.526131,106.834924,619.570217)">
+            <g id="bathrooms">
+                <rect x="165" y="1375" width="115" height="340" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+            </g>
+        </g>
+        <g id="entrance-direction" transform="matrix(1,0,0,1,48.924383,24)">
+            <path d="M180,10L180,42M172,33L180,42L188,33" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+        </g>
+        <g id="direction" transform="matrix(0.691092,0,0,0.691092,141.827467,601.123568)">
+            <path d="M180,10L180,42M172,33L180,42L188,33" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+        </g>
+        <g id="direction1" serif:id="direction" transform="matrix(0.691092,0,0,0.691092,50.074637,1339.697496)">
+            <path d="M180,10L180,42M172,33L180,42L188,33" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+        </g>
+        <g id="direction2" serif:id="direction" transform="matrix(-0.691092,-0,0,-0.691092,390.620716,576.876432)">
+            <path d="M180,10L180,42M172,33L180,42L188,33" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+        </g>
+        <g id="direction3" serif:id="direction" transform="matrix(-0.691092,-0,0,-0.691092,298.867886,1315.450361)">
+            <path d="M180,10L180,42M172,33L180,42L188,33" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:1.5px;"/>
+        </g>
     </g>
-    <!-- Mezanino: segunda parede paralela e faixa hachurada nas Áreas 1, 2 e 3. -->
-    <g id="mezzanine" data-level="mezzanine">
-      <path id="area-3-mezzanine" data-area="area-3" d="M72 207V573"/>
-      <path id="area-1-mezzanine" data-area="area-1" d="M278 207V573"/>
-      <path id="area-2-mezzanine" data-area="area-2" d="M72 573H238"/>
-      <path d="M40 207H72V573H40Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
-      <path d="M278 207H310V573H278Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
-      <path d="M72 573H238V605H72Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
-    </g>    <!-- Rampa central da área superior. -->
-    <g id="skate-ramp">
-      <path d="M40 207V225C40 263 78 287 120 287H230C272 287 310 263 310 225V207"/>
-    </g>
-    <!-- Som/DJ junto à Área 2, preservando a circulação lateral direita. -->
-    <path id="sound-dj" d="M100 486H218V552H100Z"/>
-    <!-- Circulação: sai pela abertura direita da Área 2 sem espelhar o percurso. -->
-    <path id="circulation" d="M238 605V688H115"/>
-    <!-- Obstáculo estrutural entre a área superior e a inferior. -->
-    <path id="upper-lower-obstacle" d="M40 688H115V790H40Z"/>
-    <!-- Parte inferior: Área 5 à esquerda e Área 4 à direita. -->
-    <path id="area-5-main" data-area="area-5" data-level="main" d="M40 790V1086.87"/>
-    <path id="area-4-main" data-area="area-4" data-level="main" d="M310 745V1375"/>
-    <!-- Mezanino da Sala 2: laterais e parede inferior, mantendo livre a passagem superior direita. -->
-    <g id="mezzanine-sala-2" data-level="mezzanine">
-      <path data-area="area-5" d="M72 790V1343"/>
-      <path data-area="area-4" d="M278 745V1343"/>
-      <path d="M72 1343H278"/>
-      <path d="M40 790H72V1343H40Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
-      <path d="M278 745H310V1343H278Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
-      <path d="M72 1343H278V1375H72Z" fill="url(#mezzanine-hatch)" stroke-width="1.5"/>
-    </g>
-    <!-- Bar abaixo da Área 5. -->
-    <path id="bar" d="M40 1086.87H126V1510H40 M68 1119.87H110V1478H68Z"/>
-    <!-- Escada para o segundo andar no extremo inferior esquerdo. -->
-    <g id="stairs-floor-2" stroke-width="1.5">
-      <path d="M40 1510H126V1715H40Z"/>
-      <path d="M40 1528H126 M40 1546H126 M40 1564H126 M40 1582H126 M40 1600H126 M40 1618H126 M40 1636H126 M40 1654H126 M40 1672H126 M40 1690H126"/>
-    </g>
-    <!-- Banheiros no bloco inferior direito. -->
-    <g id="bathrooms">
-      <path d="M165 1375H280V1715H165Z"/>
-      <path d="M165 1518H280 M223 1375V1715"/>
-      <path d="M165 1440H187 M165 1590H187"/>
-    </g>
-    <!-- Direção de entrada pelo topo. -->
-    <path id="entrance-direction" d="M180 10V42 M172 33L180 42L188 33" stroke-width="1.5"/>
-  </g>
 </svg>

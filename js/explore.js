@@ -1,4 +1,4 @@
-﻿"use strict";
+"use strict";
 
 (() => {
   const shell = document.getElementById("navigation-shell");
@@ -7,7 +7,6 @@
   const viewport = document.getElementById("map-viewport");
   const footer = document.getElementById("site-footer");
   const sponsors = document.querySelector(".sponsors-strip");
-  document.getElementById("app-version").textContent = APP_VERSION;
   const mapView = document.getElementById("map-view");
   const sentinel = document.getElementById("map-top-sentinel");
   let layoutFrame = 0, topObserver = null, observerMargin = "";
@@ -100,7 +99,12 @@
     const parts = [heading.querySelector("img")?.alt || heading.textContent];
     if (!sheet.hidden) {
       parts.push(text("work-number"), text("work-heading"), text("work-artist"));
-      if (sheet.dataset.state === "expanded") parts.push(text("work-description"), text("audio-heading"), text("audio-note"), text("reading-heading"), text("work-reading"), document.querySelector(".interest-button").textContent, text("interest-note"));
+      if (sheet.dataset.state === "expanded") {
+        parts.push(text("work-description"));
+        if (!document.getElementById("work-audio-section").hidden) parts.push(text("audio-heading"));
+        if (!document.getElementById("work-reading-section").hidden) parts.push(text("reading-heading"), text("work-reading"));
+        parts.push(document.querySelector(".interest-button").textContent);
+      }
     } else {
       const mapMode = !document.getElementById("map-view").hidden;
       parts.push(mapMode ? "Modo mapa" : "Modo lista", text("results-status"));

@@ -50,17 +50,13 @@
       });
 
       const byNumber = new Map(floor.slots.map(slot => [slot.number, slot]));
-      for (const item of parsed) {
-        const slot = byNumber.get(item.number) || { number: item.number };
-        slot.x = item.x / size.width * 100;
-        slot.y = item.y / size.height * 100;
-        slot.level = item.level;
-        if (!byNumber.has(item.number)) {
-          floor.slots.push(slot);
-          byNumber.set(item.number, slot);
-        }
-      }
-      floor.slots.sort((a, b) => a.number - b.number);
+      floor.slots = parsed.map(item => ({
+        ...byNumber.get(item.number),
+        number: item.number,
+        x: item.x / size.width * 100,
+        y: item.y / size.height * 100,
+        level: item.level
+      })).sort((a, b) => a.number - b.number);
     } catch (error) {
       console.warn("Posições mantidas pelo fallback de configuração para " + file + ":", error.message);
     }

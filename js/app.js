@@ -11,7 +11,7 @@
   const closeButton = document.getElementById("close-sheet");
   let selectedButton = null;
   const state = { floor: config.initialFloor, mode: "map", selected: null, grouped: true };
-  const areaNames = { "area-1": "ÁREA 1", "area-2": "ÁREA 2", "area-3": "ÁREA 3", "area-4": "ÁREA 4", "area-5": "ÁREA 5" };
+  const areaNames = { "area-1": "ÁREA 1", "area-2": "ÁREA 2", "area-3": "ÁREA 3", "area-4": "ÁREA 4", "area-5": "ÁREA 5", "andar-2-primeira-sala": "PRIMEIRA SALA", "andar-2-segunda-sala": "SEGUNDA SALA", "andar-2-sala-vidro": "SALA DE VIDRO", "room-1": "SALA 1", "room-2": "SALA 2" };
   const typeNames = { pintura: "Pintura", fotografia: "Fotografia", colagem: "Colagem", escultura: "Escultura" };
 
   function hasValue(value) { return value !== null && value !== undefined && String(value).trim() !== ""; }
@@ -19,6 +19,19 @@
     const visible = hasValue(value);
     element.textContent = visible ? value : "";
     block.hidden = !visible;
+  }
+
+  function interestUrl(work) {
+    const details = [work.slot, work.title, work.artist]
+      .filter(hasValue).map(value => String(value).trim()).join(" - ");
+    const message = "Estive na exposição Rios-Reais no CC Lado B e tive interesse na obra " + details;
+    return "https://wa.me/5521980339510?text=" + encodeURIComponent(message);
+  }
+  for (const button of document.querySelectorAll(".partial-interest, .interest-button")) {
+    button.addEventListener("click", () => {
+      const work = works.find(item => item.floor === state.floor && item.slot === state.selected);
+      if (work) window.open(interestUrl(work), "_blank", "noopener,noreferrer");
+    });
   }
 
   function closeSheet(restoreFocus = false) {
@@ -57,7 +70,7 @@
     setOptional(document.getElementById("work-description"), work.description);
     setOptional(document.getElementById("work-sale-status"), work.saleStatus, document.getElementById("work-sale-status-row"));
     setOptional(document.getElementById("work-price"), work.price, document.getElementById("work-price-row"));
-    document.getElementById("work-reading").textContent = work.reading;
+    setOptional(document.getElementById("work-reading"), work.reading, document.getElementById("work-reading-section"));
     const image = document.getElementById("work-image");
     const thumbnail = document.getElementById("work-thumbnail");
     for (const element of [image, thumbnail]) {
@@ -67,7 +80,10 @@
       element.alt = "";
     }
     audio.pause();
-    audio.src = work.audio;
+    const hasAudio = hasValue(work.audio);
+    document.getElementById("work-audio-section").hidden = !hasAudio;
+    if (hasAudio) audio.src = work.audio;
+    else audio.removeAttribute("src");
     audio.load();
     window.EXHIBITION_SHEET.openPartial();
     document.getElementById("sheet-content").scrollTop = 0;
@@ -83,12 +99,18 @@
     document.getElementById("map-heading").textContent = `Andar ${id}`;
     const map = document.getElementById("floor-map");
     map.setAttribute("href", floor.map);
+    const mapHeight = Number((floor.viewBox || "0 0 360 1780").split(/\s+/)[3]);
+    map.setAttribute("height", mapHeight);
+    document.getElementById("map-grid").setAttribute("height", mapHeight);
+    document.querySelector(".map-overlay").setAttribute("height", mapHeight);
+    document.getElementById("map-svg").style.setProperty("--map-content-height", mapHeight + "px");
     map.parentElement.dataset.real = String(Boolean(floor.realMap));
     document.getElementById("map-caption").textContent = floor.realMap ? "Planta simplificada" : "Planta provisória";
     document.getElementById("map-instructions").textContent = floor.realMap
       ? "Arraste para explorar. Amplie com dois dedos, com a roda do mouse ou +. Grupos indicam quantidade e numeração das obras; toque para escolher uma obra do grupo. Selecione um número para abrir a ficha. O percentual restaura 100%, ajustando a planta à largura."
       : "Toque em um número para selecionar uma obra.";
-    map.setAttribute("aria-label", floor.realMap ? "Planta simplificada do primeiro andar, com entrada superior, rampa central, mezanino, bar, escada e banheiros" : `Planta esquemática provisória do andar ${id}`);
+    document.getElementById("map-location-labels").style.display = id === 1 ? "" : "none";
+    map.setAttribute("aria-label", id === 1 ? "Planta simplificada do primeiro andar, com entrada superior, rampa central, mezanino, bar, escada e banheiros" : "Planta do segundo andar, com primeira sala, segunda sala, sala de vidro, escada e entrada");
     slots.replaceChildren();
     for (const slot of floor.slots) {
       const button = document.createElement("button");
@@ -164,7 +186,8 @@
     }
     document.getElementById("results-status").textContent = "Andar " + state.floor + ": " + visible.length + " obras" + (visible.length ? "." : ". Nenhuma obra cadastrada neste andar.");
     document.getElementById("list-heading").textContent = "Obras — Andar " + state.floor;
-    document.getElementById("floor-status").textContent = visible.length ? visible.length + " obras visíveis no mapa. Posições provisórias." : "Nenhuma obra cadastrada neste andar.";
+    const positioned = config.floors.find(floor => floor.id === state.floor).slots.filter(slot => numbers.has(slot.number)).length;
+    document.getElementById("floor-status").textContent = visible.length ? positioned + " obras com posição no mapa; " + visible.length + " obras na lista." : "Nenhuma obra cadastrada neste andar.";
     syncSelection();
     announceChange();
   }

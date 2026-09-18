@@ -1,8 +1,5 @@
 "use strict";
 
-const APP_VERSION = "2026.09.16-1514";
-console.info("APP_VERSION", APP_VERSION);
-
 // Sistema oficial: coordenadas do SVG vertical 360 x 1780.
 // Áreas, níveis e faixas são metadados internos; não são desenhados como rótulos no mapa.
 (() => {
@@ -158,8 +155,8 @@ console.info("APP_VERSION", APP_VERSION);
           y: y / 1780 * 100
         }))
       },
-      { id: 2, map: "maps/andar-2.svg", viewBox: "0 0 360 992",
-        source: "references/mapa_2o_andar_rios_reais_v9_qr.pdf",
+      { id: 2, map: "maps/andar-2.svg", realMap: true, viewBox: "0 0 360 992",
+        source: "references/mapa_2o_andar_rios_reais_v10_qr.pdf",
         areas: [
           { id: "andar-2-primeira-sala", plannedWorks: [1, 2, 3, 4, 5, 6] },
           { id: "andar-2-segunda-sala", plannedWorks: [7, 8, 9, 10, 11, 12, 13, 14] },

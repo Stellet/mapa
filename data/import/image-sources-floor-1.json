@@ -1,6 +1,6 @@
 {
   "floor": 1,
-  "count": 87,
+  "count": 88,
   "mappingSource": "Respostas ao formulário 1 / Column 14",
   "rule": "Only individual Drive file URLs are included. Missing/invalid/folder-only images remain null.",
   "items": [
@@ -612,6 +612,13 @@
       "title": null,
       "source": null,
       "targetBase": "087"
+    },
+    {
+      "id": 88,
+      "artist": "Tatyane Menendes",
+      "title": "Joaninha Dark",
+      "source": null,
+      "targetBase": "088"
     }
   ]
 }
