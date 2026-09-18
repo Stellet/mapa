@@ -358,3 +358,7 @@
 ## 2026-09-17 — respiro da ficha reduzida
 
 - Removido o ajuste extra de padding do cabeçalho parcial; permanece o espaçamento padrão da ficha.
+
+## 2026-09-17 — repaint dos pontos no iOS
+
+- Estabilizada a composição dos números dentro do foreignObject no WebKit touch, sem alterar pan/zoom, posições ou desktop.
