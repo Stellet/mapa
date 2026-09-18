@@ -116,7 +116,10 @@
       }
     } else {
       const mapMode = !document.getElementById("map-view").hidden;
-      parts.push(mapMode ? "Modo mapa" : "Modo lista", text("results-status"));
+      const spokenSummary = text("results-status")
+        .replace("Andar 1: 88 obras.", "Andar 1: oitenta e oito obras.")
+        .replace("Andar 2: 15 obras.", "Andar 2: quinze obras.");
+      parts.push(mapMode ? "Modo mapa" : "Modo lista", spokenSummary);
       if (mapMode) parts.push(text("map-instructions"));
       const selector = mapMode ? "#slots .slot:not([hidden])" : "#work-list .list-work";
       for (const work of document.querySelectorAll(selector)) parts.push(work.getAttribute("aria-label"));

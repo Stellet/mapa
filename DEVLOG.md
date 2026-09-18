@@ -458,3 +458,7 @@
 ## 2026-09-18 — ordem e imagens do 2º andar
 
 - Confirmada a sequência 01–15 do mapa impresso; 14 WebP remapeados por obra via nomes temporários e três títulos ajustados à lista oficial. A 014 segue sem imagem; posições intactas e fallback sincronizado.
+
+## 2026-09-18 — leitura das quantidades
+
+- OUVIR TELA pronuncia por extenso 88 e 15 obras nos resumos dos andares, sem alterar o contador visual.
