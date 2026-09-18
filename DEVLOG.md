@@ -378,3 +378,51 @@
 ## 2026-09-18 — header durante navegação do mapa
 
 - A compactação existente acompanha scroll, pan e zoom; o header expande no topo/reset. Mudanças de altura preservam zoom/pan e recalibram os ponteiros durante o gesto; mudanças de largura mantêm o fit.
+
+## 2026-09-18 — protótipo de abertura curatorial
+
+- Adicionada camada editorial temporária em tela cheia antes do mapa, com subida em perspectiva sutil, pausa/continuação, pular e duração ajustada ao texto; movimento reduzido apresenta leitura estática com rolagem.
+
+## 2026-09-18 — abertura curatorial sob demanda
+
+- A abertura passa a abrir pelo botão TEXTO CURATORIAL junto à navegação, com crawl em perspectiva forte, pausa/continuação e fechamento que preserva o estado do mapa. Movimento reduzido mantém leitura estática com rolagem.
+
+## 2026-09-18 — controle manual do curatorial
+
+- Botão de abertura centralizado; roda do mouse e arraste vertical controlam o progresso do crawl, pausando a reprodução automática. O modo de movimento reduzido conserva a rolagem estática.
+
+## 2026-09-18 — letreiro do curatorial
+
+- Acionador sem borda com “DOGMA 21 - TEXTO CURATORIAL” em loop vertical contínuo; área inteira clicável e texto estático quando há preferência por movimento reduzido.
+
+## 2026-09-18 — direção do letreiro
+
+- Acionador corrigido para “DOGMA 21 - ACESSAR TEXTO CURATORIAL” em loop horizontal da direita para a esquerda, mantendo a faixa clicável e a versão estática acessível.
+
+## 2026-09-18 — alinhamento do texto curatorial
+
+- Parágrafos da abertura justificados, preservando o alinhamento do título e do aviso temporário.
+
+## 2026-09-18 — ruído da abertura curatorial
+
+- Textura monocromática local adicionada em camada decorativa atrás do crawl; baixa opacidade e máscara limitam sua presença ao topo da tela.
+
+## 2026-09-18 — término do crawl
+
+- A abertura fecha quando a última linha alcança o topo visível, inclusive ao avançar manualmente; removido o percurso vazio após o texto.
+
+## 2026-09-18 — controles da abertura
+
+- Removido “ABERTURA” do topo; PAUSAR/CONTINUAR fica à esquerda e FECHAR à direita.
+
+## 2026-09-18 — acionador no header compacto
+
+- A faixa de acesso ao texto curatorial fica oculta enquanto o header está compacto e reaparece no estado expandido.
+
+## 2026-09-18 — header no topo do mapa
+
+- O header volta ao tamanho normal quando a borda superior do mapa está visível, em qualquer zoom; escala e pan horizontal deixam de impedir a expansão.
+
+## 2026-09-18 — pontos SVG no mapa
+
+- Pontos/números passaram do `foreignObject` HTML para SVG nativo no mesmo grupo da planta; pan mantém os elementos, sem ocultação por viewport. A compensação visual de escala fica limitada no zoom baixo, com alvo de toque preservado.

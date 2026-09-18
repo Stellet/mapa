@@ -23,11 +23,11 @@ button:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
 .map-heading span, .note { font-size: 14px; }
 .map { position: relative; width: 100%; aspect-ratio: 9 / 16; min-height: 1040px; border: 1px solid #fff; }
 .map img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: fill; }
-.slot { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); width: max(44px, calc(20px * var(--map-zoom, 1))); height: max(44px, calc(12px * var(--map-zoom, 1))); padding: 0; border: 0; background: transparent; font-size: calc(10px * var(--map-zoom, 1)); font-weight: normal; cursor: pointer; display: grid; place-items: center; }
-.slot[aria-pressed="true"] { color: #000; background: transparent; }
-.slot span { display: grid; place-items: center; min-width: calc(20px * var(--map-zoom, 1)); height: calc(12px * var(--map-zoom, 1)); line-height: 1; background: #000; color: #fff; }
-.slot[aria-pressed="true"] span { color: #000; background: #fff; outline: 1px solid #fff; outline-offset: 1px; }
-.slot:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+button.slot { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); width: max(44px, calc(20px * var(--map-zoom, 1))); height: max(44px, calc(12px * var(--map-zoom, 1))); padding: 0; border: 0; background: transparent; font-size: calc(10px * var(--map-zoom, 1)); font-weight: normal; cursor: pointer; display: grid; place-items: center; }
+button.slot[aria-pressed="true"] { color: #000; background: transparent; }
+button.slot span { display: grid; place-items: center; min-width: calc(20px * var(--map-zoom, 1)); height: calc(12px * var(--map-zoom, 1)); line-height: 1; background: #000; color: #fff; }
+button.slot[aria-pressed="true"] span { color: #000; background: #fff; outline: 1px solid #fff; outline-offset: 1px; }
+button.slot:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
 #floor-status { min-height: 24px; font-size: 14px; }
 .work-sheet { --sheet-peek: max(148px, 26vh); --sheet-peek: max(148px, 26dvh); position: fixed; z-index: 10; inset: auto 0 0; height: calc(100vh - 16px); height: calc(100dvh - 16px); display: flex; flex-direction: column; background: #000; border-top: 1px solid #fff; transform: translateY(calc(100% - var(--sheet-peek))); transition: transform 180ms ease-out; }
 .work-sheet[data-state="expanded"] { transform: translateY(0); }
@@ -152,7 +152,7 @@ main#exploration { max-width: none; padding: 0; }
 #map-viewport[data-interactive="true"] #floor-map { width: 360px; height: var(--map-content-height, 1780px); max-width: none; transform-origin: 0 0; object-fit: fill; }
 #map-viewport .slot { width: 44px; height: 44px; font-size: 12px; z-index: 1; }
 #map-viewport .slot span { min-width: 20px; min-height: 18px; height: auto; }
-#map-viewport .slot.clustered, #map-viewport .slot.outside-map { display: none; }
+#map-viewport .slot.clustered { display: none; }
 .map-cluster { position: absolute; min-width: 44px; height: 44px; border: 1px solid #fff; border-radius: 50%; color: #fff; background: #000; font: inherit; font-size: 13px; }
 #map-viewport .slot .map-thumbnail { position: absolute; inset: 0; width: 44px; height: 44px; object-fit: cover; }
 #map-viewport .slot:has(.map-thumbnail) span { position: absolute; bottom: 0; right: 0; font-size: 11px; }
@@ -173,27 +173,20 @@ main#exploration { max-width: none; padding: 0; }
 #map-content { transition: none; }
 #map-svg .map-overlay { overflow: visible; pointer-events: none; }
 .map-markers { position: relative; width: 360px; height: var(--map-content-height, 1780px); pointer-events: none; }
-#map-svg .slot, #map-svg .map-cluster { pointer-events: auto; transform: none; width: calc(44 * var(--marker-unit)); height: calc(44 * var(--marker-unit)); min-width: 0; min-height: 0; padding: 0; font-size: calc(12 * var(--marker-unit)); touch-action: none; }
-#map-svg .slot span { min-width: 0; min-height: 0; width: calc(22 * var(--marker-unit)); height: calc(22 * var(--marker-unit)); border-radius: 50%; outline: 1px solid #fff; outline-offset: 1px; }
-/* WebKit/iOS: compõe o HTML do foreignObject em uma camada estável durante scroll e pan. */
-@supports (-webkit-touch-callout: none) {
-  @media (hover: none) and (pointer: coarse) {
-    #map-svg .map-markers {
-      isolation: isolate;
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-    #map-svg .slot span,
-    #map-svg .cluster-count {
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-  }
-}
-#map-svg .slot .map-thumbnail { width: 100%; height: 100%; }
-#map-svg .slot:has(.map-thumbnail) span { font-size: calc(11 * var(--marker-unit)); }
+#map-svg .slot { display: inline; position: static; width: auto; height: auto; pointer-events: auto; cursor: pointer; touch-action: none; }
+#map-svg .slot[hidden], #map-svg .slot.clustered { display: none; }
+#map-svg .slot-hit { fill: transparent; }
+#map-svg .slot-face { fill: #000; stroke: #fff; stroke-width: 1; vector-effect: non-scaling-stroke; }
+#map-svg .slot-number { fill: #fff; font-family: Courier, monospace; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+#map-svg .slot-number-backdrop { display: none; fill: #000; }
+#map-svg .slot.has-thumbnail .slot-number-backdrop { display: inline; }
+#map-svg .slot[aria-pressed="true"] .slot-face { fill: #fff; }
+#map-svg .slot[aria-pressed="true"] .slot-number { fill: #000; }
+#map-svg .slot.has-thumbnail .slot-number { fill: #fff; }
+#map-svg .slot:focus-visible { outline: none; }
+#map-svg .slot:focus-visible .slot-face { stroke-width: 2; }
+#map-svg .slot .map-thumbnail { display: inline; position: static; }
+#map-svg .map-cluster { pointer-events: auto; transform: none; width: calc(44 * var(--marker-unit)); height: calc(44 * var(--marker-unit)); min-width: 0; min-height: 0; padding: 0; font-size: calc(12 * var(--marker-unit)); touch-action: none; }
 #map-svg .map-cluster { display: grid; place-items: center; border-width: var(--marker-unit); border-radius: 0; line-height: 1; }
 #map-svg .map-cluster.is-open { width: calc(32 * var(--marker-unit)); height: calc(32 * var(--marker-unit)); }
 #map-svg .cluster-count { font-size: calc(18 * var(--marker-unit)); }
@@ -393,12 +386,8 @@ body.edit-positioning #map-svg .map-cluster { display: none; }
 body.edit-positioning #map-viewport .slot.clustered { display: grid; }
 body.edit-positioning #map-viewport { cursor: crosshair; }
 body.edit-positioning #map-svg .slot { cursor: move; }
-body.edit-positioning #map-svg .slot.edit-selected span {
-  color: #000;
-  background: #fff;
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-}
+body.edit-positioning #map-svg .slot.edit-selected .slot-face { fill: #fff; stroke-width: 2; }
+body.edit-positioning #map-svg .slot.edit-selected .slot-number { fill: #000; }
 .image-empty { visibility: hidden; }
 
 /* Rodapé compacto apenas em viewport de PC; a altura real continua medida em explore.js. */

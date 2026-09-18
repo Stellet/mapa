@@ -46,7 +46,7 @@
     selectedButton = null;
     if (restoreFocus) {
       const equivalent = document.querySelector((state.mode === "list" ? "#work-list" : "#slots") + ' [data-work-slot="' + previousButton?.dataset.workSlot + '"]');
-      (equivalent && !equivalent.hidden ? equivalent : document.querySelector('[data-mode="' + state.mode + '"]')).focus({ preventScroll: true });
+      (equivalent && !equivalent.hasAttribute("hidden") ? equivalent : document.querySelector('[data-mode="' + state.mode + '"]')).focus({ preventScroll: true });
     }
   }
 
@@ -113,20 +113,31 @@
     map.setAttribute("aria-label", id === 1 ? "Planta simplificada do primeiro andar, com entrada superior, rampa central, mezanino, bar, escada e banheiros" : "Planta do segundo andar, com primeira sala, segunda sala, sala de vidro, escada e entrada");
     slots.replaceChildren();
     for (const slot of floor.slots) {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "slot";
+      const button = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      button.setAttribute("class", "slot");
+      button.setAttribute("role", "button");
+      button.setAttribute("tabindex", "0");
       button.dataset.slot = slot.number;
       button.dataset.workSlot = slot.number;
-      const number = document.createElement("span");
+      const hit = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      hit.setAttribute("class", "slot-hit");
+      const face = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      face.setAttribute("class", "slot-face");
+      const backdrop = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      backdrop.setAttribute("class", "slot-number-backdrop");
+      const number = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      number.setAttribute("class", "slot-number");
       number.textContent = String(slot.number).padStart(2, "0");
-      button.append(number);
+      button.append(hit, face, backdrop, number);
       button.setAttribute("aria-label", `Selecionar obra ${slot.number}, andar ${id}`);
       button.style.setProperty("--x", `${slot.x}%`);
       button.style.setProperty("--y", `${slot.y}%`);
       const work = works.find(item => item.floor === id && item.slot === slot.number);
       if (work) button.setAttribute("aria-label", workLabel(work));
       button.addEventListener("click", () => selectSlot(slot.number, button));
+      button.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") { event.preventDefault(); button.dispatchEvent(new MouseEvent("click", { bubbles: true })); }
+      });
       slots.append(button);
     }
     document.getElementById("floor-status").textContent = floor.slots.length
@@ -151,7 +162,7 @@
   function renderResults() {
     const visible = visibleWorks();
     const numbers = new Set(visible.map(work => work.slot));
-    for (const button of slots.children) button.hidden = !numbers.has(Number(button.dataset.slot));
+    for (const button of slots.children) button.toggleAttribute("hidden", !numbers.has(Number(button.dataset.slot)));
     if (state.selected !== null && !numbers.has(state.selected)) closeSheet();
     const list = document.getElementById("work-list");
     list.replaceChildren();

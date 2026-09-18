@@ -13,6 +13,7 @@
   let mapAtStart = true, observedWidth = 0;
   const blocked = () => document.body.classList.contains("sheet-open");
   const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+  const activateSlot = button => button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
   const mapHeight = () => Number((floor?.viewBox || "0 0 360 1780").split(/\s+/)[3]);
   let fanTrigger = null;
   function setTriggerOpen(trigger, open) {
@@ -79,7 +80,7 @@
       const button = document.createElement("button");
       button.type = "button"; button.className = "cluster-fan-item"; button.textContent = number;
       button.setAttribute("aria-label", item.button.getAttribute("aria-label") || "Abrir obra " + number);
-      button.addEventListener("click", () => { closeFan(); item.button.click(); });
+      button.addEventListener("click", () => { closeFan(); activateSlot(item.button); });
       fragment.append(button);
     });
     fan.append(fragment); fan.hidden = false; fanTrigger = trigger;
@@ -163,7 +164,7 @@
     if (!floor || !viewport.clientWidth || !viewport.clientHeight) return;
     constrain();
     const startTolerance = 6 / svg.getScreenCTM().a;
-    const atStart = Math.abs(state.scale - 1) < .001 && Math.abs(state.x) < startTolerance && Math.abs(state.y) < startTolerance;
+    const atStart = mapHeight() * state.scale <= svg.viewBox.baseVal.height + startTolerance || Math.abs(state.y) < startTolerance;
     if (atStart !== mapAtStart) {
       mapAtStart = atStart;
       document.dispatchEvent(new CustomEvent("mapnavigationchange", { detail: { atStart } }));
@@ -174,10 +175,12 @@
     reset.textContent = Math.round(state.scale * 100) + "%";
     document.getElementById("zoom-status").textContent = "Zoom " + reset.textContent;
     minus.disabled = blocked() || state.scale <= minScale; plus.disabled = blocked() || state.scale >= 32; reset.disabled = blocked();
-    const pixels = svg.getScreenCTM().a * state.scale;
+    const rootPixels = svg.getScreenCTM().a;
+    const pixels = rootPixels * state.scale;
+    const markerUnit = 1 / (rootPixels * Math.max(state.scale, .25));
     content.style.setProperty("--marker-unit", 1 / pixels + "px");
-    const size = 44 / pixels, groups = [];
-    const visualOffsets = clusteringEnabled ? new Map() : separateNearby([...slots.children].filter(button => !button.hidden).map(button => {
+    const groups = [];
+    const visualOffsets = clusteringEnabled ? new Map() : separateNearby([...slots.children].filter(button => !button.hasAttribute("hidden")).map(button => {
       const point = floor.slots.find(slot => slot.number === Number(button.dataset.slot));
       return { button, x: point.x / 100 * 360, y: point.y / 100 * mapHeight() };
     }), pixels);
@@ -185,9 +188,9 @@
       const point = floor.slots.find(s => s.number === Number(button.dataset.slot));
       const x = point.x / 100 * 360, y = point.y / 100 * mapHeight();
       const offset = visualOffsets.get(button) || { x: 0, y: 0 };
-      button.style.left = x + offset.x / pixels - size / 2 + "px"; button.style.top = y + offset.y / pixels - size / 2 + "px";
-      button.classList.remove("clustered", "outside-map");
-      if (button.hidden) { button.querySelector("img")?.remove(); continue; }
+      button.setAttribute("transform", `translate(${x + offset.x / pixels} ${y + offset.y / pixels})`);
+      button.classList.remove("clustered");
+      if (button.hasAttribute("hidden")) { button.querySelector(".map-thumbnail")?.remove(); continue; }
       const selected = button.getAttribute("aria-pressed") === "true";
       let group = clusteringEnabled && !selected && groups.find(g => !g.selected && Math.hypot(g.x - x, g.y - y) * pixels < 48);
       if (!group) { group = { x, y, selected, items: [] }; groups.push(group); }
@@ -204,16 +207,37 @@
       const outside = sx < -margin || sy < -margin || sx > 360 + margin || sy > svg.viewBox.baseVal.height + margin;
       for (const item of group.items) {
         item.button.classList.toggle("clustered", group.items.length > 1);
-        item.button.classList.toggle("outside-map", outside);
         const needsImage = state.scale >= 4 && !outside && group.items.length === 1;
-        let thumb = item.button.querySelector("img");
-        if (!needsImage) { thumb?.remove(); continue; }
-        if (!thumb) {
+        let thumb = item.button.querySelector(".map-thumbnail");
+        if (!needsImage) thumb?.remove();
+        else if (!thumb) {
           const work = window.EXHIBITION_DATA.find(w => w.floor === floor.id && w.slot === Number(item.button.dataset.slot));
           if (work?.image) {
-            thumb = document.createElement("img"); thumb.className = "map-thumbnail"; thumb.alt = "";
-            thumb.loading = "lazy"; thumb.decoding = "async"; thumb.src = work.image; item.button.prepend(thumb);
+            thumb = document.createElementNS("http://www.w3.org/2000/svg", "image");
+            thumb.setAttribute("class", "map-thumbnail");
+            thumb.setAttribute("href", work.image);
+            thumb.setAttribute("preserveAspectRatio", "xMidYMid slice");
+            item.button.insertBefore(thumb, item.button.querySelector(".slot-number-backdrop"));
           }
+        }
+        const hasThumbnail = needsImage && Boolean(thumb);
+        item.button.classList.toggle("has-thumbnail", hasThumbnail);
+        item.button.querySelector(".slot-hit").setAttribute("r", 22 / pixels);
+        item.button.querySelector(".slot-face").setAttribute("r", 11 * markerUnit);
+        const number = item.button.querySelector(".slot-number");
+        number.setAttribute("font-size", (hasThumbnail ? 11 : 12) * markerUnit);
+        number.setAttribute("x", hasThumbnail ? 11 * markerUnit : 0);
+        number.setAttribute("y", hasThumbnail ? 13 * markerUnit : 0);
+        const backdrop = item.button.querySelector(".slot-number-backdrop");
+        backdrop.setAttribute("x", 0);
+        backdrop.setAttribute("y", 4 * markerUnit);
+        backdrop.setAttribute("width", 22 * markerUnit);
+        backdrop.setAttribute("height", 18 * markerUnit);
+        if (hasThumbnail) {
+          thumb.setAttribute("x", -22 * markerUnit);
+          thumb.setAttribute("y", -22 * markerUnit);
+          thumb.setAttribute("width", 44 * markerUnit);
+          thumb.setAttribute("height", 44 * markerUnit);
         }
       }
       if (group.items.length < 2 || outside) continue;
@@ -292,18 +316,18 @@
     if (!clusteringEnabled) {
       let nearest = null, distance = 16;
       for (const button of slots.children) {
-        if (button.hidden || button.classList.contains("outside-map")) continue;
+        if (button.hasAttribute("hidden")) continue;
         const rect = button.getBoundingClientRect();
         const delta = Math.hypot(event.clientX - (rect.left + rect.width / 2), event.clientY - (rect.top + rect.height / 2));
         if (delta < distance) { nearest = button; distance = delta; }
       }
       if (nearest && nearest !== event.target.closest(".slot")) {
-        event.preventDefault(); event.stopImmediatePropagation(); nearest.click(); return;
+        event.preventDefault(); event.stopImmediatePropagation(); activateSlot(nearest); return;
       }
     }
     if (event.target === svg && tapTarget) {
       const target = tapTarget; tapTarget = null;
-      event.preventDefault(); event.stopImmediatePropagation(); target.click();
+      event.preventDefault(); event.stopImmediatePropagation(); activateSlot(target);
     }
   }, true);
   svg.addEventListener("dragstart", event => event.preventDefault());

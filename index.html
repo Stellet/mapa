@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>2ª RIOS—REAIS — CC-LADO B</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/intro.css">
     <script defer src="data/local-data.generated.js"></script>
     <script defer src="js/config.js"></script>
     <script defer src="js/positions.js"></script>
@@ -15,13 +16,38 @@
     <script defer src="js/app.js"></script>
     <script defer src="js/explore.js"></script>
     <script defer src="js/editor.js"></script>
+    <script defer src="js/intro.js"></script>
   </head>
   <body>
+    <section id="curatorial-intro" class="curatorial-intro" role="dialog" aria-modal="true" aria-labelledby="intro-heading" hidden>
+      <div class="intro-toolbar">
+        <div class="intro-actions">
+          <button id="intro-pause" type="button" aria-pressed="false">PAUSAR</button>
+          <button id="intro-close" type="button">FECHAR</button>
+        </div>
+      </div>
+      <div id="intro-stage" class="intro-stage">
+        <div class="intro-plane">
+        <!-- Substituir somente este bloco pelo texto curatorial definitivo. -->
+        <article id="intro-copy" class="intro-copy">
+          <h2 id="intro-heading">2ª RIOS—REAIS</h2>
+          <p>Estamos diretamente ligados à produção artística independente do Rio desde o início dos anos 2000. Através de experiências democráticas e possíveis a todos os públicos, criamos um ambiente acolhedor para manifestações de diferentes práticas. Isso só é possível através da comunidade que fazemos parte, esses anos de construção, remontam outras décadas, somos a soma dos nossos caminhos, vivências, é chão, é sangue, suor. Infiltrar territórios dominados, coloniais, dá trabalho mas tem seus benefícios. Queremos compartilhar parte dessa experiência com mais pessoas, expandir, crescer essa rede.</p>
+          <p>Por isso, anunciamos o ‘Dogma 21’ uma exposição-performance aberta aos artistas visuais do Rio de Janeiro. Serão abertas 100 vagas para artistas de toda a cidade exporem seus trabalhos em conjunto à exposição Rios Reais, durante a Semana de Arte do Rio.</p>
+          <p>Toda exposição carrega em si um gesto de ocupação e contenção do espaço. Toda obra carrega em si um gesto de inscrição. Uma exposição num espaço independente não é um movimento que abre mão das regras. </p>
+          <p>É um movimento de cria as próprias regras.</p>
+          <p>Na edição do Rios Reais 2026, o CC LadoB propõe um exercício curatorial e abre suas portas para a ocupação compartilhada do espaço, fazendo de suas paredes um terreno de coexistências e territórios capilares. Assim, o primeiro andar será destinado à exposição de obras de artistas de diferentes regiões do estado durante a Semana de Arte do Rio, criando um circuito para novos nomes das artes visuais.</p>
+          <p>Ao estabelecer regras para que as obras participem deste acordo coletivo, este dogma busca favorecer a presença e a multiplicidade de vozes e olhares. Não buscamos a obra perfeita, buscamos a obra possível. O gesto imperfeito, a tentativa e o erro, o processo inacabado. </p>
+          <p>Sem as peneiras mercadológicas, abriremos nossa casa e firmaremos um pacto com artistas periféricos e independentes e com as diversas linguagens que formam o subconsciente do Lado B. Este é o nosso momento de mostrar, durante a Semana de Arte, que existe um caminho paralelo ao que o mercado propõe e que, aqui, no Lado B, todos têm espaço para realizar seu trabalho.</p>
+        </article>
+        </div>
+      </div>
+    </section>
     <a class="skip-link" href="#exploration">PULAR PARA AS OBRAS</a>
     <div id="navigation-shell" class="navigation-shell">
     <header class="site-header">
       <h1 class="site-brand"><img src="assets/logo-riosreais.svg" width="4603" height="1801" alt="Rios Reais 2026"></h1>
     </header>
+    <div class="intro-launch-bar"><button id="open-curatorial" type="button" aria-label="DOGMA 21 - ACESSAR TEXTO CURATORIAL" aria-haspopup="dialog" aria-controls="curatorial-intro" aria-expanded="false"><span class="intro-launch-track" aria-hidden="true"><span>DOGMA 21 - ACESSAR TEXTO CURATORIAL</span><span>DOGMA 21 - ACESSAR TEXTO CURATORIAL</span></span></button></div>
     <nav id="sub-nav" class="sub-nav" aria-label="Explorar exposição">
       <div class="mode-selector" role="group" aria-label="Modo de exploração">
         <button type="button" data-mode="map" aria-pressed="true" aria-controls="map-view">MAPA</button>
@@ -76,9 +102,9 @@
               <text x="90" y="1200">BAR</text>
               <text x="267" y="1455">BANHEIROS</text>
             </g>
+            <g id="slots" role="group" aria-label="Slots de obras"></g>
             <foreignObject x="0" y="0" width="360" height="1780" class="map-overlay">
               <div xmlns="http://www.w3.org/1999/xhtml" class="map-markers">
-                <div id="slots" role="group" aria-label="Slots de obras"></div>
                 <div id="map-clusters" class="map-clusters"></div>
               </div>
             </foreignObject>
@@ -142,9 +168,6 @@
     </footer>
   </body>
 </html>
-
-
-
 
 
 
