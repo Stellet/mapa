@@ -454,3 +454,7 @@
 ## 2026-09-18 — posição da obra 68
 
 - Obra 68 movida para o corredor à esquerda do bloco dos banheiros no 1º andar (x=196, y=1415); demais posições preservadas e fallback local sincronizado.
+
+## 2026-09-18 — ordem e imagens do 2º andar
+
+- Confirmada a sequência 01–15 do mapa impresso; 14 WebP remapeados por obra via nomes temporários e três títulos ajustados à lista oficial. A 014 segue sem imagem; posições intactas e fallback sincronizado.
