@@ -362,3 +362,11 @@
 ## 2026-09-17 — repaint dos pontos no iOS
 
 - Estabilizada a composição dos números dentro do foreignObject no WebKit touch, sem alterar pan/zoom, posições ou desktop.
+
+## 2026-09-18 — pontos individuais no mapa
+
+- Clustering desativado por chave reversível; todas as obras permanecem como círculos numerados, e o indicador de agrupamento fica quadrado para futura reativação.
+
+## 2026-09-18 — contorno e separação dos pontos
+
+- Pontos individuais recebem contorno permanente; pontos quase sobrepostos ganham pequenos deslocamentos apenas visuais em pixels de tela, com toque direcionado ao círculo mais próximo. Clustering segue desativado.

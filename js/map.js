@@ -7,6 +7,7 @@
   // O viewBox faz fit-width; toda navegação ocorre nas unidades do SVG raiz.
   const state = { x: 0, y: 0, scale: 1 };
   const minScale = 0.2;
+  const clusteringEnabled = false; // Teste: manter todos os pontos individuais; reativar sem remover o algoritmo.
   const pointers = new Map();
   let floor, frame = 0, gesture = null, moved = false, tapTarget = null, ignoreClickUntil = 0;
   const blocked = () => document.body.classList.contains("sheet-open");
@@ -111,6 +112,47 @@
     constrain(); schedule();
   }
   const center = () => ({ x: 180, y: svg.viewBox.baseVal.height / 2 });
+  // Deslocamento somente visual, em pixels da tela; as coordenadas oficiais n?o mudam.
+  function separateNearby(points, pixels) {
+    const offsets = new Map(), parents = points.map((_, index) => index);
+    const root = index => { while (parents[index] !== index) index = parents[index] = parents[parents[index]]; return index; };
+    for (let i = 0; i < points.length; i++) {
+      for (let j = i + 1; j < points.length; j++) {
+        if (Math.hypot(points[i].x - points[j].x, points[i].y - points[j].y) * pixels < 22) parents[root(j)] = root(i);
+      }
+    }
+    const groups = new Map();
+    points.forEach((point, index) => {
+      const key = root(index);
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(point);
+    });
+    for (const group of groups.values()) {
+      if (group.length < 2) continue;
+      const rangeX = Math.max(...group.map(point => point.x)) - Math.min(...group.map(point => point.x));
+      const rangeY = Math.max(...group.map(point => point.y)) - Math.min(...group.map(point => point.y));
+      const vertical = rangeY >= rangeX;
+      group.sort((a, b) => (vertical ? a.y - b.y || a.x - b.x : a.x - b.x || a.y - b.y) || Number(a.button.dataset.slot) - Number(b.button.dataset.slot));
+      const placed = [];
+      for (const [index, point] of group.entries()) {
+        const side = index % 2 ? 1 : -1;
+        let chosen = null, best = null, bestDistance = -1;
+        for (const along of [0, -12, 12, -24, 24]) {
+          if (chosen) break;
+          for (const across of [side * 12, -side * 12]) {
+            const x = vertical ? across : along, y = vertical ? along : across;
+            const nearest = Math.min(Infinity, ...placed.map(other => Math.hypot((point.x - other.point.x) * pixels + x - other.x, (point.y - other.point.y) * pixels + y - other.y)));
+            if (nearest > bestDistance) { best = { x, y }; bestDistance = nearest; }
+            if (nearest >= 24) { chosen = { x, y }; break; }
+          }
+        }
+        chosen ||= best;
+        placed.push({ point, ...chosen });
+        offsets.set(point.button, chosen);
+      }
+    }
+    return offsets;
+  }
   function render() {
     if (!floor || !viewport.clientWidth || !viewport.clientHeight) return;
     constrain(); content.setAttribute("transform", `translate(${state.x} ${state.y}) scale(${state.scale})`);
@@ -121,14 +163,19 @@
     const pixels = svg.getScreenCTM().a * state.scale;
     content.style.setProperty("--marker-unit", 1 / pixels + "px");
     const size = 44 / pixels, groups = [];
+    const visualOffsets = clusteringEnabled ? new Map() : separateNearby([...slots.children].filter(button => !button.hidden).map(button => {
+      const point = floor.slots.find(slot => slot.number === Number(button.dataset.slot));
+      return { button, x: point.x / 100 * 360, y: point.y / 100 * mapHeight() };
+    }), pixels);
     for (const button of slots.children) {
       const point = floor.slots.find(s => s.number === Number(button.dataset.slot));
       const x = point.x / 100 * 360, y = point.y / 100 * mapHeight();
-      button.style.left = x - size / 2 + "px"; button.style.top = y - size / 2 + "px";
+      const offset = visualOffsets.get(button) || { x: 0, y: 0 };
+      button.style.left = x + offset.x / pixels - size / 2 + "px"; button.style.top = y + offset.y / pixels - size / 2 + "px";
       button.classList.remove("clustered", "outside-map");
       if (button.hidden) { button.querySelector("img")?.remove(); continue; }
       const selected = button.getAttribute("aria-pressed") === "true";
-      let group = !selected && groups.find(g => !g.selected && Math.hypot(g.x - x, g.y - y) * pixels < 48);
+      let group = clusteringEnabled && !selected && groups.find(g => !g.selected && Math.hypot(g.x - x, g.y - y) * pixels < 48);
       if (!group) { group = { x, y, selected, items: [] }; groups.push(group); }
       group.items.push({ button, x, y });
     }
@@ -226,6 +273,18 @@
   svg.addEventListener("click", event => {
     if (!event.detail) return;
     if (performance.now() < ignoreClickUntil) { event.preventDefault(); event.stopImmediatePropagation(); return; }
+    if (!clusteringEnabled) {
+      let nearest = null, distance = 16;
+      for (const button of slots.children) {
+        if (button.hidden || button.classList.contains("outside-map")) continue;
+        const rect = button.getBoundingClientRect();
+        const delta = Math.hypot(event.clientX - (rect.left + rect.width / 2), event.clientY - (rect.top + rect.height / 2));
+        if (delta < distance) { nearest = button; distance = delta; }
+      }
+      if (nearest && nearest !== event.target.closest(".slot")) {
+        event.preventDefault(); event.stopImmediatePropagation(); nearest.click(); return;
+      }
+    }
     if (event.target === svg && tapTarget) {
       const target = tapTarget; tapTarget = null;
       event.preventDefault(); event.stopImmediatePropagation(); target.click();
