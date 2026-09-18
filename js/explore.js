@@ -10,7 +10,11 @@
   const mapView = document.getElementById("map-view");
   const sentinel = document.getElementById("map-top-sentinel");
   let layoutFrame = 0, topObserver = null, observerMargin = "";
+  let mapAtStart = true, mapTopVisible = true;
   const stickyBottom = () => nav.getBoundingClientRect().bottom;
+  function updateMapCompact() {
+    if (!mapView.hidden) setCompact(!mapAtStart || window.scrollY > 2 || (!mapTopVisible && window.scrollY > 0));
+  }
   function observeTop() {
     if (mapView.hidden || document.body.classList.contains("sheet-open")) {
       topObserver?.disconnect(); observerMargin = ""; return;
@@ -23,8 +27,9 @@
     topObserver = new IntersectionObserver(entries => {
       if (mapView.hidden || document.body.classList.contains("sheet-open")) return;
       const entry = entries[entries.length - 1];
-      if (entry.isIntersecting) setCompact(false);
-      else if (entry.boundingClientRect.bottom <= entry.rootBounds.top) setCompact(true);
+      if (entry.isIntersecting) mapTopVisible = true;
+      else if (entry.boundingClientRect.bottom <= entry.rootBounds.top) mapTopVisible = false;
+      updateMapCompact();
     }, { rootMargin: margin, threshold: 0 });
     topObserver.observe(sentinel);
   }
@@ -55,7 +60,7 @@
     if (mapView.hidden) {
       if (window.scrollY > 24) setCompact(true);
       else if (window.scrollY <= 2) setCompact(false);
-    }
+    } else updateMapCompact();
     queueMeasure();
   }
   new ResizeObserver(queueMeasure).observe(shell);
@@ -67,7 +72,11 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", queueMeasure);
   window.visualViewport?.addEventListener("resize", queueMeasure);
-  document.addEventListener("explorationchange", queueMeasure);
+  document.addEventListener("mapnavigationchange", event => {
+    mapAtStart = event.detail.atStart;
+    updateMapCompact();
+  });
+  document.addEventListener("explorationchange", onScroll);
   queueMeasure();
   const button = document.getElementById("speak-screen");
   const status = document.getElementById("speech-status");

@@ -241,9 +241,9 @@ body { padding-bottom: var(--footer-height); }
 .partial-interest { cursor: pointer; }
 
 
-.site-brand img { display: block; width: min(100%, 360px); height: auto; margin-inline: auto; }
-.navigation-shell[data-compact="true"] .site-brand img { width: min(100%, 160px); }
-@media (max-height: 500px) { .site-brand img { width: min(100%, 160px); } }
+.site-brand img { display: block; width: min(88%, 316px); height: auto; margin-inline: auto; }
+.navigation-shell[data-compact="true"] .site-brand img { width: min(88%, 140px); }
+@media (max-height: 500px) { .site-brand img { width: min(88%, 140px); } }
 
 
 

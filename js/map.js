@@ -8,8 +8,9 @@
   const state = { x: 0, y: 0, scale: 1 };
   const minScale = 0.2;
   const clusteringEnabled = false; // Teste: manter todos os pontos individuais; reativar sem remover o algoritmo.
-  const pointers = new Map();
+  const pointers = new Map(), pointerClients = new Map();
   let floor, frame = 0, gesture = null, moved = false, tapTarget = null, ignoreClickUntil = 0;
+  let mapAtStart = true, observedWidth = 0;
   const blocked = () => document.body.classList.contains("sheet-open");
   const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
   const mapHeight = () => Number((floor?.viewBox || "0 0 360 1780").split(/\s+/)[3]);
@@ -88,6 +89,11 @@
     const point = svg.createSVGPoint(); point.x = event.clientX; point.y = event.clientY;
     return point.matrixTransform(svg.getScreenCTM().inverse());
   }
+  function rebasePointers() {
+    if (!pointers.size) return;
+    for (const [id, client] of pointerClients) pointers.set(id, svgPoint(client));
+    begin();
+  }
   function constrain() {
     const height = svg.viewBox.baseVal.height;
     const mapWidth = 360 * state.scale, scaledHeight = mapHeight() * state.scale;
@@ -96,7 +102,7 @@
   }
   function schedule() { if (!frame) frame = requestAnimationFrame(() => { frame = 0; render(); }); }
   function clearPointers() {
-    const ids = [...pointers.keys()]; pointers.clear(); gesture = null;
+    const ids = [...pointers.keys()]; pointers.clear(); pointerClients.clear(); gesture = null;
     for (const id of ids) if (svg.hasPointerCapture(id)) svg.releasePointerCapture(id);
     viewport.dataset.dragging = "false";
   }
@@ -155,7 +161,15 @@
   }
   function render() {
     if (!floor || !viewport.clientWidth || !viewport.clientHeight) return;
-    constrain(); content.setAttribute("transform", `translate(${state.x} ${state.y}) scale(${state.scale})`);
+    constrain();
+    const startTolerance = 6 / svg.getScreenCTM().a;
+    const atStart = Math.abs(state.scale - 1) < .001 && Math.abs(state.x) < startTolerance && Math.abs(state.y) < startTolerance;
+    if (atStart !== mapAtStart) {
+      mapAtStart = atStart;
+      document.dispatchEvent(new CustomEvent("mapnavigationchange", { detail: { atStart } }));
+      rebasePointers();
+    }
+    content.setAttribute("transform", `translate(${state.x} ${state.y}) scale(${state.scale})`);
     viewport.dataset.zoomed = String(state.scale > 1.001);
     reset.textContent = Math.round(state.scale * 100) + "%";
     document.getElementById("zoom-status").textContent = "Zoom " + reset.textContent;
@@ -238,6 +252,7 @@
   svg.addEventListener("pointerdown", event => {
     if (!floor?.realMap || blocked() || (event.pointerType === "mouse" && event.button !== 0)) return;
     if (!pointers.size) { moved = false; tapTarget = event.target.closest(".slot, .map-cluster"); }
+    pointerClients.set(event.pointerId, { clientX: event.clientX, clientY: event.clientY });
     pointers.set(event.pointerId, svgPoint(event)); svg.setPointerCapture(event.pointerId); begin();
   });
   document.addEventListener("pointerdown", event => {
@@ -247,6 +262,7 @@
   svg.addEventListener("pointermove", event => {
     if (!pointers.has(event.pointerId) || blocked()) return;
     const previous = pointers.get(event.pointerId), point = svgPoint(event);
+    pointerClients.set(event.pointerId, { clientX: event.clientX, clientY: event.clientY });
     pointers.set(event.pointerId, point);
     if (!gesture) return;
     if (gesture.kind === "pinch") {
@@ -263,7 +279,7 @@
   function end(event) {
     if (!pointers.has(event.pointerId)) return;
     if (moved || event.type !== "pointerup") ignoreClickUntil = performance.now() + 350;
-    pointers.delete(event.pointerId);
+    pointers.delete(event.pointerId); pointerClients.delete(event.pointerId);
     if (svg.hasPointerCapture(event.pointerId)) svg.releasePointerCapture(event.pointerId);
     begin(); if (!pointers.size) viewport.dataset.dragging = "false";
   }
@@ -306,7 +322,15 @@
     if (shifts[event.key]) { event.preventDefault(); state.x += shifts[event.key][0]; state.y += shifts[event.key][1]; constrain(); schedule(); }
     if (["+", "=", "-", "0"].includes(event.key)) { event.preventDefault(); if (event.key === "0") fit(); else zoomAt(state.scale * (event.key === "-" ? 1 / 1.5 : 1.5), center()); }
   });
-  new ResizeObserver(fit).observe(viewport);
+  new ResizeObserver(() => {
+    if (!viewport.clientWidth || !viewport.clientHeight) return;
+    if (Math.abs(viewport.clientWidth - observedWidth) > .5) {
+      observedWidth = viewport.clientWidth; fit(); return;
+    }
+    // Header compacto muda apenas a altura: atualiza o viewBox sem zerar zoom/pan.
+    svg.setAttribute("viewBox", `0 0 360 ${360 * viewport.clientHeight / viewport.clientWidth}`);
+    rebasePointers(); schedule();
+  }).observe(viewport);
   new MutationObserver(() => { if (blocked()) clearPointers(); schedule(); }).observe(document.body, { attributes: true, attributeFilter: ["class"] });
   document.addEventListener("explorationchange", schedule);
   window.EXHIBITION_MAP = {

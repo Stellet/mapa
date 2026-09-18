@@ -370,3 +370,11 @@
 ## 2026-09-18 — contorno e separação dos pontos
 
 - Pontos individuais recebem contorno permanente; pontos quase sobrepostos ganham pequenos deslocamentos apenas visuais em pixels de tela, com toque direcionado ao círculo mais próximo. Clustering segue desativado.
+
+## 2026-09-18 — logo menor
+
+- Largura da logo reduzida em cerca de 12% nos estados normal e compacto, diminuindo sua altura proporcionalmente e liberando área para o mapa.
+
+## 2026-09-18 — header durante navegação do mapa
+
+- A compactação existente acompanha scroll, pan e zoom; o header expande no topo/reset. Mudanças de altura preservam zoom/pan e recalibram os ponteiros durante o gesto; mudanças de largura mantêm o fit.
