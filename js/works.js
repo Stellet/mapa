@@ -2,6 +2,7 @@
 
 (() => {
   const file = "data/works-floor-1.json";
+  const floor2File = "data/works-floor-2.json";
   const clean = value => typeof value === "string" ? value.trim() : value;
   function apply(data) {
     if (!data || data.floor !== 1 || !Array.isArray(data.works)) throw new Error("formato inválido");
@@ -25,26 +26,41 @@
     }
   }
 
-  function localData() {
-    const data = window.LOCAL_DATA?.[file];
-    if (data === undefined) throw new Error("fallback local ausente: " + file);
+  function applyFloor2(data) {
+    if (!data || data.floor !== 2 || !Array.isArray(data.works) || data.works.length !== 15 ||
+        data.works.some((work, index) => Number(work.id) !== index + 1)) throw new Error("formato inválido do 2º andar");
+    for (const source of data.works) {
+      const { id, ...fields } = source;
+      const work = window.EXHIBITION_DATA.find(item => item.floor === 2 && item.slot === Number(id));
+      if (work) Object.assign(work, fields);
+      else window.EXHIBITION_DATA.push({ ...fields, floor: 2, slot: Number(id) });
+    }
+  }
+
+  function localData(path) {
+    const data = window.LOCAL_DATA?.[path];
+    if (data === undefined) throw new Error("fallback local ausente: " + path);
     return data;
   }
 
   if (window.location.protocol === "file:") {
-    apply(localData());
+    apply(localData(file));
+    applyFloor2(localData(floor2File));
     window.WORKS_READY = Promise.resolve();
     return;
   }
 
-  window.WORKS_READY = fetch(file, { cache: "no-store" })
-    .then(response => {
-      if (!response.ok) throw new Error("HTTP " + response.status);
-      return response.json();
-    })
-    .then(apply)
-    .catch(error => {
-      console.warn("Fetch de " + file + " falhou; usando fallback local:", error.message);
-      apply(localData());
-    });
+  function load(path, useData) {
+    return fetch(path, { cache: "no-store" })
+      .then(response => {
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        return response.json();
+      })
+      .then(useData)
+      .catch(error => {
+        console.warn("Fetch de " + path + " falhou; usando fallback local:", error.message);
+        useData(localData(path));
+      });
+  }
+  window.WORKS_READY = Promise.all([load(file, apply), load(floor2File, applyFloor2)]);
 })();

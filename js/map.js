@@ -7,6 +7,7 @@
   // O viewBox faz fit-width; toda navegação ocorre nas unidades do SVG raiz.
   const state = { x: 0, y: 0, scale: 1 };
   const minScale = 0.2;
+  const maxScale = 1.5;
   const clusteringEnabled = false; // Teste: manter todos os pontos individuais; reativar sem remover o algoritmo.
   const pointers = new Map(), pointerClients = new Map();
   let floor, frame = 0, gesture = null, moved = false, tapTarget = null, ignoreClickUntil = 0;
@@ -15,6 +16,11 @@
   const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
   const activateSlot = button => button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
   const mapHeight = () => Number((floor?.viewBox || "0 0 360 1780").split(/\s+/)[3]);
+  const sideMargin = () => floor?.id === 2 ? 18 : 0;
+  const updateViewBox = () => {
+    const margin = sideMargin(), width = 360 + margin * 2;
+    svg.setAttribute("viewBox", `${-margin} 0 ${width} ${width * viewport.clientHeight / viewport.clientWidth}`);
+  };
   let fanTrigger = null;
   function setTriggerOpen(trigger, open) {
     trigger.classList.toggle("is-open", open);
@@ -96,9 +102,9 @@
     begin();
   }
   function constrain() {
-    const height = svg.viewBox.baseVal.height;
+    const { x, width, height } = svg.viewBox.baseVal;
     const mapWidth = 360 * state.scale, scaledHeight = mapHeight() * state.scale;
-    state.x = mapWidth <= 360 ? (360 - mapWidth) / 2 : clamp(state.x, 360 - mapWidth, 0);
+    state.x = mapWidth <= width ? x + (width - mapWidth) / 2 : clamp(state.x, x + width - mapWidth, x);
     state.y = scaledHeight <= height ? (height - scaledHeight) / 2 : clamp(state.y, height - scaledHeight, 0);
   }
   function schedule() { if (!frame) frame = requestAnimationFrame(() => { frame = 0; render(); }); }
@@ -109,12 +115,12 @@
   }
   function fit() {
     if (!viewport.clientWidth || !viewport.clientHeight) return;
-    svg.setAttribute("viewBox", `0 0 360 ${360 * viewport.clientHeight / viewport.clientWidth}`);
+    updateViewBox();
     state.x = 0; state.y = 0; state.scale = 1; clearPointers(); schedule();
   }
   function zoomAt(scale, point) {
     const world = { x: (point.x - state.x) / state.scale, y: (point.y - state.y) / state.scale };
-    state.scale = clamp(scale, minScale, 32);
+    state.scale = clamp(scale, minScale, maxScale);
     state.x = point.x - world.x * state.scale; state.y = point.y - world.y * state.scale;
     constrain(); schedule();
   }
@@ -174,7 +180,7 @@
     viewport.dataset.zoomed = String(state.scale > 1.001);
     reset.textContent = Math.round(state.scale * 100) + "%";
     document.getElementById("zoom-status").textContent = "Zoom " + reset.textContent;
-    minus.disabled = blocked() || state.scale <= minScale; plus.disabled = blocked() || state.scale >= 32; reset.disabled = blocked();
+    minus.disabled = blocked() || state.scale <= minScale; plus.disabled = blocked() || state.scale >= maxScale; reset.disabled = blocked();
     const rootPixels = svg.getScreenCTM().a;
     const pixels = rootPixels * state.scale;
     const markerUnit = 1 / (rootPixels * Math.max(state.scale, .25));
@@ -204,7 +210,7 @@
       const y = group.items.reduce((sum, p) => sum + p.y, 0) / group.items.length;
       const sx = state.x + x * state.scale, sy = state.y + y * state.scale;
       const margin = 24 / svg.getScreenCTM().a;
-      const outside = sx < -margin || sy < -margin || sx > 360 + margin || sy > svg.viewBox.baseVal.height + margin;
+      const outside = sx < svg.viewBox.baseVal.x - margin || sy < -margin || sx > svg.viewBox.baseVal.x + svg.viewBox.baseVal.width + margin || sy > svg.viewBox.baseVal.height + margin;
       for (const item of group.items) {
         item.button.classList.toggle("clustered", group.items.length > 1);
         const needsImage = state.scale >= 4 && !outside && group.items.length === 1;
@@ -291,7 +297,7 @@
     if (!gesture) return;
     if (gesture.kind === "pinch") {
       const [a, b] = [...pointers.values()];
-      state.scale = clamp(gesture.scale * Math.hypot(a.x - b.x, a.y - b.y) / gesture.distance, minScale, 32);
+      state.scale = clamp(gesture.scale * Math.hypot(a.x - b.x, a.y - b.y) / gesture.distance, minScale, maxScale);
       state.x = (a.x + b.x) / 2 - gesture.wx * state.scale;
       state.y = (a.y + b.y) / 2 - gesture.wy * state.scale;
     } else {
@@ -352,7 +358,7 @@
       observedWidth = viewport.clientWidth; fit(); return;
     }
     // Header compacto muda apenas a altura: atualiza o viewBox sem zerar zoom/pan.
-    svg.setAttribute("viewBox", `0 0 360 ${360 * viewport.clientHeight / viewport.clientWidth}`);
+    updateViewBox();
     rebasePointers(); schedule();
   }).observe(viewport);
   new MutationObserver(() => { if (blocked()) clearPointers(); schedule(); }).observe(document.body, { attributes: true, attributeFilter: ["class"] });

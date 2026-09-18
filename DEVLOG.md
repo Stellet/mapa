@@ -426,3 +426,23 @@
 ## 2026-09-18 — pontos SVG no mapa
 
 - Pontos/números passaram do `foreignObject` HTML para SVG nativo no mesmo grupo da planta; pan mantém os elementos, sem ocultação por viewport. A compensação visual de escala fica limitada no zoom baixo, com alvo de toque preservado.
+
+## 2026-09-18 — conferência do 2º andar
+
+- As 15 posições oficiais já coincidiam com o mapa impresso v10; nenhum ajuste de coordenadas foi necessário. Validado clique de 01–15, lista, troca de andar e fallback local sincronizado sem diferenças.
+
+## 2026-09-18 — margem do mapa do 2º andar
+
+- O enquadramento de 100% do 2º andar ganhou margens laterais simétricas, sem alterar a planta ou as posições; pan e zoom usam os novos limites visíveis.
+
+## 2026-09-18 — limite de zoom
+
+- Zoom máximo limitado a 150% em botões, wheel, teclado e pinch, com o botão de ampliar desativado no limite.
+
+## 2026-09-18 — carregamento de imagens
+
+- A ficha carrega a miniatura ao abrir e a imagem principal somente ao expandir; a lista segue textual e não baixa imagens. Identificadas 11 imagens de obras com 4 MiB ou mais, sem conversão nesta etapa.
+
+## 2026-09-18 — imagens do 2º andar
+
+- Convertidas 14 imagens do ZIP para WebP (máx. 1200 px; 8,13 → 1,03 MiB), vinculadas por ID em `works-floor-2.json`; a 014 segue sem imagem. Lista usa miniaturas lazy, ficha usa as mesmas imagens e fallback local foi sincronizado. O manifesto diverge do cadastro textual atual nos 14 IDs com imagem; textos preservados para revisão editorial.

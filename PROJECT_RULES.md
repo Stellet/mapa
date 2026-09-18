@@ -9,6 +9,7 @@
 - Obras são vinculadas por andar + slot.
 - Os dados virão de arquivo local gerado posteriormente a partir de planilha.
 - `data/works-floor-1.json` é a fonte dos dados textuais das obras do 1º andar, vinculados às posições pelo campo `id`; coordenadas permanecem exclusivamente em `data/positions-floor-1.json`.
+- `data/works-floor-2.json` é a fonte dos dados das 15 obras do 2º andar; `data/positions-floor-2.json` continua sendo a fonte exclusiva das coordenadas.
 - Mapeamento definitivo do 1º andar: a aba "Respostas ao formulário 1" é a fonte principal das informações e sua Column 14 define o "id"/posição da obra. Não usar LOCAL da aba "Localização Mapa" para IDs; essa aba serve apenas como fallback textual quando faltarem dados da obra. IDs 1–53 e 88 pertencem à Sala 1; 54–87 à Sala 2.
 - Imagens e áudios são arquivos locais.
 - Imagens do 1º andar são importadas pelo manifesto data/import/image-sources-floor-1.json com 	ools/sync-images.ps1; somente arquivos de imagem validados são vinculados em data/works-floor-1.json.
@@ -66,7 +67,7 @@ Wireframe estático com exploração por mapa e lista. Andar 1 contém 88 obras 
 
 - O SVG oficial da planta mantém a geometria sem alterações; rótulos de BAR e BANHEIROS são sobrepostos no mapa interativo e acompanham pan/zoom. Áreas permanecem nos dados e na lista.
 - Pointer Events ficam no SVG raiz; clientX/clientY são convertidos por createSVGPoint e getScreenCTM().inverse(). Pan, pinch pelo ponto médio, wheel ancorado no cursor e botões compartilham { x, y, scale }, aplicado somente ao grupo interno map-content, sem transform CSS concorrente.
-- 100% ajusta a planta à largura disponível (fit-width), sem expor a escala antiga. O zoom pode descer até 20% para visão geral; reset e redimensionamento voltam a 100%. Os limites se aplicam à posição final, não aos deltas.
+- 100% ajusta a planta à largura disponível (fit-width), sem expor a escala antiga. O zoom vai de 20% a 150%; reset e redimensionamento voltam a 100%. Os limites se aplicam à posição final, não aos deltas.
 - Clusters por proximidade na tela separam progressivamente os slots conforme o zoom. Fechados, exibem somente a quantidade; abertos, mantêm o centro como botão de fechar e distribuem obras numeradas em círculos dentro da viewport. Todos os números permanecem no nome acessível. Agrupar não altera coordenadas nem cadastro.
 - Miniaturas locais aparecem a partir de 400%, somente para slots individuais visíveis; não pré-carregar as 100 imagens. Número e seleção continuam acessíveis.
 - Sub-nav em uma linha desde 320px: MAPA / LISTA | ANDAR 1 / 2 | OUVIR TELA, com separadores verticais e estados ativos. A compactação sticky continua controlada pela sentinela. O andar 3 permanece apenas na configuração, sem controle visível.

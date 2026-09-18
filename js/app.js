@@ -8,6 +8,8 @@
   const slots = document.getElementById("slots");
   const sheet = document.getElementById("work-sheet");
   const audio = document.getElementById("work-audio");
+  const fullImage = document.getElementById("work-image");
+  const thumbnail = document.getElementById("work-thumbnail");
   const closeButton = document.getElementById("close-sheet");
   let selectedButton = null;
   const state = { floor: config.initialFloor, mode: "map", selected: null, grouped: true };
@@ -33,6 +35,11 @@
       if (work) window.open(interestUrl(work), "_blank", "noopener,noreferrer");
     });
   }
+  document.addEventListener("sheetstatechange", event => {
+    if (!event.detail.expanded || state.selected === null) return;
+    const work = works.find(item => item.floor === state.floor && item.slot === state.selected);
+    if (work?.image && fullImage.getAttribute("src") !== work.image) fullImage.src = work.image;
+  });
 
   function closeSheet(restoreFocus = false) {
     const previousButton = selectedButton;
@@ -71,14 +78,17 @@
     setOptional(document.getElementById("work-sale-status"), work.saleStatus, document.getElementById("work-sale-status-row"));
     setOptional(document.getElementById("work-price"), work.price, document.getElementById("work-price-row"));
     setOptional(document.getElementById("work-reading"), work.reading, document.getElementById("work-reading-section"));
-    const image = document.getElementById("work-image");
-    const thumbnail = document.getElementById("work-thumbnail");
-    for (const element of [image, thumbnail]) {
+    for (const element of [fullImage, thumbnail]) {
       element.classList.toggle("image-empty", !work.image);
-      if (work.image) element.src = work.image;
-      else element.removeAttribute("src");
       element.alt = "";
     }
+    const hideMissingImage = state.floor === 2 && !work.image;
+    fullImage.hidden = hideMissingImage;
+    thumbnail.hidden = hideMissingImage;
+    document.querySelector(".sheet-preview").classList.toggle("no-image", hideMissingImage);
+    fullImage.removeAttribute("src");
+    if (work.image) thumbnail.src = work.image;
+    else thumbnail.removeAttribute("src");
     audio.pause();
     const hasAudio = hasValue(work.audio);
     document.getElementById("work-audio-section").hidden = !hasAudio;
@@ -187,6 +197,18 @@
         button.className = "list-work";
         button.dataset.workSlot = work.slot;
         button.setAttribute("aria-label", workLabel(work));
+        if (state.floor === 2 && work.image) {
+          button.classList.add("has-image");
+          const image = document.createElement("img");
+          image.className = "list-image";
+          image.src = work.image;
+          image.alt = "";
+          image.width = 64;
+          image.height = 64;
+          image.loading = "lazy";
+          image.decoding = "async";
+          button.append(image);
+        }
         for (const [className, text] of [["list-number", String(work.slot).padStart(2, "0")], ["list-title", work.title], ["list-artist", work.artist], ["list-description", work.description], ["list-sale-status", work.saleStatus], ["list-price", work.price]].filter(([, text]) => hasValue(text))) {
           const span = document.createElement("span"); span.className = className; span.textContent = text; button.append(span);
         }

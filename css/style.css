@@ -124,6 +124,8 @@ a:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid 
 #work-list ul { list-style: none; padding: 0; margin: 0; }
 #work-list li { border-top: 1px solid #fff; }
 .list-work { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 4px 12px; width: 100%; min-height: 88px; padding: 16px 0; border: 0; text-align: left; background: #000; color: #fff; cursor: pointer; overflow-wrap: anywhere; }
+.list-work.has-image { grid-template-columns: 36px minmax(0, 1fr) 64px; }
+.list-image { grid-column: 3; grid-row: 1; width: 64px; height: 64px; object-fit: cover; }
 .list-number { grid-row: 1 / -1; font-size: 12px; }
 .list-title { font-weight: bold; }
 .list-artist, .list-description, .list-sale-status, .list-price { grid-column: 2; font-size: 13px; }
@@ -389,6 +391,7 @@ body.edit-positioning #map-svg .slot { cursor: move; }
 body.edit-positioning #map-svg .slot.edit-selected .slot-face { fill: #fff; stroke-width: 2; }
 body.edit-positioning #map-svg .slot.edit-selected .slot-number { fill: #000; }
 .image-empty { visibility: hidden; }
+.work-sheet[data-state="partial"] .sheet-preview.no-image { grid-template-columns: minmax(0, 1fr); }
 
 /* Rodapé compacto apenas em viewport de PC; a altura real continua medida em explore.js. */
 @media (min-width: 1024px) {

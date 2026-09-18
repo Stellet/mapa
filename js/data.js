@@ -29,12 +29,5 @@
     reading: null,
     audio: "obras/audio/mock-sinal.wav"
   }));
-  // Identificações transcritas do mapa impresso do 2º andar; coordenadas ficam no JSON.
-  window.EXHIBITION_DATA.push(...[["Ventura Profana","SEM SENHOR"],["Tetê Lian","Corrente"],["Augusto Malta","Jatos d’água para remoção de terra..."],["Murillo Marques","150"],["Marcos Chaves","Norte/Sul"],["Alexandre Baltazar","Viajo porque preciso, volto porque te amo"],["Fujioka","Mantra Anal"],["Fujioka","Mantra da Boneca"],["Fujioka","Sortilégio do Amor"],["Patricia Ruth","As ruas pelas quais passei"],["Loren Minzú","substância-miragem"],["Jéssica Senra","Sol de Meio Dia"],["Laryssa Machada","Que longas distâncias a fertilidade precisa percorrer..."],["Wiki Pirela",null],["Rivane Neuenschwander + Cao Guimarães","O inquilino"]].map(([artist, title], index) => ({
-    floor: 2, slot: index + 1,
-    area: index < 6 ? "andar-2-primeira-sala" : index < 14 ? "andar-2-segunda-sala" : "andar-2-sala-vidro",
-    level: "main", artist, title, description: null, saleStatus: null, price: null,
-    image: null, reading: "", audio: "", type: null, tags: []
-  })));
 })();
 

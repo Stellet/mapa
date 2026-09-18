@@ -24,6 +24,7 @@
     content.inert = !expanded;
     handle.setAttribute("aria-expanded", String(expanded));
     handle.setAttribute("aria-label", expanded ? "Recolher painel" : "Expandir painel");
+    document.dispatchEvent(new CustomEvent("sheetstatechange", { detail: { expanded } }));
   }
 
   function resetGestures() {
