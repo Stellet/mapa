@@ -24,7 +24,7 @@
       "description": "Título: Pomba da Paz — Corpo-Testemunha\nTécnica: Aquarela e caneta acrílica sobre papel Canson 300g\nDimensões: A4 — 21 × 29,7 cm\n\nDescrição:\n\nA obra apresenta uma pomba em voo, tradicionalmente reconhecida como símbolo da paz, equipada com um dispositivo de câmera corporal. A imagem estabelece uma tensão entre a representação clássica da pomba como signo de paz e a presença de um equipamento associado ao registro, à vigilância e à observação.\n\nA obra integra uma pesquisa artística que investiga a permanência e a transformação do símbolo da pomba da paz no imaginário contemporâneo. Ao inserir um dispositivo tecnológico sobre o corpo do animal, a imagem desloca esse símbolo para um contexto de observação e testemunho, questionando o que significa representar a paz em uma sociedade marcada pela vigilância, pela violência e pela produção constante de imagens.\n\nA obra integra uma pesquisa artística que investiga a permanência e a transformação da pomba da paz no imaginário contemporâneo. Artista cuja trajetória está fortemente ligada às linguagens digitais e às novas tecnologias, venho ampliando minha prática por meio da experimentação com diferentes técnicas e linguagens artísticas. Neste trabalho, a utilização da aquarela e da caneta acrílica sobre papel representa também esse movimento de transição e experimentação, aproximando uma técnica tradicional de uma temática atravessada pela tecnologia, pelo registro e pela vigilância.",
       "saleStatus": "Sim",
       "price": "750",
-      "image": null,
+      "image": "./obras/imagens/002.jpg",
       "audio": "./obras/audios/002.ogg"
     },
     {
@@ -408,7 +408,7 @@
       "description": "ACRÍLICO SOBRE TELA\n\n87x92cm\n\n2026",
       "saleStatus": "Sim",
       "price": "R$5000",
-      "image": null,
+      "image": "./obras/imagens/034.jpg",
       "audio": "./obras/audios/034.m4a"
     },
     {
@@ -823,7 +823,7 @@
       "id": 69,
       "floor": 1,
       "room": 2,
-      "artist": "`",
+      "artist": "Eduardo Vanzin",
       "title": "no meio da multidão",
       "description": "Carvão vegetal e tinta acrílica sobre placas de drywall encontradas, 2026",
       "saleStatus": "não",

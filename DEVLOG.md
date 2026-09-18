@@ -446,3 +446,11 @@
 ## 2026-09-18 — imagens do 2º andar
 
 - Convertidas 14 imagens do ZIP para WebP (máx. 1200 px; 8,13 → 1,03 MiB), vinculadas por ID em `works-floor-2.json`; a 014 segue sem imagem. Lista usa miniaturas lazy, ficha usa as mesmas imagens e fallback local foi sincronizado. O manifesto diverge do cadastro textual atual nos 14 IDs com imagem; textos preservados para revisão editorial.
+
+## 2026-09-18 — correções pontuais do 1º andar
+
+- Vinculadas as novas imagens locais das obras 02 e 34; artista da obra 69 corrigido para Eduardo Vanzin. Fallback local sincronizado.
+
+## 2026-09-18 — posição da obra 68
+
+- Obra 68 movida para o corredor à esquerda do bloco dos banheiros no 1º andar (x=196, y=1415); demais posições preservadas e fallback local sincronizado.
